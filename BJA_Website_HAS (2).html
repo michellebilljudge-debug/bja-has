@@ -33,7 +33,9 @@
  --line: #ddd9d0;
  --green: #1a6b3a;
  --red: #b91c1c;
- --purple: #5b21b6;
+ --navy-light:#2e5396; --sky-lite:rgba(37,99,168,.10); --green-lite:rgba(26,107,58,.09);
+ --red-lite:rgba(185,28,28,.08); --shadow-sm:0 2px 8px rgba(11,31,58,.07);
+ --shadow-md:0 6px 20px rgba(11,31,58,.12);
  --shadow: 0 4px 24px rgba(11,31,58,.10);
  --shadow-lg: 0 12px 48px rgba(11,31,58,.18);
  --radius: 6px;
@@ -105,10 +107,10 @@ body{font-family:'Outfit',sans-serif;background:var(--cream);color:var(--ink);ov
  HERO
 ══════════════════════════════════════════════════ */
 .hero{
- min-height:auto;
+ min-height:100vh;
  background:linear-gradient(150deg,var(--navy) 0%,var(--navy2) 55%,var(--navy3) 100%);
  display:flex;align-items:center;
- padding:40px 5vw 60px;
+ padding:100px 5vw 60px;
  position:relative;overflow:hidden;
 }
 .hero::before{
@@ -637,21 +639,20 @@ section{padding:64px 5vw;position:relative}
 
 
 /* ────────────────────────────────────────────────
- GATE OVERLAY — sits inside modal, scrolls naturally
+ GATE OVERLAY — full screen, fades out on auth
 ──────────────────────────────────────────────── */
 #gate {
- position:relative;
- min-height:auto;
+ position:fixed;inset:0;z-index:1000;
  background:var(--navy);
- display:none;flex-direction:column;
+ display:flex;flex-direction:column;
  align-items:center;justify-content:center;
- padding:40px 24px 60px;
+ padding:24px;
+ transition:opacity .6s ease, transform .6s ease;
 }
 #gate.dissolving {
  opacity:0;
  transform:scale(1.02);
  pointer-events:none;
- transition:opacity .6s ease, transform .6s ease;
 }
 #gate.gone { display:none; }
 
@@ -713,9 +714,7 @@ section{padding:64px 5vw;position:relative}
 }
 
 /* Card body */
-.gate-body {
- padding:28px 32px 24px;
-}
+.gate-
 
 /* Steps */
 .gate-step {display:none}
@@ -737,35 +736,26 @@ section{padding:64px 5vw;position:relative}
  text-transform:uppercase;font-weight:600;
  color:#ffffff;margin-bottom:7px;
 }
-#gate .gate-input,
-#gate .gate-input[type="text"],
-#gate .gate-input[type="email"],
-#gate .gate-input[type="tel"],
-#gate .gate-input[type="number"] {
+.gate-input {
  width:100%;padding:12px 14px;
- background:rgba(255,255,255,.10) !important;
- border:1.5px solid rgba(255,255,255,.25) !important;
+ background:rgba(255,255,255,.07);
+ border:1.5px solid rgba(255,255,255,.12);
  border-radius:5px;
- color:#ffffff !important;
+ color:#ffffff!important;
  font-family:'Outfit',sans-serif;font-size:1.1rem;font-weight:400;
  outline:none;transition:border-color .2s,background .2s;
  margin-bottom:14px;
- -webkit-text-fill-color:#ffffff !important;
 }
-#gate .gate-input:focus,
-#gate .gate-input[type="text"]:focus,
-#gate .gate-input[type="email"]:focus,
-#gate .gate-input[type="tel"]:focus {
- border-color:var(--gold) !important;
- background:rgba(255,255,255,.15) !important;
+.gate-input:focus {
+ border-color:var(--gold);
+ background:rgba(255,255,255,.10);
 }
-#gate .gate-input::placeholder { color:rgba(255,255,255,.5) !important; }
-#gate .gate-input:-webkit-autofill,
-#gate .gate-input:-webkit-autofill:focus {
- -webkit-text-fill-color:#ffffff !important;
- -webkit-box-shadow:0 0 0px 1000px rgba(11,31,58,.9) inset !important;
+.gate-input::placeholder {color:#ffffff}
+.gate-input.error {border-color:var(--red);animation:shake .3s ease}
+.gate-input:-webkit-autofill,.gate-input:-webkit-autofill:focus{
+  -webkit-text-fill-color:#ffffff!important;
+  -webkit-box-shadow:0 0 0px 1000px rgba(11,31,58,.9) inset!important;
 }
-.gate-input.error { border-color:var(--red) !important; animation:shake .3s ease; }
 @keyframes shake {
  0%,100%{transform:translateX(0)}
  25%{transform:translateX(-6px)}
@@ -934,8 +924,8 @@ section{padding:64px 5vw;position:relative}
 ──────────────────────────────────────────────── */
 #calcWrapper {
  display:none;
- min-height:auto;
- background:#ffffff;
+ min-height:100vh;
+ background:var(--paper);
  position:relative;
 }
 #calcWrapper.revealed {
@@ -952,7 +942,7 @@ section{padding:64px 5vw;position:relative}
  background:var(--navy);
  padding:0 36px;
  display:flex;align-items:center;justify-content:space-between;
- height:64px;
+ height:62px;
  border-bottom:1px solid rgba(200,148,31,.2);
  position:sticky;top:0;z-index:50;
 }
@@ -982,17 +972,17 @@ section{padding:64px 5vw;position:relative}
 /* Calc content area */
 .calc-content {
  max-width:1320px;margin:0 auto;
- padding:0 36px 60px;
+ padding:32px 36px 60px;
 }
 .calc-content-header {
- margin-bottom:10px;padding-bottom:10px;
+ margin-bottom:28px;padding-bottom:20px;
  border-bottom:1px solid var(--line);
  display:flex;align-items:center;justify-content:space-between;
  flex-wrap:wrap;gap:12px;
 }
 .calc-content-header h2 {
  font-family:'Cormorant Garamond',serif;
- font-size:1.3rem;font-weight:400;color:var(--navy);
+ font-size:1.8rem;font-weight:300;color:var(--navy);
 }
 .calc-content-header h2 em {font-style:italic;color:var(--blue)}
 .calc-content-header p {
@@ -1034,7 +1024,7 @@ section{padding:64px 5vw;position:relative}
 
 /* FORM PANEL */
 .form-panel{background:var(--white);border-radius:6px;box-shadow:var(--shadow-md);overflow:hidden}
-.form-panel-header{background:var(--navy-mid);padding:8px 26px;display:flex;align-items:center;gap:12px}
+.form-panel-header{background:var(--navy-mid);padding:16px 26px;display:flex;align-items:center;gap:12px}
 .form-panel-header h2{font-family:'DM Serif Display',serif;font-size:1.1rem;font-weight:400;color:var(--white)}
 .step-badge{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:#c8a84b;color:var(--navy);font-size:0.984rem;font-weight:700;border-radius:50%;flex-shrink:0}
 
@@ -1055,8 +1045,8 @@ section{padding:64px 5vw;position:relative}
 .q-input-area{display:flex;flex-direction:column;gap:5px}
 
 /* INPUTS */
-input[type="text"]:not(.gate-input),input[type="number"]:not(.gate-input),input[type="email"]:not(.gate-input),select{width:100%;padding:8px 11px;border:1.5px solid var(--line);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:1.17rem;font-weight:500;color:var(--navy);background:var(--cream);transition:border-color .15s,box-shadow .15s,background .15s;outline:none;-webkit-appearance:none}
-input:focus:not(.gate-input),select:focus{border-color:var(--navy-light);background:var(--white);box-shadow:0 0 0 3px rgba(46,83,150,.1)}
+input[type="text"],input[type="number"],input[type="email"],select{width:100%;padding:8px 11px;border:1.5px solid var(--line);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:1.17rem;font-weight:500;color:var(--navy);background:var(--cream);transition:border-color .15s,box-shadow .15s,background .15s;outline:none;-webkit-appearance:none}
+input:focus,select:focus{border-color:var(--navy-light);background:var(--white);box-shadow:0 0 0 3px rgba(46,83,150,.1)}
 input::placeholder{color:#b0b8c8;font-weight:300}
 .input-wrap{position:relative}
 .input-wrap .prefix{position:absolute;left:10px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:1.131rem;pointer-events:none}
@@ -1156,18 +1146,18 @@ input::placeholder{color:#b0b8c8;font-weight:300}
 .cow-header{padding:11px 15px 9px;display:flex;align-items:center;gap:9px;border-bottom:1px solid rgba(255,255,255,.15)}
 .cow-header .alarm{width:26px;height:26px;background:rgba(255,255,255,.15);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.131rem;font-weight:700;color:white}
 .cow-header h3{font-family:'DM Serif Display',serif;font-size:.95rem;font-weight:400;color:var(--white)}
-.cow-monthly{padding:9px 15px 8px;text-align:center;border-bottom:1px solid rgba(255,255,255,.15)}
+.cow-monthly{padding:14px 15px 10px;text-align:center;border-bottom:1px solid rgba(255,255,255,.15)}
 .cow-monthly .pm-label{font-size:0.891rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.65);font-weight:300}
-.cow-monthly .pm-val{font-family:'DM Serif Display',serif;font-size:1.8rem;color:var(--white);font-weight:400;line-height:1.2;margin-top:2px}
+.cow-monthly .pm-val{font-family:'DM Serif Display',serif;font-size:2.4rem;color:var(--white);font-weight:400;line-height:1.1;margin-top:2px}
 .cow-monthly .pm-tag{font-size:0.931rem;color:rgba(255,255,255,.95);margin-top:2px;font-weight:300}
-.cow-metrics{padding:6px 15px 8px;display:flex;flex-direction:column;gap:0}
+.cow-metrics{padding:9px 15px 12px;display:flex;flex-direction:column;gap:0}
 .cow-metric-row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.1)}
 .cow-metric-row:last-child{border-bottom:none}
-.cml{font-size:.875rem;color:rgba(255,255,255,.7);font-weight:300}
-.cmv{font-family:'DM Serif Display',serif;font-size:.95rem;color:var(--white);font-weight:400}
+.cml{font-size:1.011rem;color:rgba(255,255,255,.7);font-weight:300}
+.cmv{font-family:'DM Serif Display',serif;font-size:1.05rem;color:var(--white);font-weight:400}
 .cow-total-row{margin:0 -15px -12px;padding:13px 15px;background:var(--red-deep);display:flex;justify-content:space-between;align-items:center}
-.ct-label{font-size:.8rem;color:rgba(255,255,255,.75);font-weight:500;letter-spacing:.04em;text-transform:uppercase;line-height:1.3;max-width:140px}
-.ct-val{font-family:'DM Serif Display',serif;font-size:1.3rem;color:#fca5a5;font-weight:400;text-align:right}
+.ct-label{font-size:0.931rem;color:rgba(255,255,255,.75);font-weight:500;letter-spacing:.04em;text-transform:uppercase;line-height:1.4;max-width:140px}
+.ct-val{font-family:'DM Serif Display',serif;font-size:1.65rem;color:#fca5a5;font-weight:400;text-align:right}
 
 /* Scenario runner */
 .scenario-card{background:var(--white);border-radius:6px;padding:14px 15px;box-shadow:var(--shadow-sm)}
@@ -1195,7 +1185,7 @@ input::placeholder{color:#b0b8c8;font-weight:300}
 .biomed-slider::before{content:'';position:absolute;height:16px;width:16px;left:3px;bottom:3px;background:white;border-radius:50%;transition:.3s}
 .biomed-switch input:checked+.biomed-slider{background:#c8a84b}
 .biomed-switch input:checked+.biomed-slider::before{transform:translateX(16px)}
-.biomed-body{max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s ease}
+.biomed-
 .biomed-body.open{max-height:200px;padding:10px 15px 13px}
 .biomed-row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid rgba(13,92,58,.12)}
 .biomed-row:last-child{border-bottom:none}
@@ -1243,7 +1233,8 @@ input::placeholder{color:#b0b8c8;font-weight:300}
 .main-grid .form-panel{border-radius:0;box-shadow:none;border-right:1px solid var(--line)}
 .main-grid .results-panel{
  padding:20px;background:var(--paper);
- position:sticky;top:64px;
+ position:sticky;top:70px;
+ max-height:calc(100vh - 80px);overflow-y:auto;
 }
 .main-grid .print-btn{
  display:block!important;
@@ -1278,21 +1269,20 @@ input::placeholder{color:#b0b8c8;font-weight:300}
 
 
 /* ────────────────────────────────────────────────
-   GATE OVERLAY — sits inside modal, scrolls naturally
+   GATE OVERLAY — full screen, fades out on auth
 ──────────────────────────────────────────────── */
 #gate {
-  position:relative;
-  min-height:auto;
+  position:fixed;inset:0;z-index:1000;
   background:var(--navy);
-  display:none;flex-direction:column;
+  display:flex;flex-direction:column;
   align-items:center;justify-content:center;
-  padding:40px 24px 60px;
+  padding:24px;
+  transition:opacity .6s ease, transform .6s ease;
 }
 #gate.dissolving {
   opacity:0;
   transform:scale(1.02);
   pointer-events:none;
-  transition:opacity .6s ease, transform .6s ease;
 }
 #gate.gone { display:none; }
 
@@ -1354,9 +1344,7 @@ input::placeholder{color:#b0b8c8;font-weight:300}
 }
 
 /* Card body */
-.gate-body {
-  padding:28px 32px 24px;
-}
+.gate-
 
 /* Steps */
 .gate-step {display:none}
@@ -1378,35 +1366,26 @@ input::placeholder{color:#b0b8c8;font-weight:300}
   text-transform:uppercase;font-weight:600;
   color:#ffffff;margin-bottom:7px;
 }
-#gate .gate-input,
-#gate .gate-input[type="text"],
-#gate .gate-input[type="email"],
-#gate .gate-input[type="tel"],
-#gate .gate-input[type="number"] {
+.gate-input {
   width:100%;padding:12px 14px;
-  background:rgba(255,255,255,.10) !important;
-  border:1.5px solid rgba(255,255,255,.25) !important;
+  background:rgba(255,255,255,.07);
+  border:1.5px solid rgba(255,255,255,.12);
   border-radius:5px;
-  color:#ffffff !important;
+  color:#ffffff!important;
   font-family:'Outfit',sans-serif;font-size:1.1rem;font-weight:400;
   outline:none;transition:border-color .2s,background .2s;
   margin-bottom:14px;
-  -webkit-text-fill-color:#ffffff !important;
 }
-#gate .gate-input:focus,
-#gate .gate-input[type="text"]:focus,
-#gate .gate-input[type="email"]:focus,
-#gate .gate-input[type="tel"]:focus {
-  border-color:var(--gold) !important;
-  background:rgba(255,255,255,.15) !important;
+.gate-input:focus {
+  border-color:var(--gold);
+  background:rgba(255,255,255,.10);
 }
-#gate .gate-input::placeholder { color:rgba(255,255,255,.5) !important; }
-#gate .gate-input:-webkit-autofill,
-#gate .gate-input:-webkit-autofill:focus {
-  -webkit-text-fill-color:#ffffff !important;
-  -webkit-box-shadow:0 0 0px 1000px rgba(11,31,58,.9) inset !important;
+.gate-input::placeholder {color:#ffffff}
+.gate-input.error {border-color:var(--red);animation:shake .3s ease}
+.gate-input:-webkit-autofill,.gate-input:-webkit-autofill:focus{
+  -webkit-text-fill-color:#ffffff!important;
+  -webkit-box-shadow:0 0 0px 1000px rgba(11,31,58,.9) inset!important;
 }
-.gate-input.error { border-color:var(--red) !important; animation:shake .3s ease; }
 @keyframes shake {
   0%,100%{transform:translateX(0)}
   25%{transform:translateX(-6px)}
@@ -1575,7 +1554,7 @@ input::placeholder{color:#b0b8c8;font-weight:300}
 ──────────────────────────────────────────────── */
 #calcWrapper {
   display:none;
-  min-height:auto;
+  min-height:100vh;
   background:var(--paper);
   position:relative;
 }
@@ -1593,7 +1572,7 @@ input::placeholder{color:#b0b8c8;font-weight:300}
   background:var(--navy);
   padding:0 36px;
   display:flex;align-items:center;justify-content:space-between;
-  height:64px;
+  height:62px;
   border-bottom:1px solid rgba(200,148,31,.2);
   position:sticky;top:0;z-index:50;
 }
@@ -1623,17 +1602,17 @@ input::placeholder{color:#b0b8c8;font-weight:300}
 /* Calc content area */
 .calc-content {
   max-width:1320px;margin:0 auto;
-  padding:0 36px 60px;
+  padding:32px 36px 60px;
 }
 .calc-content-header {
-  margin-bottom:10px;padding-bottom:10px;
+  margin-bottom:28px;padding-bottom:20px;
   border-bottom:1px solid var(--line);
   display:flex;align-items:center;justify-content:space-between;
   flex-wrap:wrap;gap:12px;
 }
 .calc-content-header h2 {
   font-family:'Cormorant Garamond',serif;
-  font-size:1.3rem;font-weight:400;color:var(--navy);
+  font-size:1.8rem;font-weight:300;color:var(--navy);
 }
 .calc-content-header h2 em {font-style:italic;color:var(--blue)}
 .calc-content-header p {
@@ -1675,7 +1654,7 @@ input::placeholder{color:#b0b8c8;font-weight:300}
 
 /* FORM PANEL */
 .form-panel{background:var(--white);border-radius:6px;box-shadow:var(--shadow-md);overflow:hidden}
-.form-panel-header{background:var(--navy-mid);padding:8px 26px;display:flex;align-items:center;gap:12px}
+.form-panel-header{background:var(--navy-mid);padding:16px 26px;display:flex;align-items:center;gap:12px}
 .form-panel-header h2{font-family:'DM Serif Display',serif;font-size:1.1rem;font-weight:400;color:var(--white)}
 .step-badge{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:#c8a84b;color:var(--navy);font-size:0.984rem;font-weight:700;border-radius:50%;flex-shrink:0}
 
@@ -1696,8 +1675,8 @@ input::placeholder{color:#b0b8c8;font-weight:300}
 .q-input-area{display:flex;flex-direction:column;gap:5px}
 
 /* INPUTS */
-input[type="text"]:not(.gate-input),input[type="number"]:not(.gate-input),input[type="email"]:not(.gate-input),select{width:100%;padding:8px 11px;border:1.5px solid var(--line);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:1.17rem;font-weight:500;color:var(--navy);background:var(--cream);transition:border-color .15s,box-shadow .15s,background .15s;outline:none;-webkit-appearance:none}
-input:focus:not(.gate-input),select:focus{border-color:var(--navy-light);background:var(--white);box-shadow:0 0 0 3px rgba(46,83,150,.1)}
+input[type="text"],input[type="number"],input[type="email"],select{width:100%;padding:8px 11px;border:1.5px solid var(--line);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:1.17rem;font-weight:500;color:var(--navy);background:var(--cream);transition:border-color .15s,box-shadow .15s,background .15s;outline:none;-webkit-appearance:none}
+input:focus,select:focus{border-color:var(--navy-light);background:var(--white);box-shadow:0 0 0 3px rgba(46,83,150,.1)}
 input::placeholder{color:#b0b8c8;font-weight:300}
 .input-wrap{position:relative}
 .input-wrap .prefix{position:absolute;left:10px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:1.131rem;pointer-events:none}
@@ -1797,18 +1776,18 @@ input::placeholder{color:#b0b8c8;font-weight:300}
 .cow-header{padding:11px 15px 9px;display:flex;align-items:center;gap:9px;border-bottom:1px solid rgba(255,255,255,.15)}
 .cow-header .alarm{width:26px;height:26px;background:rgba(255,255,255,.15);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.131rem;font-weight:700;color:white}
 .cow-header h3{font-family:'DM Serif Display',serif;font-size:.95rem;font-weight:400;color:var(--white)}
-.cow-monthly{padding:9px 15px 8px;text-align:center;border-bottom:1px solid rgba(255,255,255,.15)}
+.cow-monthly{padding:14px 15px 10px;text-align:center;border-bottom:1px solid rgba(255,255,255,.15)}
 .cow-monthly .pm-label{font-size:0.891rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.65);font-weight:300}
-.cow-monthly .pm-val{font-family:'DM Serif Display',serif;font-size:1.8rem;color:var(--white);font-weight:400;line-height:1.2;margin-top:2px}
+.cow-monthly .pm-val{font-family:'DM Serif Display',serif;font-size:2.4rem;color:var(--white);font-weight:400;line-height:1.1;margin-top:2px}
 .cow-monthly .pm-tag{font-size:0.931rem;color:rgba(255,255,255,.95);margin-top:2px;font-weight:300}
-.cow-metrics{padding:6px 15px 8px;display:flex;flex-direction:column;gap:0}
+.cow-metrics{padding:9px 15px 12px;display:flex;flex-direction:column;gap:0}
 .cow-metric-row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.1)}
 .cow-metric-row:last-child{border-bottom:none}
-.cml{font-size:.875rem;color:rgba(255,255,255,.7);font-weight:300}
-.cmv{font-family:'DM Serif Display',serif;font-size:.95rem;color:var(--white);font-weight:400}
+.cml{font-size:1.011rem;color:rgba(255,255,255,.7);font-weight:300}
+.cmv{font-family:'DM Serif Display',serif;font-size:1.05rem;color:var(--white);font-weight:400}
 .cow-total-row{margin:0 -15px -12px;padding:13px 15px;background:var(--red-deep);display:flex;justify-content:space-between;align-items:center}
-.ct-label{font-size:.8rem;color:rgba(255,255,255,.75);font-weight:500;letter-spacing:.04em;text-transform:uppercase;line-height:1.3;max-width:140px}
-.ct-val{font-family:'DM Serif Display',serif;font-size:1.3rem;color:#fca5a5;font-weight:400;text-align:right}
+.ct-label{font-size:0.931rem;color:rgba(255,255,255,.75);font-weight:500;letter-spacing:.04em;text-transform:uppercase;line-height:1.4;max-width:140px}
+.ct-val{font-family:'DM Serif Display',serif;font-size:1.65rem;color:#fca5a5;font-weight:400;text-align:right}
 
 /* Scenario runner */
 .scenario-card{background:var(--white);border-radius:6px;padding:14px 15px;box-shadow:var(--shadow-sm)}
@@ -1836,7 +1815,7 @@ input::placeholder{color:#b0b8c8;font-weight:300}
 .biomed-slider::before{content:'';position:absolute;height:16px;width:16px;left:3px;bottom:3px;background:white;border-radius:50%;transition:.3s}
 .biomed-switch input:checked+.biomed-slider{background:#c8a84b}
 .biomed-switch input:checked+.biomed-slider::before{transform:translateX(16px)}
-.biomed-body{max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s ease}
+.biomed-
 .biomed-body.open{max-height:200px;padding:10px 15px 13px}
 .biomed-row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid rgba(13,92,58,.12)}
 .biomed-row:last-child{border-bottom:none}
@@ -1884,7 +1863,8 @@ input::placeholder{color:#b0b8c8;font-weight:300}
 .main-grid .form-panel{border-radius:0;box-shadow:none;border-right:1px solid var(--line)}
 .main-grid .results-panel{
   padding:20px;background:var(--paper);
-  position:sticky;top:64px;
+  position:sticky;top:70px;
+  max-height:calc(100vh - 80px);overflow-y:auto;
 }
 .main-grid .print-btn{
   display:block!important;
@@ -1907,74 +1887,80 @@ input::placeholder{color:#b0b8c8;font-weight:300}
 
 
 @media print {
-  @page { margin: 0.5in; size: letter portrait; }
-
-  /* Show only the modal */
+  /* Hide everything except the calculator results panel */
   body > *:not(#calcModal) { display: none !important; }
-  body { background: white !important; margin: 0; }
   #calcModal {
     display: block !important;
     position: static !important;
     background: white !important;
     overflow: visible !important;
-    z-index: auto !important;
   }
-  #calcModalInner { opacity: 1 !important; transform: none !important; }
-
-  /* Hide interactive elements */
-  #gate, .calc-appbar, .form-panel, .calc-nav,
-  .print-btn, .info-btn, .tooltip-box,
-  .biomed-block, .scenario-card { display: none !important; }
-
-  /* Layout */
-  .calc-content { display: block !important; padding: 0 !important; }
-  .main-grid { display: block !important; }
+  #calcModalInner {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  /* Hide the gate/auth screen, nav, form panel */
+  #gate { display: none !important; }
+  .calc-appbar { display: none !important; }
+  .form-panel { display: none !important; }
+  .calc-nav { display: none !important; }
+  /* Show results panel full width */
+  .calc-content {
+    display: block !important;
+    grid-template-columns: 1fr !important;
+  }
   .results-panel {
     display: block !important;
     width: 100% !important;
     max-width: 100% !important;
-    position: static !important;
-    gap: 0 !important;
+    box-shadow: none !important;
   }
-
-  /* Show print header */
-  .print-report-header { display: block !important; }
-
-  /* ── PRINT REPORT HEADER ── */
-  .company-display {
-    display: block !important;
-    background: #0b1f3a !important;
-    color: white !important;
-    padding: 0 !important;
-    border-radius: 0 !important;
-    margin-bottom: 0 !important;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-  }
-
-  /* Override all card gaps for print */
-  .results-panel > * { margin-bottom: 14pt !important; }
-  .mini-stats { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 12pt !important; }
-  .mini-stat { box-shadow: none !important; border: 1px solid #dde3ec !important; }
-  .sav-card { box-shadow: none !important; border: 1px solid #dde3ec !important; page-break-inside: avoid; }
-  .fiveyear-card { box-shadow: none !important; border: 1px solid #dde3ec !important; page-break-inside: avoid; }
-  .cow-block { page-break-inside: avoid; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-  .sav-card-header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  /* Print header */
+  .company-display { display: block !important; }
+  /* Hide print button itself when printing */
+  .print-btn { display: none !important; }
+  /* Ensure page fits */
+  @page { margin: 0.5in; }
 }
 </style>
 </head>
 <body>
 
 <!-- ── NAV ──────────────────────────────────────── -->
+<nav class="nav" id="mainNav">
+ <div class="nav-logo">
+ <a href="#top"><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAQDAwMDAgQDAwMEBAQFBgoGBgUFBgwICQcKDgwPDg4MDQ0PERYTDxAVEQ0NExoTFRcYGRkZDxIbHRsYHRYYGRj/2wBDAQQEBAYFBgsGBgsYEA0QGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBj/wAARCACZAcwDASIAAhEBAxEB/8QAHQABAAEEAwEAAAAAAAAAAAAAAAcBBAYIAwUJAv/EAFIQAAEDBAECAwMGCQYKCAcAAAEAAgMEBQYRBxIhEzFBCFFhFCIyUnGRFRYjQnJ1gaGzMzY4YoKxCRckN0N0kpOishg0U2NztMHhRHaDhIWU0f/EABwBAQACAwEBAQAAAAAAAAAAAAAEBQIDBgEHCP/EADkRAAEEAQIDBQcCBgEFAQAAAAEAAgMRBCExBRJBBhNRYXEUIjKBobHRI5EHFTNCwfDhQ1JicvGC/9oADAMBAAIRAxEAPwDf5ERERERERERERERERERERYJk/LuF4lyhYMCu9eWXa9E+GG6LIAe0ZlO/mh7x0N9535DuuXlbkux8T8Y1+X3x3WIR4dLStdp9XO4Hoib9pGyfRocfReX1fld9zjL7vmeRVjqi53Gp8SSRpIDND5rGfVa0aDR6ABdv2N7J/wA7lc6clsYBFjq6tP20J/ZVvEc/2Zo5dSvXdFDXs48tDk7jBlPdKgOyK0BtPXgn50w1+Tn/ALYB3/Wa74KZVy3EuHzcOyX4mQKcw0fyPIjUeSmwzNmYJGbFERFBW1ERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERFwVlZS2+3T19dURU9NTxulmmlcGsjY0bc5xPkAASSudaP+2fzx480vDuKVn5NhBv1TE76R7FtKCPd2c/8Ast+sFacH4VLxPJbjx/M+A6n8ea0ZE7YWF5UH+0bzbVcycnOnopJY8ZthdBaqd2x1j86ocPrP0O3o0NHnveC2mPwrNDv87bvvKxXuT8Ss0ji8OljiH5rQ39y/SfZzBixWd1CKa0UP98fFcdmSukPM7crN+KORrjxjydQZVQh8sDD4NdStOvlNO4jrZ9o0HN/rNHxXp3Zrxbsgx+ivdoqmVVDWwtqIJmHs9jhsH9/kvI5g6ey209kDlv5FcH8VX2q1BUOdPZ5JHdmSd3SQfY7u9o9/WPULlv4ldmfbMf8AmWOP1Ix73m3x9W7+l+AU3g2b3b+5fsdvX/lbloiL4CurREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREWO5zmti49wG5ZdkdV4FBQRGR2u75HeTY2D1e5xDQPeVnHG6RwYwWToAvCQBZUZ+0vzjBw9xqYrXNE/Krs10NthOneCPJ9Q4fVZsaB83EDy3ry9qKierq5aqqnknnme6SSWVxc+RzjsucT5kkkk/FZVyZyJfeUuS7hmN/fqapd0w0zXbZSwt30Qs+DQfP1JcfVYivunZzgbeFYwaf6jtXH/AB6D8lcxm5RnfpsNlz0UfjXGCPWwXjazFYzY4jJdg7pOmNLv/T/1WTL6HwlnLEXHqVUTn3qRctJWVdvuNPX0FTJTVVNI2aGeI6dG9pBa4H3ggFcJK+CVZkAiitAXpxwjyjScrcV0t83HHdac/JbnTM/0U7R3IH1XjTm/A68wVJC8zOB+V5uKOWILlUyv/AVf00t1iHceHv5soH1oyd/FpcPVel9PPDVUsdTTSslhlaHxyRuDmvaRsEEeYI77X5l7b9m/5Lnnuh+k/Vvl4t+X2pdrw3M9pi1+Ib/lciIi4xWKIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIrY1kY/Nf9yp8uj+o/7kXlq6RWny+P6j/uVPwhH9R/3IlhXiKz/CMf1H/cn4Rj/7N6JYV25zWML3EBoGySdALzQ9qrnd3Kmf/i5j1WXYlZpXNgcw/Nrqgba6c+9o7tZ8Nu/O7bT+0zlWS3TB5ePsFuNDQ1lwb0XSrnqRG+GnI/kmjz6pAe59G7+t20rZ7PGXPcB+GrCP/ugvoXY3CxoHe25TgHf2g9PP8fv4Kn4jk3+kz5qKo2OkeGMGyVnOL4BV3l7SWOIPwUj4t7NOQSXOIVd9s5aSN9E4cVtxgPAlpsduidNURzv0NkeS7bivarBwIrifzPPgqhmNLMaYFqtZ+HZKWinqDAQSA0dv2rEcjxWa1yuHQRpekR4/s/yPwWsaB9ijrMeBLPeqWR0dSyJ5HYlVnBf4jMbIG5WgXk/CMhvvDVeejwWuLT5hcbnKdcn9nO+Ut2kbR3u1mMHt4koaVjknAOUDsL1Zv/2AvpsfaXhcrQ5s419VXmF4NEKKHOW7nsecwC84+7i2/VW6+2xmW1SSO7zUw+lF38zGT2/qH+qVrr/iFyRo+febR+ycK/sHFGb4pldvySw5Daqa5W+dtRTy+ONBw9CPVpGwR6gkLne08vCuM4T8R0zebdp8HDb5dD5FTMKWTGlDwNOvovSdFjmMZXBkGK0d0ETGyyRgTxRSCRsUoHz2dQ89HyPqCCu3/CMf/Zv+5fnKSN0bix24XZte1wBBV4is/wAIR/Uf9yfhCP6j/uWC9sK8RWny+P6j/uVRXR/Uf9yJYV0ithWRn8133L7FSwnyd9yJa5kVGu6hsKqL1ERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERU6R7gnS33BVREVOlv1QnQ36oVURF89DfqhRdz1zBauGeKp77K2GovFVumtNC8/y8+t9Th5+GwfOcfdoebgpAyHILRiuLV+RX6ujorbQQOqKiokPZjGjZ+0+gA7kkAea8n+bOWrvzHyrV5PXCSnoI909soHHtS04PYH063fScfedeTQrjg3DhlzAv+Ab+fko2VP3bdNysJut9vd7vtZebtdqurr62Z1RUVEkh6pJHHbnH/8Anp5K1bWVo8q2o/3hXCqbC+u404AAGy557SdV3NtyS822sZPT3KqY5p2CJCtmeMPaIv8ATUsVLX3B8oaNfPd3WpwKv7bVz09bG2JxHU4D96nzYmPxBndTtB8FGcC33mmivRyTm6YWtkgnHUWAnuofz3nrIpWywUdc6IEa+a5QnNl9QYuhjnAAaGyscrK6arlL5HEqx4X2HwcN/eSMB9VDdkzyfG4q8uuS3q6Vz6mpudU5zjsnxCusdca8+ddUn/6hXA4ric5djTWjlaAAtYVwbhXj/wCNqP8AeFcTrjXnzraj/eFW7nbXG4rQ+vBZqe/Zf5nk485TbZcgrnnHL69kFQ6Z+20s/lHN38h36HfAgn6K9HA1ut9IXjG4jRB7g9l6I+yTzN/jA44OIXyr8TIrBE2PrkO3VdL9GOX4ub2Y7+yT9JfHf4jdn7rikA8A/wCwd/g/LzXQ8Hy/+g75fhbGdLfqhOhv1QqovkSv1Tpb9UJ0t9wVURF8kaaeloJ9AeyiLLOZb1ivKtuwF+BNrrjc2MfRSwXVrI5Q4uHcujBaQWO3v4e9S+tZuY62itvtq8c19xq4KSlhpo3yz1Egjjjb4sw25x7Ad/MrouzOHDl5L4p4+cBjyBZ3aLGxHVRMyR0bAWmtQpPvPIWb43a5LteeK6uW3wt8SoktN0hq5ImDzcYy1hIA7nW1k+E5zjfIOLMv2M1vyimLjG9j29EkLwASx7T5HRB9xBBBIXVX3l7jWwWOa4VmZ2WcRsLhT0dXHUTSkD6LGMJJJ8vd71GfssYrkFosmR5FdrbNa6O81MclFRzNLHdDes9fSe4b+UDQfUN35aW93DopOGS5csXdPYWhvxU+zqKcSbaNbB23CxErhM1jXcwN3tp+y2EUVcrcwV/FUlBJXYiLnSV8j4YJqa4Bjuto30ua6PsSD6EhSqtbva7/AJs4h+tnfw1G7L4kGZxKLGyG8zHXYsjoT0IWeZI6OFz2GiFsJa57pUW9k12oIKKocATBDUGcM7dwXdLe4PbsNK4qXVLKVzqSKKSYfRbLIWNP2kAkfcuVUP0T9ioi4F118tf/AL9VJrRRFi/M96ynli64BS4Kymr7UZPllRNdB4TAxwbsaiJdsuGu3r30pcYXmNpka1r9DqDTsA+uj22tb+I/6a3J/wCi/wDjRrZJX3aTEgxchkeOzlBYx25OrmgncnxUbEe57CXG9T9Ci6HL75c8bxSuvtvtENzZQ08lTLA6q8B7msHUQw9DgToHz0u+WP53/mtyT9VVX8FypsMNdOxrxYJFjXx8qK3yWGmljHFnJtz5RsD79S4tHbLY2c04knr/ABJHloHUWsbH5DYHcj1UjqDvZP8A6PEH6wqf72qcVY9oceLF4jPjwN5WscQBqdvUlasV7nxNe42SEREVMpCt619bHRufQU8E848o5pTE0/2g12vuUW8f8yXXP82vON02FNt8tmcY62apuQc1rxI5nS0NjJcdsd7hoKWlrf7Pf+f/AJZ/WB/8zOuh4ViwS4GZNKwF0YaWmzpbgDsQDoeqizvc2WNoOhu/2WyCirlfmCu4pfQS12Ii50lfI+KCamrwxwc0A9Lmuj7Eg9tE+RUqrW/2u/5r4j+tz/DWPZfEgzOJRY+Q3mY67FkdCehCZkjo4XPYaIWwVqnulTbo5rtb4KGoc0OMENQZ+jY7gu6W9we3bssW5Czi84PR0VbS4vHeYKytht8YjrhDI2SVwazYcwjpLjre+3Y6WbqO+Yf5tY9/8z2r/wA0xQ+GNimzWNkYC0nbWvob+q2TFzYyQdVnlE+tko2vr6eCCc/SjhlMrR/aLW7+5cN2qLpTW2Se02+CunY0uEE1QYOvQ7AO6Xdz5d+yvlQ/RP2KvDhzc1aeGtfe/qtpGlKGME5uybkelq6nGeMy6CklEM8lVeY4ul5HV068Mk9j7tLsrxzRJhlZAzkTBr3j9HO8RsucD466lDj6OfGepp8+xbv4LBfZC/mhln63H8IKfchsNsyfF66wXinbPRVsJhlY4eh8iPcQdEH0IBXW8aj4dgcVkxHY47ppAsOdzUQDYJcRevUUoOOZZYRJze8fIV9lc225W+8WinulqrIayiqYxLDUQuDmSNPkQQrpayeylfLjQ3XLOOK+Z8sdsnM8Gz9AiR0UoHuBc1rte8u962bPkqbjnCzwvNfi83MBRB8QRY+h181Ixpu+jD1iuc8hY7gFqgqbzLNLVVcghordSR+LU1khIAZGwefmO50Bsd+4XWUd95VuNM2tZgljtsTh1NpLjen/ACjX9bwoHMafh1HSh/jCv/xn+2Fk+XXM+PTWCF9Pa4nd2wjxDE1wHv02R32v+AWzb3sjjc97g1jRsk9gAFN4niQ8JLMV0YfKWhzib0LhYaACNhVk3Z2pa4ZHT28Gm3p+VHVm5Sq63lOlwC9YfcLHdpKWare6eVksD2M6dGGRn8oCSd7DSNdxtSOsJuF943uGWWm6VGX2JtztckrYGi4Qh/5VnQ+Mt3vR+adee2tWaMeySNskbg5rhsOHkQqziDWe46OIx2NRrV2dr1qq/wB1W6InUF1rEuRcxuGB4VW5RFY4rpRUTGyTxtq/BlDS4NJaCwg62D5j1WN4zyXnOXYpRZHZOMoZKCtYZIXS32NjiAS3u3w+3cFXvPX9HHLf9RP/ADtWL8IcgYLZ+AMatt2zKw0NZBTubLTVNfFHJGfFedOaXbHYhXOJhRO4R7W3H7yQScv9/wAPLezXDr1UeSQifkLqFX08fMLL7VnmTv5DoMWybApLK2vp5pqeuZcY6qJ7og0lnzWgh2nb768vVZ+sMxXMccz6/wB0lsslHcqWyVDIYLhA7ra6R8W39DvIgB3TsefdZmqTiLQyQM7ru3ACxrudb94kjQjS91IiNi+awiIigLaieQRa0+1vz1/i2wn8S8YrejK7zCQZYj8630p210vwe7u1nu+c780b2RROleGNWLnBosqB/bF55/HTKX8Z4tWh2P2mfdwnid82uq2n6APrHEdj3F+z+aCtVU9NIu2wQ2BgjYqiUl5sqnqqFoJ8lVFf4+Qormp9ivbSzxLvD2+jtx/YFZLtrEz/ACmWXX0Wa+8/+y6rgz++yY2ef21UOccrCV3riuNxRzlxucvoznKrAXw6QdWl8OcjiNrjJWl7gsgqOK43FVcVwucob3rIBHOWRce55eONuSrXmVjdupoZdvhJ02oiPaSJ3wc3Y+B0fMBYw5y4nFQ542TMdFILaRRHiCtzCWEOG69kMOyyzZzgtsyywVHj2+4wNnicfpN32LXD0c0gtI9CCu8Xn17GfNH4q5s7jK/1fTZ73N1W+SQ9qesI10fBsoAH6Yb9Yr0FX5w7Q8GfwnMdAdW7tPiPyNiuwxcgTxh/XqiIio1JRa08uQQ1Ptu8b09RDHNE+njD45GhzXDxZuxB7FbKu30np1vXbahrL+Hstyvly1cgMzK2W+ttLGR0dO21umjaGlx27coLtl7vd6Lo+zOVDi5L5J3hoLHtB13c0gbAqJmMc9gDReo+hWfXzjrB8ktElvvGLWqeKRvT1CmYx7Pi17QHNPxBUE+zzfL/AGbm/LOL5bvVXayW35QaeSeQyGExTiMFpPkHB3dvltvbXdS5cca5XultdQnkaz2xr2lrqm3WJwmAI180yTuDT8ddlzcZ8T43xha6mO1OqK24Vjg6ruNYQ6WYjZA7dmt2SdD1JJJKk4/EIcbh2Rjzy96X1ytHMQ038VuArTwsnrosHROfKx7W1W5018tFni1u9rv+bOIfrZ38NbIqI+XeI77yq63QPyehtNHbpnzwtZQume95AALnGQDsB5AepUPstlQ4nE4sjIfysbdnU9COgJWzNY6SFzGCyVLiofon7FZWpl3jt7WXqoo6ipAAMtLE6Jru3c9LnO139NlXFWKo0jxRGET/AJpmBLf26IKoi2nct/PopIOlrXPiP+mtyf8Aov8A40a2S8goNs/CudWDlK9Z7aOQ7XDcbu55qYpLK6SHpc4O6QDMCNdI0d77fFZNc8V5kuNtlpIuUbNQGRpb49Jj5bI3fq0undo/HS6vjnsmfkskjyWgBjGmw/drQD/YVBxueJhBYdyenU+qkKhuNLcopZaOQyMimfTufogF7HdLgPfpwI37wV1Od/5rck/VVV/BcrnFbBT4thdsx6mkdKyhp2QmV30pXAfOefPu523H4kq2zKz3nIMSr7HaLhR0BrqaSmkqKiB0xja9vSS1oc0E6J8z56XPQ903Lbyu9wO3PgDvopbuYs1GtKLvZP8A6PEH6wqf72qaK+vpbXa6i410whpqeN0ssh/Na0bJUQYHxLyJxzjLrBj3ItodQmZ04ZV2N0hY52t6InHY63pdvW8fch5DeLYMq5Eoaqy0tZFV1FroLR8mbV+G4Pax7zK4lvUGnXkdeSveMMw83iU2UMlvducXbPut6rlq+mpq+qjY5kjhazkNgV0/Kk9j+uJrw1zeoA6cNEfaF9Ii5VTUWuXs9wyHnbluoDfyYufR1fH5RUHX3LN8y40y2v5qtHI+I5ZFR1FJAKWa3V7ZHwSR/O2B0EfSDu415tad9llGAYFRYNbLh0VHyy53WtkuFxrSzo8aZ5JPS3Z6WN3prdnQ8ySSumhnxsLh00bJed0zWiqILSHWQb0qgKIOt7aFQ3NfJK0kUGk/PRZctc/a9ie3AcauHSTDT3f57vQbicR/ylbGLocxxCyZ1h1ZjWQU5lo6lo2WHpfG4HbXsPo4HuP37BIUDgHEGcO4hFlSC2tOtb0dD91tyojLE5g3K7qnnjqaSKphcHRyMD2uHkQRsH96j7l0iW34nQNO5qrKba1jfU9Eviu+5sbj+xdbj2Icv4ZZorBZ8xxy92ymaIqWS90EzaiGMdmsLopNPAHYb9Au9sOC3X8bYctzjIRfbvTMeyhhp6f5NR28PGnmKPqcS9w7F7nE67DQJW+GLHwp/aBM1wbZbXNZ8NCBWtXfS6tYuc+RvLykXus6HkqH6J+xVVhd47vNbnx2WppKepcCBLVROkazt2PS1w3o+m1RsbzOAulIJoLX72Qv5oZZ+tx/CC2Bvd5t2PY7W3u7VLaeio4XTzSuOg1rRs/t9APUkBRDx1w3nXGNJW0uP57Z54a2YTzMrbK95L+np2C2dpHYeS7e+cQ3fOaiFnI2eVd0tcTxKLNaqUW+me4eXWep73/7Q16aXXcbdgZ/FZMo5A7pxB0DuagAKALQL06kBQcYSxQBnJ7w9K+6jn2VLLX3C+ZdyPWQPhhuc5gp+ofTJldLLr4AuY3fvB9y2bPkrW12u3WSzU1ptNFDR0VNGIoaeFvSyNo8gArtU3HeKfzTNflBvKDQA8ABQ+g181Ixoe5jDFqfw8Dxr7XuT4VedwNuokFFI/sJfyhmhIP9Zjnj9JpHmtsPRYLyNxTjfJFLTS3E1FBdqI9VFdqF3RUU53sAH85uwDo+R7jR7q1oLZzLaKJtAckxW+tjHSyur6KenncPe9sby1x+I6dqy4vlQcZLMsPDJeUNeHXqRpzNNEURuDRHS1pgY7HtlW29PworulFSO/wkNoLqeMl1uE520d3imlAd9vYd/gFswotsHEta3mFnKGX5I2436OEwQ09vpRS0sLC1zNac5736D3dyR5qUlG7QZsWScdkLubu42sJ1qxd1dGtfBZ4sbmc5cKskqOeev6OOW/6if+dqseA7bb5/ZyxaWahppHupn7c+JpJ/Kv8AMkLIeSsRvWdYPXYrQXeitlLXxiOeeWmdPIGhwcQ0B7QN6A2d+qxzD+P+ScJwyixi1Z3YJqKjDmwmqscjnhpcXaJbUDfcn0UiCeB3BvZDMGyd5zUebblrcNI36LBzXDI5+WxVdPFZfRWTH8KuN4vcJhoYLrUQOliiiDG+NoQt0G+bnksHYdz9qydRvFgea3PPrPfMxzeiuNutUjqmG00NsNLE+foLWSPJleXFvUSAewPdSR6Kmzwy2kS944jUi6FaAagEkAanbXyUiK9fdoIiK3rq6kttsqLjX1MVNSU0bppp5XBrI2NG3OcT5AAEkqAtqw7lvk+x8ScXV+X3o+IYh4VJRtdp9XUOB6Im/brZPo0OPovJrLsrvmcZvcssySsNVc7jMZppPJo9GsaPRjQA1o9AApH9ovmyr5n5RfV0kksWM20ugtFM7Y20n507h9eTQPwaGj37h5dFg4vctt3xFV80nOaGyIiKwa6loIRERToZqWpzVT+9d7ZWdNC9/wBZ/wDcF0ayKgb4dsiGu5b1H9vdd92P/Vyi7/tB+tD8qtztGV4q4c5cbnI5y4nFfRXOVYAjiuJzlVzlxOcor3rIBfLpPguIuVXFcTio7nLYAjnLjJVSV8EqM96zAX0ySSKZssUj43sIc17DotIOwQfQg99r1F9mbmVnLnEcTrlUNOS2nppLozyMh18ycD3SAEn3ODx7l5blSFwpypceIeXaDKqbxJaE/wCTXKkYf+sUziOoAfWboPb8WgeRK5HtVwYcVxC1o/Ubq3/I+f3pT8HJ7iTXY7r1wRWVou1uvtho71aauOroK2FlRT1EZ22SNwBa4faCFer4M5paaO66kG0WG8n54zjvAX3xtEK2rlqIqKjp3v8ADY+aV3S3rd36WjuSdeQWZKFeaPD5Lx68cZ4rQyXS80AjramoZII4be9u3MY5/fqleA4CMeW9uLR52nBMaPIzIxOP0wQXdAG2LJOlD5+Q1IWjIeWxnl36eqyuLI8rsXI+PY1k09puMd+iqPDlt9M+ndSzQsEjgQ57+uMgkB3Yg62Dvtn61940ym25HxBd+Rblear8cbZQy0NXVVLGPfQFo21kMJHSGyFrSexc92wSS0ASvx9SZlDhNFUZ3ePlt6qIWy1EMcEcMdM4jZjaGjZI3okk7I7aUvjPD/ZyeamuYeVwojmdqbaKqgCBel6GtVhjy822oOo8h5rK0RUc4NYXOIAA2SfILn1KUccicsUOBZziVhnjjey71fh1krt/5LAQWMeT5Dcpb5+jH+5SQPJa3ZHNhHJPFmaXGvy2wwXW8y+Ja4p7hEySCKlLm0reku20vPiPP/jlSdwlm34+cL2i7zyddfCz5HW7PfxowASf0h0u/tLp+J8IbBgsmYwhzDyPvqSOYEeQPM3/APIPVQ4Zy6QtJ0Oo/wB/Y/NSDJIyKJ0kjg1jQXEnyAHqo0xbKs45EsT8rxmosVoskssjLdDXUklVNVMY8s8SQtlYIw4tOmgOIHmfRSW9jJI3RvaHNcCCCNgha1VGLcq8CXSrr+P4jlOEyyuqJLNJt01KD3PSB87sPzmb3r5zfVaOCY0OSySIOaJjXJz/AAka8w10DjpV+Y0KyyHuYQaPL1rfy+SmXBMlyW+1uQUGU2aktdZaa1lII6WZ0zJWmFkgla8gEtd19hoEeR7grK66sp7dbKivq5PDp6eJ00rz+a1oJJ+4FYRxdyPinJdnq7zYYH0lexzGXCkmAEsT+nTdkdnN0CA4e4jsQQs3raSnuFuqKGrjElPURuilYfJzXAgj9oJUDiMRhy3Ryx92RVt8NBdXe+41O62xO5mW035qOsWyLkLPMShzGyT49ardWh01vt9bSy1EskWyGumlbI0Mc7W+lrXdO/Mld9x/kt+yW23d2SWaG0V9Bc5KB1LDKZWgMZGQ8PIHUHdZcDodiPVQl+CeWvZ5llOOQOzLAmvMnyN2/lFEwnZ8gS3125oc0+Za0kqZ+Nc+xXkXGJsgxkOifJMBXU0rQ2WKboaNP12PzWt04diAPcVecYwGxwvyMZjXwEjle3duvwvG4Nb81m9jqVGx5SXBryQ7qD18x/wswnnhpqaSoqJWRQxtL3yPOmtaBskn0ACjrGs1yTkltTdMNZQ2rGo5XwU10uNO+olr3NOnPihD2Bke9gOc4k6PYL59oGqqqT2bsplo3ObI6nZE4tPfofKxj/8AhcR+1X/CsNPT+z7iEdMAGG1wvOvrOHU7/iJVfBixw8MOeRbi/kF6gU3mJrYk2AL030uq2ueXTd10q/qrKsz+8YRmlssXIUdA63XeX5PQX6gY6GIT+kM8T3O8Mu9HhxafXWlJKhL2q4IZfZ2q5pCA+CuppIj6h3WW9v2OcpTw+pqq3jyw1lc5zqqe3U8sxd59boml2/2kpnYsbsCHPYKLnOa4DYltEEDpYNEDSxpukbyJXRHoAQun5A5DocGpLfTtoprre7rOKW2WqncGvqpDrzcezGDY6nHy36qtNTcoPoRV1V3xeGqLd/II6Cd8QP1fHMocf0ugfoqKblPJcv8ACH2mlrvnQ26yufSMd5dTo3kkfHbnf7PwWw6zz4GcOhx2saC6RgeSRfxE00A6AADU72TrVLyJxlc4k6A0sRwXKL1khv0OQWSOz1tsuRovkrJvGBZ4MbxIH6HUHdZIOh2IHmCu3yaou1Fi9bXWWWjZVU8L5mtq4nSRv6Wk9J6XNI3rz7/YuxjpaeGqmqIoWMlm6TI8DRfoaG/sHZWWR/zPuv8Aqc38NyrDJHJkB0bA1prTcdL3vS/FbgCGUTawzhnNsj5F45p8uvkVrpWVUkrIqWijftoY/p257nneyD2A93dSMoc9l7+jPY//ABan+M5TGfJSuPwsh4lkQxNprXuAA6AEgLDFcXQtc7cgKN+VuVqTjSTHWzRMl/CNwZHU9QJ8ClBAkl7eRBcwDfnsqR2uD2BzSCCNgjyKgG81eCcjWnPX3zLrDSyXFps9rZVV8THQxUziWyaJ2Ouo63/FrWLKfZ5zR2X8K0MVZMH3O0H8GVfzg4kxgdDt+u2dPf1IKsM/hDYuHNmawh8Zp99eYW0j/wBTbT514rVFOXSlpOh2+X+2s+ym43K04ZcrjZ6RlZcYadzqWnk30yS+TGu130XEb+CjDknPOUeNOPmZNcRiFc41EVM6mgpqloDnkjYeZO4GvcN/BTOoO9q3/MF/+Upf73LT2cEU+dBiyxhzXPF2NSDWnl8vFZZfM2Nz2nUBZnUV/KVtrbVU1Axe42yashgrRS09RDNFFI4N8RnVI4O0XDYOu2z6LO5BIYHiJzWSdJ6XOb1AH3kbG/vXzTf9Ti/QH9y5T5FVGROJa90AjwFX6jZb2Nrqobsuf8jX7mfKcBpvxXp/wE2OQVctLO7x2yAFvzRKOkgHv3Ky6Kt5It+W2eC8DHK20Vkz4KmWgp54poD4T3sdpz3NLS5gaT6dQUV4xPkEHtk8lux62W+ulMFIJG1tY6ma1vQzRBbG/Z36aClHHbnm9VyfcaPKLZRW6hjt0UlGyhq3VMcrjI8SOc5zGacNMGunyPmd9um4rjNhIMbGBvdMcRpduY2yB8V2b8PkocDy7cm7I/Y/ss59NqOo8wyLLORb7jOGzWugpLA6OCvuNfA+pdJUPb1+HFE17NBo83ud5nQHbakVQPnvG3IGNcj1vJ3EFwY+rrQH3Sxz66KstGupoJAdsDy2CDstd30qngkWPNI+OZwa8t9wu+Hmsb9NRYBOgO635DnNALRY61vSzyx5Fm7OUxiGUWu1imNtlroLrQGQMqi2WNnR4b9mNzevZHU7e2kHzWeKIuL+ZbPn+RmxX2yTY/mVDFI19DUtPzm/N8TwyQCPotJY4A6APcDal1auMY0uNOIpou7cALA2P/kNSKPlp4aaL2B4e3ma6wigv2qMK5Rz3hs2DjiWlkhfJ4l0oDJ4VRWxN0WxRuPzddXdzSR1aA35gzoirY3mNwcOi2ubzCl4pXO2XKy3iotV4t9Vb6+mf0T0tVE6KWJ3uc13cK0Xrtyhwrx9y5aPkuXWVj6tjS2nulNqKrp/0ZAO4/qu234LQbmL2TuQuL/Hu9qiflONs2411FEfHp2/99CNkAfXbtvv6Vf4+fHLodCoMkDm6jZQEiAggEEEHyIRTlpRERZNdS8IVdEnQ8z2WS9mRtYPzQAsfpG9dbE0/WB+7uu9c7a+pdg2fozTHqQP2F/5Cp+In3mtVHFcbnKrnLicV273qvCo5y4XOVXOXE5yjOcswF8uf30vglCe6+SVHe9bAFQlURfO1Ee5ZAIURFpJtZLdb2JOafDkfw7kNX813XU2OSR3ke7pab++Ro/THuC3eXirbLnX2W9Ul3tVXJSV1HMyop6iI6dFIwhzXD4ggL1g4M5Yt/MPENDk0BjiuMf+S3OkYf5CpaB1AD6rgQ9vwcPUFfJe2/A/Z5fb4R7r/i8nePz+/qr/AIZk87e7duPspKPktcsBqcw4k5EzC1ZNhWRXqhvFyfcaW72ekNWJC4ns8A7G2lvn3aQfQgrY1FyeBxIYscsD2B7JAARqDobBBH/wqfLFzlrgaIWsGRYNndq5Gfy/iODO+RVFXHUVuJzVAM9T0/OFQ+NhLA/qPWGAvLXAP7klomnCcxyDMZzV1GFXXG7bFFp34ZYI555iR2jYDsMaN7c7WyRodis2RSs7jhzYWxzRDmaKa63WG+G9EjYE6/SsI8bu3EtdoemiLAeWLldWYa6wWW0XmtqLq5lJPPbqV0vySme4Nml2O3UI+vpAO9kHSz5NBVeJOMeZspbzcpulukbzNLbpddb7baY7TTRUdtigp2RNbFE6n6CxoGmjpcNjQA7FQjgUN7wb2icvpaPE8gOGXydtVBVtoHiOnqdAu03XUGEue3evzW+ndT+mh7lLxOJmBk0bm8zZBRBPmCD6gjT56arCSHmLSDRC4qkdVFMNO7scPm+fl6KNcLzi+2zA7bQ59iGR0F1gpo43y09DJXR1OmgB4dD1lriACWvAIO/NSemlHgyI2RuikZzAkG7oir2O2t62DsFk5hJDgaUScXYfXQco5lyLUWWaw0l+kiZR2ycBs3QwfPnlYOzHPdshvmNnfcqR8kZUSYbdo6QSmd1FM2MRb6+oxu1069d60u0RZ5fEJMrIE7xtygDyaAAPPQb9V5HEGN5R5/VRzjufXWjxGhgzfD8kt17jp2NnZS2+SujmkDQC6OSAPHfz07RG9fFddw5hdfY75mOW1tpdZIsjuAqKW0v6Q+mhb1aMgaSGveXucWgnp3pSvpFufxMCKWOGMNElc2pIoGwADtr4knpe94iHVpcbrZdbkFjt+TYtcMfusRko66B9PM0dj0uGtg+hHmD7wFGfHLsg4sx4YHl1ruNdb6B7xbL7baR9VHNA5xcGSsjDnxSNJI7jpI1o9lLyLTj57o4HYrxzRuINbEEaWD0NGjoQR00FZPitweNCFDuaWK68z3S14+6019pw2iq21twq7hCaea4OYD0QQxO+e1nclz3hvpoHSmCONkUTY42tYxoDWtaNAAeQC+kXmVnOnjZCBTGXQ8zuSepOl+gAAC9ZGGku6lRHyrx9kFZmlh5PwKOCXJbGeh9DM/w219Od7j6vIO054G/Rx9QFkFs5OjraVrKnCM0obhoB9FLZ5Xad7hKPyRG/zuoD7FniaC3u4kJYGQZLObk0abogXfKd7F3Wli96WHc8ri5hq911dl/DMsMtZeWtp5J3Ax0THB4pmAdg54+k89y4jsOwG9bPBl1U6lwy5eHR1lZLJTSxxwUkDpnvcWEAANHbZ9TofFd2igNlHeiQt0B2Gn+/dbeXSlEXs50N2sPCtBjN/slztVyo5ZzJHWUzmNcHSFwLXfRPZw7b32PZZRyhe73asArKfGrRdbhd6yM09OaCmdL8n6tNdMSOw6GkuA3skABZqinT8SE+e7OkjB5ncxb0u7r0ta2w8sQjB6Va6XH7PZKHFbfQ222+DSU9OyCGOop+iRrWgNHUHAHfb1UNWWnvmEe1bkNwtOJ3+bEb9HGaueChf4cFUB/KNbrbm76tkD/SdtgKf00PcvcTijoO+D284kBBBPmDfqCAQV5JCHctGqVAdtBG+/fuNKFvaVt16yPiuLHcdsF1u1e+vgnLKSmc5rWM6iSX/R9w1vfdTUi08MzjgZUeU1tlhsA7WFlNH3rCwndWNorW19mgqW09VT7YAYqqB0MjTodi1w/9ldyvEUD5HBxDWkkMaXE/YB3J+AX2ihOILiQNFsGy19xae9WL2m86y2twvKTaLrFDFSVEVte/rMYaCS36QB0dbH3KQazN75d7rbbJjuJZJSuq6ljaq511CaeGjgHzpHbf9J5Deho1rbgT5aMg6HuTQ9yucri0eS9sr4RzNaGjU17rQ0EjrtfgT0rRaGQFgIDtLv8AdUO+k+9RraMnyPH8pySkyPFb5LZX3OSS23OjpzVAxlreprombkaA/q07pIIPprvJaKuxshkTXMewODvkRrdjz9bFdFtewuog1ShqPH6nOPaVsnIFHYa+02qx0UsUlbcKd1LNcZXgtYxsTtP6GNc49TgN70NqZURbM7OdlcgIprG8rRvpZOp66k/YABeRxhl+J1RERQVsREREWu/Mfsi4DySai9Y82PFckk281NJEDTVLv++hGhs/Xbp3qeryWhPJfD+fcTXr5BmVkkp4HvLae4wHxKSp/QkA1v8Aqu074L1+VjeLLaMhslRZ77baS42+pb0TUtXE2WOQe4tPYqfj574tHahaJIGu1GhXiqi3g5j9hyOQ1F+4dqmxO7vdj1dL8w/CCZ3dvwa/Y/rDyWmF8sN6xm/VFkyG1VlruVOdS0lXEY5GfHR8x7iNg+hV3DkMmFsKhvjczdcVtbusLvqtK7NxVhbRpkj/AHkBXT3aX2vsjD3PC2Hq4k/WvsAueznc0x8kcVxOcqlxI7K36+ucRtIc4+TW9yf2K+c5R2hfTnLiJ2Vlll4y5HyXRsOB5HcGO8pILdKWf7RaG/vUh2X2ROd7yGvkxOntcbvz7lXxR6+1rS537lUZXF8LG/rTNb6uH5UlmPK/4WlQaSvkrbqyewNmlQWOyHO7Hb2nu5tDTS1Th+13hhSPZPYK47pCHX/Lsjujh5tp/CpGH9ga5371zeV204TFoJeY+QJ/xX1UtnDZ3dKXn739AqAguDQQXHyaD3+5epVl9k7gayta4YLDcJW/6S5VM1Tv7Wud0/uUk2TA8IxtrRj2IWK19I0DRUEUR+9rdqgyP4hYo/oxOd60PypTOEP/ALnBeSdk445ByQt/F/BsjuQd5PprdK5v+106/epGsfskc9XtrXuwxlsid+fc66GHX2tDnO/cvUfSaA8gqWf+IOW7+jE1vrZ/Ckt4TGPiJK8/7P7Aue1YYb/m+P21p+k2jhlq3D7/AAwtiOCPZppuDb7X3Shzy73Y18AhqaSSnjhppC07Y/pHU7qbtwB6vJxCnhFQZ/ajiOdGYpn+6dwAPxf1UyLDiiNtGqIiLn1JRERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERYTyPxNgfK1g/BeZ2KGsLARBWM/J1NMT6xyju37O4PqCs2RZNcWm2nVeEA6FaUf9AeeO+TRUvJLGWkvLonS23rqA0+jtPawke8a37gsws/sK8cU3S6+5Pkl0ePNsT4qVh/YGl3/Etp0XRjtfxdsTYGTFrWihQA28wL+qiewY/MXFuqh2y+yzwVZGsMeB0ldI3/SXKeWqJ+0PcW/uUjWbC8Qx1rRYMWstr6RofIqKKH97Whd4ip8jiWXk/wBeVzvVxP3KkMhYz4WgKmgq6A8giKEtiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIi//Z" alt="Bill Judge & Associates"></a>
+ </div>
+ <div class="nav-links">
+ 
+ <a href="#assoc">Associations &amp; MUF</a>
+ <a href="#teaser">Member Savings</a>
+    <a href="#has">HCC Savings</a>
+ <a href="#contact">Contact</a>
+ </div>
+ <div style="display:flex;align-items:center;gap:20px">
+ <a href="tel:18006061071" class="nav-phone">800-606-1071</a>
+ <a href="#" onclick="event.preventDefault();openCalcModal()" class="nav-cta">Get Analysis</a>
+ <div class="hamburger" onclick="document.getElementById('mobileMenu').classList.toggle('open')">
+ <span></span><span></span><span></span>
+ </div>
+ </div>
+</nav>
 
-
-
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobileMenu">
+ <button class="mobile-close" onclick="document.getElementById('mobileMenu').classList.remove('open')">✕</button>
+ <a href="#assoc" onclick="document.getElementById('mobileMenu').classList.remove('open')">Associations</a>
+ <a href="#has" onclick="document.getElementById('mobileMenu').classList.remove('open')">HCC Savings</a>
+ <a href="#contact" onclick="document.getElementById('mobileMenu').classList.remove('open')">Contact</a>
+ <a href="tel:18006061071" style="color:var(--gold-lt);font-size:1.5rem">800-606-1071</a>
+</div>
 
 <!-- ── HERO ─────────────────────────────────────── -->
 <section class="hero" id="top">
  <div class="hero-grid">
  <div>
- 
+ <div class="hero-eyebrow">Employee Benefits Specialist</div>
  <h1>Real savings. Richer benefits. <em>Multi-year results.</em></h1>
  <p class="hero-sub">Most small and mid-sized employers are fighting double-digit cost increases every year &#8212; and losing. We show you exactly how to stop it, reduce costs, and deliver a measurable ROI across your entire benefits program.</p>
  <div class="hero-actions">
@@ -2132,11 +2118,11 @@ input::placeholder{color:#b0b8c8;font-weight:300}
 
     <!-- Central CTA -->
     <div class="reveal" style="text-align:center">
-      <div style="background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:36px 40px;">
+      <div style="display:inline-block;background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:32px 40px;max-width:620px">
         <div style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--navy);font-weight:300;margin-bottom:10px;line-height:1.3">
           These numbers are estimates. <em>Yours will be different.</em>
         </div>
-        <p style="font-size:1.264rem;color:#1a2535;line-height:1.7;margin-bottom:24px;max-width:680px;margin-left:auto;margin-right:auto">
+        <p style="font-size:1.264rem;color:#1a2535;line-height:1.7;margin-bottom:24px">
           Enter your employees, your current premium, and your contribution.
           Your actual monthly savings, cost of waiting, and 5-year report generate instantly &#8212;
           personalized to your exact situation.
@@ -2545,8 +2531,6 @@ function handleSubmit(e) {
 // ── SMOOTH SCROLL OFFSET for fixed nav ───────────
 document.querySelectorAll('a[href^="#"]').forEach(a => {
  a.addEventListener('click', e => {
- // Skip pure # links (used by calc buttons with their own onclick)
- if(a.getAttribute('href') === '#') return;
  const target = document.querySelector(a.getAttribute('href'));
  if(target) {
  e.preventDefault();
@@ -2554,44 +2538,14 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
  }
  });
 });
-
-// ── CALCULATOR MODAL — defined here so buttons work on page load ──
-function openCalcModal(){
-  const o=document.getElementById('calcModal');
-  const i=document.getElementById('calcModalInner');
-  const gate=document.getElementById('gate');
-  const wrapper=document.getElementById('calcWrapper');
-  // Show modal immediately with full background
-  o.style.display='block';
-  o.style.background='rgba(11,31,58,.97)'; // gate bg
-  i.style.opacity='1';
-  i.style.transform='translateY(0)';
-  document.body.style.overflow='hidden';
-  // Show gate (auth screen) — reset any prior dissolved state
-  gate.classList.remove('dissolving','gone');
-  gate.style.display='flex';
-  // Hide calculator until auth completes — use class not inline style
-  wrapper.classList.remove('revealed');
-  wrapper.style.display = '';
-  // Reset to step 1
-  if(typeof goToStep === 'function') goToStep(1);
-}
-function closeCalcModal(){
-  const o=document.getElementById('calcModal');
-  const i=document.getElementById('calcModalInner');
-  o.style.background='rgba(11,31,58,.0)';
-  i.style.opacity='0';
-  i.style.transform='translateY(16px)';
-  setTimeout(()=>{o.style.display='none';document.body.style.overflow=''},400);
-}
 </script>
 <!-- ══ GATED CALCULATOR MODAL ══════════════════════════ -->
 <div id="calcModal" style="display:none;position:fixed;inset:0;z-index:600;background:rgba(11,31,58,.0);overflow-y:auto;transition:background .4s">
-  <div id="calcModalInner" style="min-height:auto;opacity:0;transform:translateY(16px);transition:opacity .4s ease,transform .4s ease">
+  <div id="calcModalInner" style="min-height:100vh;opacity:0;transform:translateY(16px);transition:opacity .4s ease,transform .4s ease">
     <!-- ══════════════════════════════════════════════
   AUTH GATE
 ══════════════════════════════════════════════ -->
-<div id="gate">
+<div id="gate" style="display:none">
   <div class="gate-card">
     <div class="gate-header">
       <div class="gate-logo">
@@ -2618,14 +2572,7 @@ function closeCalcModal(){
         </div>
         <label class="gate-label">Company Name</label>
         <input class="gate-input" type="text" id="company" placeholder="ABC Company LLC" autocomplete="organization">
-
-        <label class="gate-label" style="margin-top:4px">Email Address</label>
-        <input class="gate-input" type="email" id="emailInput" placeholder="john@company.com" autocomplete="email">
-
-        <label class="gate-label" style="margin-top:4px">Cell Phone Number</label>
-        <input class="gate-input" type="tel" id="phoneInput" placeholder="(423) 555-0100" autocomplete="tel">
-
-        <label class="gate-label" style="margin-top:8px">Send my access code via:</label>
+        <label class="gate-label" style="margin-top:4px">How should we send your access code?</label>
         <div class="delivery-toggle">
           <div class="delivery-btn selected" id="btnEmail" onclick="selectDelivery('email')">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/></svg>
@@ -2636,7 +2583,8 @@ function closeCalcModal(){
             Text / SMS
           </div>
         </div>
-
+        <label class="gate-label" id="contactLabel">Email Address</label>
+        <input class="gate-input" type="email" id="contactInput" placeholder="john@company.com" autocomplete="email">
         <button class="gate-btn" id="step1Btn" onclick="submitStep1()">Send My Access Code</button>
       </div>
 
@@ -2711,7 +2659,7 @@ function closeCalcModal(){
 <!-- ══════════════════════════════════════════════
   CALCULATOR (revealed after auth)
 ══════════════════════════════════════════════ -->
-<div id="calcWrapper">
+<div id="calcWrapper" class="revealed">
 
   <!-- App bar -->
   <div class="calc-appbar">
@@ -2723,13 +2671,27 @@ function closeCalcModal(){
       &nbsp;|&nbsp;
       <a href="tel:18006061071" class="calc-appbar-phone">800-606-1071</a>
     </div>
-    <button class="calc-logout" onclick="closeCalcModal()" style="margin-right:8px">&#8962; Home</button>
     <button class="calc-logout" onclick="logout()">&#9664; Sign Out</button>
   </div>
 
   <!-- Content -->
   <div class="calc-content">
-
+    <div class="calc-content-header">
+      <div>
+        <h2>Your <em>Savings</em> Analysis</h2>
+        <p>Fill in your details below — all results update instantly on the right</p>
+      </div>
+      <div class="calc-contact-strip">
+        <a href="tel:18006061071" class="calc-contact-pill" style="text-decoration:none">
+          <span>Questions?</span>
+          <strong>800-606-1071</strong>
+        </a>
+        <a href="mailto:contact@bja-benefits.com" class="calc-contact-pill" style="text-decoration:none">
+          <span>Email</span>
+          <strong>Bill Judge</strong>
+        </a>
+      </div>
+    </div>
 
     <!-- THE CALCULATOR -->
     <div class="main-grid">
@@ -2738,11 +2700,18 @@ function closeCalcModal(){
   LEFT: FORM
 ══════════════════════════════════ -->
 <div class="form-panel">
-
+  <div class="form-panel-header">
+    <span class="step-badge">1</span>
+    <h2>Complete all fields — results update live on the right</h2>
+  </div>
 
   
 <!-- ════ QUICK ANALYSIS ════════════════════════════════════════════ -->
 <div class="form-section" style="border-left:3px solid var(--gold)">
+  <div class="section-label" style="color:var(--gold)">Quick Analysis</div>
+  <div class="section-desc" style="font-size:.8rem;color:var(--muted);margin-bottom:12px">
+    Enter six data points to see your estimated monthly savings instantly.</div>
+  <div class="section-divider"></div>
 
   <!-- Q1: Company Name -->
   <div class="q-row">
@@ -2809,11 +2778,31 @@ function closeCalcModal(){
       <div class="tooltip-box">This is the enrolled headcount — employees actually paying into or receiving the current group plan. Employees on a spouse plan or who waived are excluded.</div></div>
   </div>
 
-  <!-- Q5: Current Monthly Member Fee -->
+  <!-- AGE: Employee Age Profile -->
+  <div class="q-row" style="background:var(--gold-pale);border-left:3px solid var(--gold)">
+    <div class="q-left">
+      <div class="q-number" style="color:var(--gold)">AGE</div>
+      <div class="q-text">What best describes your employee age profile?</div>
+      <div class="q-sub">Sets the Cooperative member fee used in all calculations</div>
+    </div>
+    <div class="q-input-area">
+      <select id="ageProfile" onchange="setAgeProfile(this.value)" style="font-size:.88rem">
+        <option value="young">Mostly under 40 — est. $343/mo</option>
+        <option value="mixed" selected>Mixed ages 30–55 — est. $375/mo</option>
+        <option value="mature">Mostly over 45 — est. $397/mo</option>
+      </select>
+      <div class="q-hint" id="ageProfileHint" style="color:var(--gold)">Using $375/mo — adjust to match your team.</div>
+    </div>
+    <div class="tooltip-wrap"><button class="info-btn" onclick="toggleTip(this)">i</button>
+      <div class="tooltip-box"><strong>Age-Based Rate</strong><br>Under 40: ~$343/mo<br>Mixed 30–55: ~$375/mo<br>Over 45: ~$397/mo<br><br>Exact rates require a census review with your BJA advisor.</div>
+    </div>
+  </div>
+
+  <!-- Q5: Current Monthly Health Insurance Premium -->
   <div class="q-row">
     <div class="q-left">
       <div class="q-number">Q5</div>
-      <div class="q-text">Current Monthly Member Fee — Single Employee</div>
+      <div class="q-text">Current Monthly Health Insurance Premium</div>
       <div class="q-sub">Full monthly member fee per enrolled employee (single-only rate)</div>
     </div>
     <div class="q-input-area">
@@ -2850,7 +2839,7 @@ function closeCalcModal(){
       <div class="q-hint" style="color:var(--amber)">Employer % contribution toward the traditional monthly member fee</div>
     </div>
     <div class="tooltip-wrap"><button class="info-btn" onclick="toggleTip(this)">i</button>
-      <div class="tooltip-box"><strong>Flat $:</strong> Enter the exact dollar amount per employee per month.<br><strong>% of member fee:</strong> Enter the percentage (e.g., 75 for 75%).<br><br>This drives the <em>Traditional Monthly</em> figure in the results panel.</div></div>
+      <div class="tooltip-box"><strong>Flat $:</strong> Enter the exact dollar amount per employee per month.<br><strong>% of current monthly rate:</strong> Enter the percentage (e.g., 75 for 75%).<br><br>This drives the <em>Traditional Monthly</em> figure in the results panel.</div></div>
   </div>
 
 </div><!-- end Quick Analysis -->
@@ -2867,174 +2856,17 @@ function closeCalcModal(){
       <div></div>
     </div>
     <div style="padding:6px 26px 10px;font-size:.75rem;color:var(--muted);font-style:italic;border-bottom:1px solid var(--line)">
-      &#8505; Assumes 80% of enrolled employees join the Cooperative at $325/mo.
-      Complete Detailed Analysis below for a full projection with ICHRA and 5-year modeling.
+      &#8505; Calculations use your Q6 contribution % applied to HAS rates (Coop fee: $<span id="hintCoopRate">375</span>/mo for mixed ages). All results are estimates.
     </div>
 
 
-<!-- ════ DETAILED ANALYSIS ══════════════════════════════════════════ -->
-<div class="form-section" style="border-left:3px solid var(--blue);margin-top:8px">
-  <div class="section-label" style="color:var(--blue)">Detailed Analysis</div>
-  <div class="section-desc" style="font-size:.8rem;color:var(--muted);margin-bottom:12px">
-    Complete this section for a full multi-year projection and printable report.</div>
-  <div class="section-divider" style="background:rgba(37,99,168,.2)"></div>
 
-  <!-- Q7: Employer Contribution to Healthcare Coop -->
-  <div class="q-row">
-    <div class="q-left">
-      <div class="q-number" style="color:var(--blue)">Q7</div>
-      <div class="q-text">Employer Contribution to the Healthcare Cooperative</div>
-      <div class="q-sub">How much will you contribute toward each employee's monthly Cooperative member fee?</div>
-    </div>
-    <div class="q-input-area">
-      <div class="input-wrap">
-        <span class="prefix">$</span>
-        <input type="number" id="contribValue" value="250" min="0" step="10"
-               oninput="update()" style="padding-left:22px">
-        <span class="suffix">/ mo / member</span>
-      </div>
-      <div class="q-hint" style="color:var(--amber)">Average Cooperative member fee is <strong>$325/mo</strong>. Default set at $250 — employer can adjust.</div>
-      <button onclick="toggleCoopInfo()" style="margin-top:8px;padding:5px 12px;background:var(--blue);color:white;border:none;border-radius:4px;font-size:.78rem;cursor:pointer">
-        ℹ What does the Cooperative include?
-      </button>
-      <div id="coopInfoBox" style="display:none;margin-top:10px;padding:12px 14px;background:var(--paper);border:1px solid var(--line);border-radius:4px;font-size:.8rem;color:var(--muted);line-height:1.6">
-        <strong style="color:var(--navy)">Healthcare Cooperative Member</strong><br>
-        <div style="margin-top:6px">
-          <div>&#10003; <strong>Per-incident member responsibility:</strong> $1,000 — then 100% covered</div>
-          <div>&#10003; <strong>Preventive care:</strong> $0 member share — annual physicals, screenings</div>
-          <div>&#10003; <strong>Preventive lab work:</strong> Up to $4,500/member/year</div>
-          <div>&#10003; <strong>Mental health visits:</strong> Up to $3,000/member/year</div>
-          <div>&#10003; <strong>Telehealth &amp; primary care:</strong> $0 member share</div>
-          <div>&#10003; <strong>Generic Rx:</strong> $0 member share</div>
-          <div>&#10003; <strong>Dental cleanings:</strong> 2 per year included</div>
-          <div>&#10003; <strong>Vision exam:</strong> Annual exam included</div>
-          <div>&#10003; <strong>No network restrictions</strong> — any provider, any specialist</div>
-          <div>&#10003; <strong>No prior authorizations</strong> — no carrier approvals required</div>
-          <div>&#10003; <strong>Annual member fee:</strong> ~$325/month (single). Under 3% avg increase since 2019.</div>
-        </div>
-      </div>
-    </div>
-    <div class="tooltip-wrap"><button class="info-btn" onclick="toggleTip(this)">i</button>
-      <div class="tooltip-box">The Cooperative's average monthly member fee is $325. Many employers contribute $250–$300 and allow employees to pay the balance. Set to $0 to see the full employee-paid model.</div></div>
-  </div>
-
-  <!-- Q8: ICHRA Enrollment % -->
-  <div class="q-row">
-    <div class="q-left">
-      <div class="q-number" style="color:var(--blue)">Q8</div>
-      <div class="q-text">Employees Selecting Individual ACA Marketplace Coverage</div>
-      <div class="q-sub">Based on enrollment trends, what percentage of your plan participants will choose an individual ACA marketplace plan instead of the Cooperative?</div>
-    </div>
-    <div class="q-input-area">
-      <div class="input-wrap">
-        <span class="prefix">%</span>
-        <input type="number" id="ichraEEs" value="20" min="0" max="100"
-               oninput="update()" style="padding-left:22px">
-        <span class="suffix">of enrolled</span>
-      </div>
-      
-    </div>
-    <div class="tooltip-wrap"><button class="info-btn" onclick="toggleTip(this)">i</button>
-      <div class="tooltip-box"><strong>ICHRA Option:</strong> Employees needing richer coverage (pre-existing conditions, higher-cost medications, or age 55+) can choose their own ACA marketplace plan. The employer contributes a fixed monthly amount toward that plan.<br><br>The ACA marketplace average for employees 55+ is ~$900/month.</div></div>
-  </div>
-
-  <!-- Q9: ICHRA Employer Contribution -->
-  <div class="q-row">
-    <div class="q-left">
-      <div class="q-number" style="color:var(--blue)">Q9</div>
-      <div class="q-text">Employer ICHRA Contribution — ACA Marketplace Members</div>
-      <div class="q-sub">Monthly employer contribution toward each ACA marketplace plan</div>
-    </div>
-    <div class="q-input-area">
-      <div class="toggle-btns" style="margin-bottom:8px">
-        <button id="btn-ichra-pct"  class="tog active" onclick="setIchraType('pct')">%</button>
-        <button id="btn-ichra-flat" class="tog"         onclick="setIchraType('flat')">$ flat</button>
-      </div>
-      <div class="input-wrap">
-        <span class="prefix" id="ichraPrefix">%</span>
-        <input type="number" id="ichraContrib" value="75" min="0"
-               oninput="update()" style="padding-left:22px">
-        <span class="suffix" id="ichraSuffix">of premium</span>
-      </div>
-      <div class="q-hint" style="color:var(--amber)">ACA marketplace average for 55+: ~$900/mo. Default: 75% employer contribution.</div>
-    </div>
-    <div class="tooltip-wrap"><button class="info-btn" onclick="toggleTip(this)">i</button>
-      <div class="tooltip-box">Employer contributes a fixed monthly amount toward each ICHRA participant's ACA marketplace plan. The employee selects their own plan and pays the difference. Introducing ICHRA is a qualifying life event — all employees gain a guaranteed-issue Special Enrollment Period.</div></div>
-  </div>
-
-  <!-- Q10: Individual ACA Exchange Member Fee (55+) -->
-  <div class="q-row">
-    <div class="q-left">
-      <div class="q-number" style="color:var(--blue)">Q10</div>
-      <div class="q-text">Individual ACA/Exchange Monthly Member Fee</div>
-      <div class="q-sub">Average monthly ACA marketplace plan cost for employees selecting individual coverage</div>
-    </div>
-    <div class="q-input-area">
-      <div class="input-wrap">
-        <span class="prefix">$</span>
-        <input type="number" id="ichraPremiumInd" value="900" min="0" step="10"
-               oninput="update()" style="padding-left:22px">
-        <span class="suffix">/ mo</span>
-      </div>
-      <div class="q-hint" style="color:var(--amber)">Default $900/mo reflects national average for employees 55 and older</div>
-    </div>
-    <div class="tooltip-wrap"><button class="info-btn" onclick="toggleTip(this)">i</button>
-      <div class="tooltip-box">ACA exchange member fees are typically higher than group plan rates. The national average for employees 55+ is ~$900/month. Younger employees may have lower rates — adjust if your workforce skews younger.</div></div>
-  </div>
-
-  <!-- Q11: Annual Rate Increase -->
-  <div class="q-row">
-    <div class="q-left">
-      <div class="q-number" style="color:var(--blue)">Q11</div>
-      <div class="q-text">Last Traditional Plan Annual Rate Increase</div>
-      <div class="q-sub">What was your most recent annual renewal increase on the traditional group plan?</div>
-    </div>
-    <div class="q-input-area">
-      <div class="input-wrap">
-        <span class="prefix">%</span>
-        <input type="number" id="renewalIncrease" value="15" min="0" max="100" step="0.5"
-               oninput="update()" style="padding-left:22px">
-        <span class="suffix">per year</span>
-      </div>
-      <div class="q-hint" style="color:var(--red)">National average: 8–15%. Small groups often see 15–20% after one high-claims year.</div>
-    </div>
-    <div class="tooltip-wrap"><button class="info-btn" onclick="toggleTip(this)">i</button>
-      <div class="tooltip-box"><strong>Annual Renewal Increase</strong><br>Traditional group plans increase 8–10% per year on average. Some small groups see 15–20% after one high-claims year.<br><br>The Healthcare Cooperative has averaged under 3% per year since 2019. The gap widens every year — making the Cooperative <em>more</em> valuable over time, not less.<br><br>This drives the 5-year savings projection on the right.</div></div>
-  </div>
-
-</div><!-- end Detailed Analysis -->
-<div style="padding:10px 26px 14px;background:var(--paper);border-top:1px solid var(--line)">
-    <p style="font-size:0.958rem;color:var(--muted);line-height:1.6">* Quick Analysis assumes 80% Cooperative enrollment at $325/mo. Detailed Analysis uses your exact inputs. All savings are estimates. Consult a licensed benefits advisor for plan design.</p>
-  </div>
 </div><!-- /form-panel -->
 
 <!-- ══════════════════════════════════
   RIGHT: RESULTS PANEL
 ══════════════════════════════════ -->
 <div class="results-panel">
-
-  <!-- PRINT BUTTON — always visible at top -->
-  <button class="print-btn" onclick="window.print()" style="margin-bottom:4px">
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="vertical-align:middle;margin-right:7px"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
-    &#9654; Print Detailed Savings Report
-  </button>
-  <div class="print-report-header" style="display:none">
-    <div style="background:#0b1f3a;padding:24pt 28pt 18pt;display:flex;align-items:center;gap:20pt">
-      <div style="background:white;border-radius:4pt;padding:6pt 14pt;display:inline-flex;align-items:center">
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" style="height:28pt;width:auto" alt="Bill Judge &amp; Associates">
-      </div>
-      <div>
-        <div style="font-family:'Georgia',serif;font-size:22pt;font-weight:400;color:white">Health <em style="color:#c8a41f">Access</em> Solutions</div>
-        <div style="font-size:8pt;letter-spacing:.18em;color:rgba(255,255,255,.6);text-transform:uppercase;margin-top:2pt">Employer Premium Savings &amp; Benefits Analysis</div>
-      </div>
-    </div>
-    <div style="background:#0b1f3a;text-align:center;padding:10pt 0 14pt;border-top:1px solid rgba(255,255,255,.1)">
-      <div id="printDate" style="font-size:9pt;color:rgba(255,255,255,.55);letter-spacing:.08em"></div>
-      <div style="font-size:11pt;font-weight:600;color:white;margin-top:3pt">Bill Judge, LUTCF, CLTC</div>
-      <div style="font-size:13pt;font-weight:700;color:#c8a41f;letter-spacing:.04em">800-606-1071</div>
-      <div style="display:inline-block;border:1px solid rgba(200,164,31,.4);color:rgba(200,164,31,.8);font-size:7pt;letter-spacing:.2em;text-transform:uppercase;padding:3pt 10pt;margin-top:6pt">Confidential — Employer Use Only</div>
-    </div>
-  </div>
 
   <div class="company-display">
     <div class="co-label">Analysis Prepared For</div>
@@ -3057,30 +2889,54 @@ function closeCalcModal(){
   </div>
 
   <!-- ANNUAL SAVINGS — 3 scenarios -->
-  <div class="sav-card">
-    <div class="sav-card-header">
-      <span>Annual Savings vs. Traditional Plan</span>
-      <span class="note">traditional cost minus HAS blended cost</span>
+  <div style="background:#fff;border-radius:6px;overflow:hidden;border:1px solid #ddd9d0;box-shadow:0 2px 8px rgba(11,31,58,.07)">
+    <div style="background:#0b1f3a;padding:9px 14px;display:flex;justify-content:space-between;align-items:center">
+      <span style="font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.8);font-weight:600">Annual Savings vs. Traditional Plan</span>
+      <span style="font-size:.78rem;color:rgba(255,255,255,.55)">traditional cost minus HAS blended</span>
     </div>
-    <div class="sav-row highlight-50">
-      <div class="sr-label">Employer contributes 50% of premium</div>
-      <div style="display:flex;align-items:baseline;gap:4px">
-        <div class="sr-val" id="annSav50">$63,000</div>
-        <span class="sr-badge badge-50">50%</span>
-      </div>
+    <table style="width:100%;border-collapse:collapse">
+      <tr style="border-bottom:1px solid #ddd9d0">
+        <td style="padding:12px 14px;font-size:.93rem;color:#1a2535;line-height:1.45">Employer pays<br><strong>50%</strong> toward HAS</td>
+        <td style="padding:12px 14px;text-align:right;vertical-align:middle">
+          <div style="font-family:'DM Serif Display',serif;font-size:1.4rem;color:#2e5396;font-weight:400" id="annSav50">$—</div>
+          <div style="font-size:.76rem;color:#2e5396;margin-top:2px">50% scenario</div>
+        </td>
+      </tr>
+      <tr style="border-bottom:1px solid #ddd9d0">
+        <td style="padding:12px 14px;font-size:.93rem;color:#1a2535;line-height:1.45">Employer pays<br><strong>75%</strong> toward HAS</td>
+        <td style="padding:12px 14px;text-align:right;vertical-align:middle">
+          <div style="font-family:'DM Serif Display',serif;font-size:1.4rem;color:#c8941f;font-weight:400" id="annSav75">$—</div>
+          <div style="font-size:.76rem;color:#c8941f;margin-top:2px">75% scenario</div>
+        </td>
+      </tr>
+      <tr style="background:rgba(26,107,58,.05)">
+        <td style="padding:12px 14px;font-size:.93rem;color:#1a2535;line-height:1.45">At your <strong id="flatBadge">75%</strong><br>contribution (Q6)</td>
+        <td style="padding:12px 14px;text-align:right;vertical-align:middle">
+          <div style="font-family:'DM Serif Display',serif;font-size:1.4rem;color:#1a6b3a;font-weight:400" id="annSavFlat">$—</div>
+          <div style="font-size:.76rem;color:#1a6b3a;margin-top:2px">matched to your Q6</div>
+        </td>
+      </tr>
+    </table>
+    <div style="padding:7px 12px;background:#f5f1ea;font-size:.74rem;color:#1a2535;border-top:1px solid #ddd9d0;line-height:1.5">
+      Row 3 applies your exact Q6% to HAS — changes when you adjust Q6. Rows 1 &amp; 2 are fixed scenarios.
     </div>
-    <div class="sav-row highlight-75">
-      <div class="sr-label">Employer contributes 75% of premium</div>
-      <div style="display:flex;align-items:baseline;gap:4px">
-        <div class="sr-val" id="annSav75">$126,000</div>
-        <span class="sr-badge badge-75">75%</span>
-      </div>
+  </div>
+
+  <!-- BioMed Savings -->
+  <div style="background:#fff;border-radius:6px;border:1px solid #ddd9d0;box-shadow:0 2px 8px rgba(11,31,58,.07)">
+    <div style="background:#1a5c32;padding:9px 14px;border-radius:6px 6px 0 0;display:flex;justify-content:space-between;align-items:center">
+      <span style="font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.85);font-weight:600">BioMed Savings</span>
+      <span style="font-size:.78rem;color:rgba(255,255,255,.6)">optional</span>
     </div>
-    <div class="sav-row highlight-flat">
-      <div class="sr-label">Based on your Q6 contribution input</div>
-      <div style="display:flex;align-items:baseline;gap:4px">
-        <div class="sr-val" id="annSavFlat">$—</div>
-        <span class="sr-badge badge-flat" id="flatBadge">Flat</span>
+    <div style="padding:12px 14px">
+      <label style="display:flex;align-items:flex-start;gap:10px;cursor:pointer">
+        <input type="checkbox" id="biomedCheck" onchange="updateBiomed()" style="width:16px;height:16px;margin-top:3px;accent-color:#1a6b3a;flex-shrink:0">
+        <span style="font-size:.93rem;color:#0e1a2b">Include BioMed Savings<span style="display:block;font-size:.8rem;color:#1a2535;margin-top:2px">Min. $600 additional savings per employee per year</span></span>
+      </label>
+      <div id="biomedResult" style="display:none;margin-top:10px;padding:9px 12px;background:rgba(26,107,58,.07);border-radius:4px;border-left:3px solid #1a6b3a">
+        <div style="font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:#1a2535;margin-bottom:3px">BioMed Annual Savings</div>
+        <div style="font-family:'DM Serif Display',serif;font-size:1.5rem;color:#1a6b3a" id="biomedAmt">$—</div>
+        <div style="font-size:.8rem;color:#1a2535;margin-top:2px" id="biomedCalc">— employees × $600</div>
       </div>
     </div>
   </div>
@@ -3098,28 +2954,12 @@ function closeCalcModal(){
   </div>
 
   <!-- Premium comparison -->
-  <div class="prem-compare">
-    <h4>Premium Per Employee / Month</h4>
-    <div class="prem-row">
-      <span class="prem-label">Traditional plan (current)</span>
-      <span class="prem-val trad" id="premTrad">$—</span>
-    </div>
-    <div class="prem-row">
-      <span class="prem-label">Health Access Solutions</span>
-      <span class="prem-val has" id="premHAS">$—</span>
-    </div>
-    <div class="prem-row">
-      <span class="prem-label">Premium reduction</span>
-      <span class="prem-val save" id="premPct">—%</span>
-    </div>
-    <div class="prem-row">
-      <span class="prem-label">Renewal</span>
-      <span id="renewalBadge" class="renewal-badge okay"><span class="dot"></span><span id="renewalText">—</span></span>
-    </div>
-  </div>
-  <div class="fiveyear-card">
-    <h4>Cumulative 5-Year Savings</h4>
-    <div class="year-bars" id="yearBars"></div>
+  
+
+  <!-- 5-year bars -->
+  <div style="background:#fff;border-radius:6px;padding:16px;border:1px solid #ddd9d0;box-shadow:0 2px 8px rgba(11,31,58,.07)">
+    <div style="font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:#1a2535;font-weight:600;margin-bottom:14px">Cumulative 5-Year Savings</div>
+    <div id="yearBars"></div>
   </div>
 
   <!-- COST OF WAITING -->
@@ -3155,7 +2995,11 @@ function closeCalcModal(){
 
   
 
-  
+  <!-- Scenario runner -->
+  <button class="print-btn" onclick="window.print()">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="vertical-align:middle;margin-right:6px"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+    Print Detailed Savings Report
+  </button>
 
 </div><!-- /results-panel -->
 </div>
@@ -3166,10 +3010,20 @@ function closeCalcModal(){
 </div>
 
 <script>
-// openCalcModal and closeCalcModal defined in first script block above the modal HTML
-document.addEventListener('keydown',e=>{
-  if(e.key==='Escape'&&document.getElementById('calcModal').style.display==='block')closeCalcModal();
-});
+function openCalcModal(){
+  var m=document.getElementById('calcModal'),i=document.getElementById('calcModalInner'),w=document.getElementById('calcWrapper');
+  m.style.display='block'; m.style.background='rgba(11,31,58,.97)';
+  w.style.display='block'; i.style.opacity='1'; i.style.transform='translateY(0)';
+  document.body.style.overflow='hidden';
+  if(typeof autoICHRA==='function')autoICHRA();
+  if(typeof update==='function')update();
+}
+function closeCalcModal(){
+  var m=document.getElementById('calcModal'),i=document.getElementById('calcModalInner'),w=document.getElementById('calcWrapper');
+  i.style.opacity='0'; i.style.transform='translateY(16px)';
+  setTimeout(function(){m.style.display='none';w.style.display='none';document.body.style.overflow='';},400);
+}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeCalcModal();});
 
 
 // ═══════════════════════════════════════════════════════════
@@ -3187,6 +3041,19 @@ function selectDelivery(mode) {
   deliveryMode = mode;
   document.getElementById('btnEmail').classList.toggle('selected', mode==='email');
   document.getElementById('btnText').classList.toggle('selected', mode==='text');
+  const inp = document.getElementById('contactInput');
+  const lbl = document.getElementById('contactLabel');
+  if(mode==='email') {
+    lbl.textContent = 'Email Address';
+    inp.type = 'email'; inp.placeholder = 'john@company.com';
+    inp.autocomplete = 'email';
+  } else {
+    lbl.textContent = 'Cell Phone Number';
+    inp.type = 'tel'; inp.placeholder = '(555) 000-0000';
+    inp.autocomplete = 'tel';
+  }
+  inp.value = '';
+  inp.focus();
 }
 
 // ── Step 1: Collect info ─────────────────────────────────
@@ -3194,34 +3061,28 @@ function submitStep1() {
   const first   = document.getElementById('firstName').value.trim();
   const last    = document.getElementById('lastName').value.trim();
   const company = document.getElementById('company').value.trim();
-  const email   = document.getElementById('emailInput').value.trim();
-  const phone   = document.getElementById('phoneInput').value.trim();
+  const contact = document.getElementById('contactInput').value.trim();
   const msg     = document.getElementById('step1Msg');
 
   msg.className = 'gate-msg';
   if(!first || !last) {
     showMsg(msg, 'error', 'Please enter your first and last name.');
-    shake(document.getElementById('firstName'));
+    document.getElementById('firstName').classList.add('error');
+    setTimeout(()=>document.getElementById('firstName').classList.remove('error'),500);
     return;
   }
-  if(!email) {
-    showMsg(msg, 'error', 'Please enter your email address.');
-    shake(document.getElementById('emailInput'));
+  if(!contact) {
+    showMsg(msg, 'error', deliveryMode==='email' ? 'Please enter your email address.' : 'Please enter your cell phone number.');
+    shake(document.getElementById('contactInput'));
     return;
   }
-  if(!email.includes('@')) {
+  if(deliveryMode==='email' && !contact.includes('@')) {
     showMsg(msg, 'error', 'Please enter a valid email address.');
-    shake(document.getElementById('emailInput'));
-    return;
-  }
-  if(deliveryMode==='text' && !phone) {
-    showMsg(msg, 'error', 'Please enter your cell phone number to receive a text code.');
-    shake(document.getElementById('phoneInput'));
+    shake(document.getElementById('contactInput'));
     return;
   }
 
-  const contact = deliveryMode==='email' ? email : phone;
-  userData = { first, last, company, email, phone, contact, deliveryMode };
+  userData = { first, last, company, contact, deliveryMode };
 
   // Simulate "sending" code
   const btn = document.getElementById('step1Btn');
@@ -3232,8 +3093,8 @@ function submitStep1() {
     goToStep(2);
     // Show the "code sent" info
     const dest = deliveryMode==='email'
-      ? 'email <strong>'+maskEmail(email)+'</strong>'
-      : 'number <strong>'+maskPhone(phone)+'</strong>';
+      ? 'email <strong>'+maskEmail(contact)+'</strong>'
+      : 'number <strong>'+maskPhone(contact)+'</strong>';
     document.getElementById('codeSentTo').innerHTML =
       'Access code sent to ' + (deliveryMode==='email' ? 'email' : 'text') + ' ' + dest;
     document.getElementById('step2Msg').className='gate-msg info';
@@ -3332,7 +3193,6 @@ function revealCalc() {
   setTimeout(()=>{
     gate.classList.add('gone');
     const wrapper = document.getElementById('calcWrapper');
-    wrapper.style.display = '';        // clear any inline style so CSS class wins
     wrapper.classList.add('revealed');
     // Init calculator
     if(typeof autoICHRA === 'function') autoICHRA();
@@ -3368,13 +3228,13 @@ function goToStep(n) {
 function logout() {
   userData = {};
   document.getElementById('calcWrapper').classList.remove('revealed');
-  document.getElementById('calcWrapper').style.display = '';
+  document.getElementById('calcWrapper').style.display = 'none';
   const gate = document.getElementById('gate');
   gate.classList.remove('dissolving','gone');
-  gate.style.display = 'flex';
+  gate.style.display = '';
   goToStep(1);
   // Reset form
-  ['firstName','lastName','company','emailInput','phoneInput'].forEach(id=>{
+  ['firstName','lastName','company','contactInput'].forEach(id=>{
     const el = document.getElementById(id);
     if(el) el.value='';
   });
@@ -3445,7 +3305,21 @@ document.addEventListener('keydown', e=>{
 // ═══════════════════════════════════════════════════
 // ENGINE
 // ═══════════════════════════════════════════════════
-const HAS_PREMIUM      = 300;
+const HAS_PREMIUM=300;
+let COOP_FEE_OVERRIDE=375;
+function setAgeProfile(val){
+  const r={young:343,mixed:375,mature:397};
+  COOP_FEE_OVERRIDE=r[val]||375;
+  const h=document.getElementById('ageProfileHint');if(h)h.textContent='Using $'+COOP_FEE_OVERRIDE+'/mo.';
+  update();
+}
+function updateBiomed(){
+  var c=document.getElementById('biomedCheck'),res=document.getElementById('biomedResult');if(!c||!res)return;
+  if(c.checked){var ees=Math.max(1,v('planEEs',20));
+    document.getElementById('biomedAmt').textContent=fmt$(ees*600);
+    document.getElementById('biomedCalc').textContent=ees+' employees × $600 minimum';
+    res.style.display='block';}else res.style.display='none';
+}
 const HAS_RENEWAL_RATE = 0.029;
 
 let contribType     = 'flat';
@@ -3459,7 +3333,7 @@ const todayEl = document.getElementById('todayDate');
 if(todayEl) todayEl.textContent =
   today.toLocaleDateString('en-US',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
 
-function v(id,fb=0){const e=document.getElementById(id);const n=parseFloat(e.value);return isNaN(n)?fb:n}
+function v(id,fb=0){const e=document.getElementById(id);if(!e)return fb;const n=parseFloat(e.value);return isNaN(n)?fb:n}
 function fmt$(n,d=0){if(!isFinite(n))return'$—';return'$'+n.toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d})}
 function flash(id){const e=document.getElementById(id);if(!e)return;e.classList.remove('updated');void e.offsetWidth;e.classList.add('updated')}
 
@@ -3546,116 +3420,93 @@ let ichraContribType_g = 'pct';
 function calcEngine(){
   // ── Inputs ──────────────────────────────────────────────────────
   const totalEEs       = Math.max(1, v('totalEEs', 30));
-  const planEEs        = Math.max(1, Math.min(v('planEEs', 20), totalEEs)); // Q4: enrolled on plan
-  const tradPrem       = v('tradPremium', 700);          // Q5: full member fee
-  const tradContribType = tradContribType_g;             // 'pct' or 'flat'
-  const tradContribVal = v('tradContribValue', 75);      // Q6 value
+  const planEEs        = Math.max(1, Math.min(v('planEEs', 20), totalEEs));
+  const tradPrem       = v('tradPremium', 700);       // Q5: current monthly health insurance premium
+  const tradContribType = tradContribType_g;
+  const tradContribVal = v('tradContribValue', 75);   // Q6: % of current monthly rate
   const renewMonth     = v('renewalMonth', 12);
-  const contribValue   = v('contribValue', 250);         // Q7: coop employer contrib
-  const ichraEEsPct    = Math.min(100, Math.max(0, v('ichraEEs', 20))); // Q8: % choosing ICHRA
-  const ichraContrib   = v('ichraContrib', 75);          // Q9 value
-  const ichraContribType = ichraContribType_g;           // 'pct' or 'flat'
-  const ichraPremInd   = v('ichraPremiumInd', 900);      // Q10: ACA member fee (55+)
-  const renewRate      = v('renewalIncrease', 15) / 100; // Q11
+  const renewRate      = v('renewalIncrease', 15) / 100;
 
-  // ── QUICK ANALYSIS FORMULA ──────────────────────────────────────
+  // All-in Coop rate — preventive already included inside
+  const COOP_FEE       = COOP_FEE_OVERRIDE || 375;
+  const PREVENTIVE_FEE = 124; // billed flat to all non-Coop employees
+
+  // ── Employee breakdown ───────────────────────────────────────────
+  // 80% of enrolled → Coop/Preventive (preventive inside $375, no separate fee)
+  // 20% of enrolled → ICHRA (uses Q5 premium, Q6% employer contrib)
+  // Non-enrolled   → Preventive-only at $124 flat (employer pays full amount)
+  const coopEEs        = Math.round(planEEs * 0.80);
+  const ichraEEs       = planEEs - coopEEs;
+  const nonEnrolledEEs = Math.max(0, totalEEs - planEEs);
+  const prevOnlyEEs    = ichraEEs + nonEnrolledEEs; // all non-Coop employees
+
   // Traditional monthly employer cost
-  const tradContribEE = (tradContribType === 'flat')
+  const tradContribEE  = tradContribType === 'flat'
     ? tradContribVal
     : tradPrem * (tradContribVal / 100);
-  const tradCurrentMo = tradContribEE * planEEs; // Q4 × Q5 × Q6%
+  const tradCurrentMo  = tradContribEE * planEEs;
 
-  // Coop: 80% of enrolled employees go to Cooperative
-  const COOP_FEE       = 325;  // default member fee
-  const PREVENTIVE_FEE = 124;  // preventive/EAP layer — 80% also get this
-  const coopEEs        = Math.round(planEEs * 0.80);
-  const coopMo         = coopEEs * (COOP_FEE + PREVENTIVE_FEE); // both fees for 80%
+  // HAS monthly employer cost
+  const coopMoDetailed  = coopEEs  * COOP_FEE * (tradContribVal / 100);
+  const ichraMoDetailed = ichraEEs * tradPrem  * (tradContribVal / 100);
+  const prevMoTotal     = prevOnlyEEs * PREVENTIVE_FEE; // flat, no % applied
+  const blendedMo       = coopMoDetailed + ichraMoDetailed + prevMoTotal;
+  const monthlySav      = tradCurrentMo - blendedMo;
+  const annualSav       = monthlySav * 12;
 
-  // Quick savings (no ICHRA in quick analysis)
-  const quickSavingsMo = tradCurrentMo - coopMo;
-  const quickSavingsYr = quickSavingsMo * 12;
+  // Quick savings
+  const coopMo          = coopMoDetailed;
+  const quickSavingsMo  = monthlySav;
+  const quickSavingsYr  = annualSav;
 
-  // ── DETAILED ANALYSIS FORMULA ───────────────────────────────────
-  // ICHRA: Q8% of planEEs choose ACA marketplace
-  const ichraEEsCount  = Math.round(planEEs * (ichraEEsPct / 100));
-  const coopEEsDetailed = planEEs - ichraEEsCount; // rest go to Coop
-
-  // ICHRA cost per ee
-  const ichraCostEE = (ichraContribType === 'flat')
-    ? ichraContrib
-    : ichraPremInd * (ichraContrib / 100);
-
-  // Coop cost per ee (detailed — uses Q7 employer contrib)
-  const coopEmployerContrib = contribValue; // Q7
-
-  // Blended monthly employer cost (detailed)
-  const coopMoDetailed   = coopEEsDetailed * (coopEmployerContrib + PREVENTIVE_FEE);
-  const ichraMoDetailed  = ichraEEsCount   * ichraCostEE;
-  const blendedMo        = coopMoDetailed + ichraMoDetailed;
-
-  const monthlySav       = tradCurrentMo - blendedMo;
-  const annualSav        = monthlySav * 12;
-
-  // ── 5-Year projection ───────────────────────────────────────────
+  // ── 5-Year projection ─────────────────────────────────────────────
   const COOP_RATE = 0.03;
-  let tc_list = [], cc_list = [], cs_list = [], cum = 0;
-  for(let y = 0; y < 5; y++){
+  let tc_list=[], cc_list=[], cs_list=[], cum=0;
+  for(let y=0; y<5; y++){
     const t = (tradCurrentMo * 12) * Math.pow(1 + renewRate, y);
-    const c = (blendedMo    * 12) * Math.pow(1 + COOP_RATE, y);
+    const c = (blendedMo    * 12) * Math.pow(1 + COOP_RATE,  y);
     tc_list.push(t); cc_list.push(c);
     cum += (t - c); cs_list.push(cum);
   }
 
   // ── Renewal / cost-of-waiting ───────────────────────────────────
-  const today    = new Date();
-  let renewYear  = today.getFullYear();
+  const today       = new Date();
+  let renewYear     = today.getFullYear();
   if(today.getMonth() + 1 >= renewMonth) renewYear++;
-  const renewDate    = new Date(renewYear, renewMonth - 1, 1);
-  const daysToRenew  = Math.max(0, Math.round((renewDate - today) / 86400000));
-  const moToRenew    = Math.max(0, Math.round(daysToRenew / 30.4));
+  const renewDate   = new Date(renewYear, renewMonth - 1, 1);
+  const daysToRenew = Math.max(0, Math.round((renewDate - today) / 86400000));
+  const moToRenew   = Math.max(0, Math.round(daysToRenew / 30.4));
   const savBeforeRen = monthlySav * moToRenew;
   const windowLost   = monthlySav * 2;
   const totalForf    = savBeforeRen + windowLost;
 
-  // ── Savings at standard contribution levels ─────────────────────
-  const blended50  = coopEEsDetailed * (COOP_FEE * 0.50 + PREVENTIVE_FEE) + ichraMoDetailed;
-  const blended75  = coopEEsDetailed * (COOP_FEE * 0.75 + PREVENTIVE_FEE) + ichraMoDetailed;
-  const annSav50   = (tradCurrentMo - blended50) * 12;
-  const annSav75   = (tradCurrentMo - blended75) * 12;
-  const annSavFlat = annualSav;
-  const impliedPct = contribValue / COOP_FEE;
+  // ── Three savings scenarios ──────────────────────────────────────
+  // All compare against same traditional baseline (tradCurrentMo)
+  // Preventive ($124 × prevOnlyEEs) is FIXED in all scenarios
+  const blended50  = coopEEs*(COOP_FEE*0.50) + ichraEEs*(tradPrem*0.50) + prevMoTotal;
+  const blended75  = coopEEs*(COOP_FEE*0.75) + ichraEEs*(tradPrem*0.75) + prevMoTotal;
+  const annSav50   = (tradCurrentMo - blended50)  * 12;
+  const annSav75   = (tradCurrentMo - blended75)  * 12;
+  const annSavFlat = annualSav; // at employer's current Q6%
 
-  // ── Derived values expected by update() ────────────────────────
-  const hasEEs          = coopEEsDetailed;                  // employees on the Coop plan
-  const hasCostEE       = coopEmployerContrib + PREVENTIVE_FEE; // employer cost per Coop EE
-  // ichraCostEE already calculated above — reused here
-  const cumSav75        = cs_list[4] || 0;                  // 5-year cumulative savings
-  const monthlySavActual = monthlySav;                      // alias used by CoW section
-  const implDays        = 60;                               // standard implementation window
-  const moToRenewVal    = moToRenew;                        // alias — avoids name collision
-
-  // yearData array for 5-year bar chart
-  const yearData = tc_list.map((t, i) => ({
-    yr:  i + 1,
-    trad: t,
-    coop: cc_list[i],
-    cum:  cs_list[i]
-  }));
+  const yearData = cs_list.map((c,i) => ({yr: i+1, cum: Math.max(0, c)}));
+  const cumSav75 = cs_list[4] || 0;
 
   return {
-    totalEEs, planEEs, coopEEs, ichraEEsCount, coopEEsDetailed,
-    hasEEs, hasCostEE, ichraCostEE,
-    tradPrem, tradCurrentMo, tradContribEE,
-    coopMo, ichraMoDetailed, blendedMo, coopMoDetailed,
+    totalEEs, planEEs, coopEEs, ichraEEs, nonEnrolledEEs, prevOnlyEEs,
+    tradPrem, tradCurrentMo, tradContribEE, tradContribVal,
+    coopMoDetailed, ichraMoDetailed, prevMoTotal, blendedMo,
+    coopMo,
     quickSavingsMo, quickSavingsYr,
-    monthlySav, monthlySavActual, annualSav,
-    tc_list, cc_list, cs_list, yearData,
-    renewDate, daysToRenew, moToRenew, monthsToRenew: moToRenewVal,
+    monthlySav, annualSav, monthlySavActual:monthlySav,
+    tc_list, cc_list, cs_list, yearData, cumSav75,
+    renewDate, daysToRenew, moToRenew, monthsToRenew:moToRenew,
+    implDays:Math.round(daysToRenew),
     savBeforeRen, windowLost, totalForf,
-    annSav50, annSav75, annSavFlat, cumSav75,
-    impliedPct, implDays,
-    COOP_FEE, PREVENTIVE_FEE, ichraPremInd,
-    flatLabel: 'Coop $' + contribValue + '/mo contrib'
+    annSav50, annSav75, annSavFlat,
+    impliedPct: tradContribVal / 100,
+    COOP_FEE, PREVENTIVE_FEE,
+    flatLabel: Math.round(tradContribVal) + '% toward HAS'
   };
 }
 
@@ -3676,7 +3527,7 @@ function update(){
   const _el_hasCostPerEE=document.getElementById('hasCostPerEE');
   if(_el_hasCostPerEE) _el_hasCostPerEE.textContent = fmt$(r.hasCostEE)+' / mo';
   const hasCostAnnEl = document.getElementById('hasCostAnnual');
-  if(hasCostAnnEl) hasCostAnnEl.textContent = fmt$(r.hasCostEE*(r.totalEEs-r.ichraEEsCount)*12)+' / yr total (HAS group)';
+  if(hasCostAnnEl) hasCostAnnEl.textContent = fmt$(r.hasCostEE*(r.totalEEs-r.ichraEEs)*12)+' / yr total (HAS group)';
   const _el_ichraCostPerEE=document.getElementById('ichraCostPerEE');
   if(_el_ichraCostPerEE) _el_ichraCostPerEE.textContent = fmt$(r.ichraCostEE)+' / mo';
 
@@ -3688,19 +3539,19 @@ function update(){
   const tcmEl = document.getElementById('tradCurrentMonthly');
   if(tcmEl) tcmEl.textContent = fmt$(r.tradCurrentMo)+' / mo';
   const qsMoEl = document.getElementById('quickSavingsMo');
-  if(qsMoEl){ qsMoEl.textContent = r.quickSavingsMo > 0 ? fmt$(r.quickSavingsMo)+' / mo' : (r.quickSavingsMo === 0 ? '$0 / mo' : 'Enter data above'); }
+  if(qsMoEl){ qsMoEl.textContent = r.quickSavingsMo > 0 ? fmt$(r.quickSavingsMo)+' / mo' : (r.quickSavingsMo === 0 ? '$0 / mo' : '$—'); }
   const _el_blendedMonthly=document.getElementById('blendedMonthly');
   if(_el_blendedMonthly) _el_blendedMonthly.textContent = fmt$(r.blendedMo);
 
   // Annual savings — 3 rows
   const _el_annSav50=document.getElementById('annSav50');
-  if(_el_annSav50) _el_annSav50.textContent = fmt$(r.annSav50);
+  if(_el_annSav50) _el_annSav50.textContent=r.annSav50>0?fmt$(r.annSav50):'$—';
   const _el_annSav75=document.getElementById('annSav75');
-  if(_el_annSav75) _el_annSav75.textContent = fmt$(r.annSav75);
+  if(_el_annSav75) _el_annSav75.textContent=r.annSav75>0?fmt$(r.annSav75):'$—';
   const _el_annSavFlat=document.getElementById('annSavFlat');
-  if(_el_annSavFlat) _el_annSavFlat.textContent = fmt$(r.annSavFlat);
+  if(_el_annSavFlat) _el_annSavFlat.textContent=r.annSavFlat>0?fmt$(r.annSavFlat):'$—';
   const _el_flatBadge=document.getElementById('flatBadge');
-  if(_el_flatBadge) _el_flatBadge.textContent = r.flatLabel;
+  if(_el_flatBadge) _el_flatBadge.textContent=Math.round(r.tradContribVal||75)+'%';
   const row3Sub = document.getElementById('row3Sublabel');
   if(row3Sub) {
     const pctDisp = Math.round(r.impliedPct*100);
@@ -3721,31 +3572,27 @@ function update(){
   if(_el_pcReduction) _el_pcReduction.textContent = Math.round((r.tradPrem-HAS_PREMIUM)/r.tradPrem*100)+'%';
 
   // Renewal badge
-  const months = (r.monthsToRenew || 0).toFixed(1);
+  const months = r.monthsToRenew.toFixed(1);
   const _el_renewalText=document.getElementById('renewalText');
   if(_el_renewalText) _el_renewalText.textContent = months+' months until renewal';
   const badge = document.getElementById('renewalBadge');
-  if(badge) badge.className = 'renewal-badge '+((r.monthsToRenew||0)<4?'urgent':'okay');
-
-  // Premium per employee
-  const _el_premTrad = document.getElementById('premTrad');
-  const _el_premHAS  = document.getElementById('premHAS');
-  const _el_premPct  = document.getElementById('premPct');
-  if(_el_premTrad) _el_premTrad.textContent = fmt$(r.tradPrem);
-  if(_el_premHAS)  _el_premHAS.textContent  = fmt$(r.coopMoDetailed);
-  if(_el_premPct)  _el_premPct.textContent  = r.tradPrem>0 ? Math.round((1-r.coopMoDetailed/r.tradPrem)*100)+'%' : '—';
+  if(badge) badge.className = 'renewal-badge '+(r.monthsToRenew<4?'urgent':'okay');
 
   // 5-year bars
-  const maxVal = Math.max(...r.yearData.map(d=>d.cum),1);
   const _el_yearBars=document.getElementById('yearBars');
-  if(_el_yearBars) _el_yearBars.innerHTML = r.yearData.map(d=>{
-    const pct=Math.round(d.cum/maxVal*100);
-    return`<div class="year-bar-row">
-      <div class="year-bar-label">Yr ${d.yr}</div>
-      <div class="year-bar-track"><div class="year-bar-fill" style="width:${pct}%"></div></div>
-      <div class="year-bar-val">${fmt$(d.cum)}</div>
-    </div>`;
-  }).join('');
+  if(_el_yearBars&&r.yearData&&r.yearData.length){
+    const maxVal=Math.max(...r.yearData.map(d=>d.cum),1);
+    _el_yearBars.style.cssText='display:flex;flex-direction:column;gap:8px';
+    _el_yearBars.innerHTML=r.yearData.map(d=>{
+      const pct=Math.max(3,Math.round(d.cum/maxVal*100));
+      return'<div style="display:flex;align-items:center;gap:8px">'
+        +'<div style="font-size:.82rem;color:#1a2535;font-weight:600;width:26px;flex-shrink:0">Yr '+d.yr+'</div>'
+        +'<div style="flex:1;height:14px;background:rgba(37,99,168,.1);border-radius:3px;overflow:hidden">'
+        +'<div style="height:100%;width:'+pct+'%;background:linear-gradient(90deg,#2e5396,#0b1f3a);border-radius:3px"></div></div>'
+        +'<div style="font-size:.85rem;color:#0b1f3a;font-weight:700;width:72px;text-align:right;flex-shrink:0">'+fmt$(d.cum)+'</div>'
+        +'</div>';
+    }).join('');
+  }
 
   // Cost of waiting — MONTHLY headline
   // CoW: all based on actual Q5b contribution — tradCurrentMo minus blendedMo
@@ -3776,7 +3623,7 @@ function saveScenario(){
   scenarios.push({
     label: co+' ('+ee+' EEs)',
     ann75: r.annSav75,
-    cum5:  r.cumSav75 || 0,
+    cum5:  r.cumSav75,
   });
   renderScenarios();
 }
@@ -3815,17 +3662,6 @@ document.addEventListener('click', function(e){
 
 document.addEventListener('DOMContentLoaded',()=>{setTradContribType('pct');update()});
 
-// ── PRINT: set date and swap logo ──────────────────────────
-window.addEventListener('beforeprint', () => {
-  const d = new Date();
-  const el = document.getElementById('printDate');
-  if(el) el.textContent = d.toLocaleDateString('en-US',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
-  // Copy real logo src into print header img
-  const realLogo = document.querySelector('.calc-appbar-logo img');
-  const printLogo = document.querySelector('.print-report-header img');
-  if(realLogo && printLogo) printLogo.src = realLogo.src;
-});
-
 
 
 function toggleCoopInfo(){
@@ -3834,4 +3670,4 @@ function toggleCoopInfo(){
 }
 </script>
 </body>
-</html>
+</html
