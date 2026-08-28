@@ -1,0 +1,2845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bill Judge & Associates | Employee Benefits | Healthcare Cooperative</title>
+<meta name="description" content="Bill Judge & Associates — 35+ years helping businesses cut health insurance costs through Healthcare Cooperative, and more. Call 800-606-1071.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════════════════════════
+ DESIGN: Premium financial advisory. Deep navy
+ with warm gold. Cormorant serif headlines with
+ Outfit body. Architectural grid, editorial spacing.
+ The site that makes a prospect feel they've found
+ a serious professional — not just another agent.
+══════════════════════════════════════════════════ */
+
+:root {
+ --navy: #0b1f3a;
+ --navy2: #122847;
+ --navy3: #1a3560;
+ --blue: #2563a8;
+ --blue-lt: #3b7fd4;
+ --gold: #c8941f;
+ --gold-lt: #e8b84b;
+ --gold-pale: #fdf5e6;
+ --cream: #faf7f2;
+ --paper: #f5f1ea;
+ --white: #ffffff;
+ --ink: #0e1a2b;
+ --muted: #1a2535;
+ --line: #ddd9d0;
+ --green: #1a6b3a;
+ --red: #b91c1c;
+ --purple: #5b21b6;
+ --shadow: 0 4px 24px rgba(11,31,58,.10);
+ --shadow-lg: 0 12px 48px rgba(11,31,58,.18);
+ --radius: 6px;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:'Outfit',sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--navy)}
+::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px}
+
+/* ══════════════════════════════════════════════════
+ NAV
+══════════════════════════════════════════════════ */
+.nav{
+ position:fixed;top:0;left:0;right:0;z-index:100;
+ background:#ffffff;
+ backdrop-filter:none;
+ border-bottom:1px solid #e5e0d8;
+ box-shadow:0 2px 16px rgba(11,31,58,.10);
+ padding:0 5vw;
+ display:flex;align-items:center;justify-content:space-between;
+ height:76px;
+ transition:all .3s;
+}
+.nav-logo img{height:56px;width:auto;display:block}
+.nav-links{display:flex;align-items:center;gap:32px}
+.nav-links a{
+ font-family:'Outfit',sans-serif;font-size:1.091rem;font-weight:500;
+ color:#ffffff;text-decoration:none;
+ letter-spacing:.08em;text-transform:uppercase;
+ transition:color .2s;
+}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta{
+ padding:9px 22px;background:var(--navy);color:#ffffff;
+ border-radius:var(--radius);font-weight:700;font-size:1.1rem;
+ letter-spacing:.06em;text-transform:uppercase;text-decoration:none;
+ transition:background .2s,transform .1s;white-space:nowrap;
+}
+.nav-cta:hover{background:var(--navy3);transform:translateY(-1px)}
+.nav-phone{
+ font-size:1.188rem;font-weight:700;color:var(--navy);
+ letter-spacing:.04em;text-decoration:none;
+}
+.nav-phone:hover{color:var(--gold)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.hamburger span{display:block;width:24px;height:2px;background:var(--navy);border-radius:2px;transition:all .3s}
+.mobile-menu{
+ display:none;position:fixed;inset:0;background:var(--navy);z-index:200;
+ flex-direction:column;align-items:center;justify-content:center;gap:32px;
+}
+.mobile-menu.open{display:flex}
+.mobile-menu a{
+ font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:300;
+ color:var(--white);text-decoration:none;letter-spacing:.05em;
+ transition:color .2s;
+}
+.mobile-menu a:hover{color:var(--gold-lt)}
+.mobile-close{
+ position:absolute;top:24px;right:24px;background:none;border:none;
+ color:white;font-size:1.6rem;cursor:pointer;padding:8px;
+}
+
+/* ══════════════════════════════════════════════════
+ HERO
+══════════════════════════════════════════════════ */
+.hero{
+ min-height:auto;
+ background:linear-gradient(150deg,var(--navy) 0%,var(--navy2) 55%,var(--navy3) 100%);
+ display:flex;align-items:center;
+ padding:64px 5vw 56px;
+ position:relative;overflow:hidden;
+}
+.hero::before{
+ content:'';position:absolute;inset:0;
+ background:
+ radial-gradient(ellipse 80% 60% at 80% 50%,rgba(200,148,31,.08) 0%,transparent 70%),
+ radial-gradient(ellipse 40% 80% at 10% 80%,rgba(37,99,168,.15) 0%,transparent 60%);
+}
+/* Architectural diagonal */
+.hero::after{
+ content:'';position:absolute;
+ right:-100px;top:0;bottom:0;width:45%;
+ background:rgba(255,255,255,.018);
+ transform:skewX(-8deg);
+ border-left:1px solid rgba(200,148,31,.12);
+}
+.hero-grid{
+ max-width:860px;width:100%;margin:0 auto;
+ display:grid;grid-template-columns:1fr;
+ gap:0;align-items:center;position:relative;z-index:1;
+}
+.hero-eyebrow{
+ font-size:0.9rem;letter-spacing:.2em;text-transform:uppercase;
+ color:var(--gold);font-weight:600;margin-bottom:18px;
+ display:flex;align-items:center;gap:10px;
+}
+.hero-eyebrow::before{
+ content:'';display:block;width:28px;height:1px;background:var(--gold);
+}
+.hero h1{
+ font-family:'Cormorant Garamond',serif;
+ font-size:clamp(2.8rem,5vw,4.2rem);
+ font-weight:300;line-height:1.1;
+ color:var(--white);letter-spacing:-.02em;
+ margin-bottom:12px;
+}
+.hero h1 em{
+ font-style:italic;color:var(--gold-lt);
+}
+.hero-sub{
+ font-size:1.1rem;color:rgba(255,255,255,.9);
+ font-weight:300;line-height:1.65;
+ margin-bottom:32px;max-width:520px;
+}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+.btn-primary{
+ display:inline-flex;align-items:center;gap:8px;
+ padding:14px 28px;background:var(--gold);color:var(--navy);
+ border-radius:var(--radius);font-weight:700;font-size:1.1rem;
+ letter-spacing:.06em;text-transform:uppercase;text-decoration:none;
+ transition:all .2s;box-shadow:0 4px 16px rgba(200,148,31,.3);
+}
+.btn-primary:hover{background:var(--gold-lt);transform:translateY(-2px);box-shadow:0 8px 24px rgba(200,148,31,.35)}
+.btn-secondary{
+ display:inline-flex;align-items:center;gap:8px;
+ padding:13px 28px;border:1.5px solid rgba(255,255,255,.3);
+ color:#ffffff;border-radius:var(--radius);
+ font-weight:500;font-size:1.1rem;letter-spacing:.06em;
+ text-transform:uppercase;text-decoration:none;transition:all .2s;
+}
+.btn-secondary:hover{border-color:var(--gold);color:var(--gold-lt);background:rgba(200,148,31,.05)}
+
+/* Hero right side — stat cards */
+.hero-stats{
+ display:grid;grid-template-columns:1fr 1fr;gap:16px;
+}
+.stat-card{
+ background:rgba(255,255,255,.05);
+ border:1px solid rgba(200,148,31,.15);
+ border-radius:var(--radius);padding:24px 20px;
+ transition:all .3s;
+}
+.stat-card:hover{background:rgba(255,255,255,.08);border-color:rgba(200,148,31,.35);transform:translateY(-2px)}
+.stat-card.featured{
+ grid-column:1/-1;
+ background:linear-gradient(135deg,rgba(200,148,31,.15),rgba(200,148,31,.05));
+ border-color:rgba(200,148,31,.4);
+}
+.stat-num{
+ font-family:'Cormorant Garamond',serif;
+ font-size:2.6rem;font-weight:400;color:var(--gold-lt);
+ line-height:1;margin-bottom:6px;
+}
+.stat-label{font-size:1.037rem;color:#ffffff;font-weight:400;line-height:1.4}
+.stat-card.featured .stat-num{font-size:3.2rem}
+
+/* ══════════════════════════════════════════════════
+ TRUST BAR
+══════════════════════════════════════════════════ */
+.trust-bar{
+ background:var(--white);border-bottom:1px solid var(--line);
+ padding:20px 5vw;
+}
+.trust-inner{
+ max-width:1280px;margin:0 auto;
+ display:flex;align-items:center;justify-content:center;
+ gap:40px;flex-wrap:wrap;
+}
+.trust-item{
+ display:flex;align-items:center;gap:10px;
+ font-size:1.064rem;color:var(--navy);font-weight:500;
+ letter-spacing:.04em;text-transform:uppercase;
+}
+.trust-item::before{
+ content:'✦';color:var(--gold);font-size:0.875rem;
+}
+
+/* ══════════════════════════════════════════════════
+ SECTIONS — shared
+══════════════════════════════════════════════════ */
+section{padding:64px 5vw;position:relative}
+.section-inner{max-width:1280px;margin:0 auto}
+.section-label{
+ font-size:0.875rem;letter-spacing:.2em;text-transform:uppercase;
+ color:var(--gold);font-weight:600;margin-bottom:14px;
+ display:flex;align-items:center;gap:10px;
+}
+.section-label::before{content:'';display:block;width:24px;height:1px;background:var(--gold)}
+.section-title{
+ font-family:'Cormorant Garamond',serif;
+ font-size:clamp(2rem,4vw,3rem);font-weight:300;
+ color:var(--navy);line-height:1.15;letter-spacing:-.02em;
+}
+.section-title em{font-style:italic;color:var(--blue)}
+.section-subtitle{
+ font-size:1.33rem;color:#0e1a2b;font-weight:300;
+ line-height:1.7;max-width:580px;margin-top:14px;
+}
+
+/* ══════════════════════════════════════════════════
+ THE TRUTH SECTION (Pain + Solution)
+══════════════════════════════════════════════════ */
+.truth-section{background:var(--navy);}
+.truth-grid{
+ display:grid;grid-template-columns:1fr 1fr;gap:2px;
+ border:1px solid rgba(200,148,31,.15);border-radius:var(--radius);
+ overflow:hidden;
+}
+.truth-col{padding:48px 44px}
+.truth-col.pain{background:rgba(185,28,28,.08)}
+.truth-col.solution{background:rgba(26,107,58,.08)}
+.truth-col-label{
+ font-size:0.85rem;letter-spacing:.18em;text-transform:uppercase;
+ font-weight:600;margin-bottom:20px;
+ display:flex;align-items:center;gap:8px;
+}
+.truth-col.pain .truth-col-label{color:#f87171}
+.truth-col.solution .truth-col-label{color:#6ee7b7}
+.truth-col h3{
+ font-family:'Cormorant Garamond',serif;
+ font-size:1.75rem;font-weight:300;
+ color:var(--white);margin-bottom:20px;line-height:1.3;
+}
+.truth-item{
+ display:flex;gap:12px;margin-bottom:14px;align-items:flex-start;
+}
+.truth-item .icon{
+ font-size:1.125rem;margin-top:2px;flex-shrink:0;
+}
+.truth-col.pain .icon{color:#f87171}
+.truth-col.solution .icon{color:#6ee7b7}
+.truth-item p{font-size:1.197rem;color:#ffffff;line-height:1.6;font-weight:300}
+.truth-item strong{color:#ffffff;font-weight:500}
+
+/* ══════════════════════════════════════════════════
+ WHAT WE OFFER
+══════════════════════════════════════════════════ */
+.offers-section{background:var(--cream)}
+.offers-grid{
+ display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+ gap:24px;margin-top:52px;
+}
+.offer-card{
+ background:var(--white);border-radius:var(--radius);
+ padding:36px 30px;
+ box-shadow:var(--shadow);
+ border-top:3px solid transparent;
+ transition:all .3s;position:relative;overflow:hidden;
+}
+.offer-card::before{
+ content:'';position:absolute;bottom:0;left:0;right:0;height:0;
+ background:linear-gradient(to top,rgba(37,99,168,.03),transparent);
+ transition:height .4s;
+}
+.offer-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.offer-card:hover::before{height:100%}
+.offer-card.primary{border-top-color:var(--gold)}
+.offer-card.secondary{border-top-color:var(--blue)}
+.offer-card.tertiary{border-top-color:var(--green)}
+.offer-card.quaternary{border-top-color:#ffffff}
+.offer-icon{
+ width:48px;height:48px;border-radius:12px;
+ display:flex;align-items:center;justify-content:center;
+ font-size:1.3rem;margin-bottom:20px;
+}
+.offer-card.primary .offer-icon{background:rgba(200,148,31,.1);color:var(--gold)}
+.offer-card.secondary .offer-icon{background:rgba(37,99,168,.1);color:var(--blue)}
+.offer-card.tertiary .offer-icon{background:rgba(26,107,58,.1);color:var(--green)}
+.offer-card.quaternary .offer-icon{background:rgba(90,110,132,.1);color:#ffffff}
+.offer-card h3{
+ font-family:'Cormorant Garamond',serif;
+ font-size:1.35rem;font-weight:400;color:var(--navy);
+ margin-bottom:10px;line-height:1.3;
+}
+.offer-card p{
+ font-size:1.17rem;color:#ffffff;line-height:1.7;font-weight:300;
+}
+.offer-card .offer-link{
+ display:inline-flex;align-items:center;gap:6px;
+ margin-top:18px;font-size:0.975rem;font-weight:600;
+ letter-spacing:.06em;text-transform:uppercase;
+ text-decoration:none;transition:gap .2s;
+}
+.offer-card.primary .offer-link{color:var(--gold)}
+.offer-card.secondary .offer-link{color:var(--blue)}
+.offer-card.tertiary .offer-link{color:var(--green)}
+.offer-card.quaternary .offer-link{color:#ffffff}
+.offer-link:hover{gap:10px}
+
+/* ══════════════════════════════════════════════════
+ HCC SAVINGS SPOTLIGHT
+══════════════════════════════════════════════════ */
+.savings-section{
+ background:linear-gradient(135deg,var(--navy) 0%,var(--navy3) 100%);
+ overflow:hidden;
+}
+.savings-grid{
+ display:grid;grid-template-columns:1fr 1fr;
+ gap:48px;align-items:start;
+}
+.savings-numbers{
+ display:grid;grid-template-columns:1fr 1fr;gap:16px;
+}
+.snum{
+ padding:28px 22px;
+ border:1px solid rgba(200,148,31,.2);border-radius:var(--radius);
+ background:rgba(255,255,255,.04);transition:all .3s;
+}
+.snum:hover{background:rgba(255,255,255,.07);border-color:rgba(200,148,31,.4)}
+.snum.wide{grid-column:1/-1;background:rgba(200,148,31,.08)}
+.snum-val{
+ font-family:'Cormorant Garamond',serif;
+ font-size:2.4rem;color:var(--gold-lt);font-weight:300;line-height:1;
+}
+.snum.wide .snum-val{font-size:3rem}
+.snum-lbl{font-size:1.011rem;color:#ffffff;margin-top:6px;line-height:1.4}
+.savings-text .section-title{color:var(--white)}
+.savings-text .section-subtitle{color:#ffffff}
+.savings-bullets{margin-top:32px;display:flex;flex-direction:column;gap:14px}
+.sav-bullet{
+ display:flex;gap:12px;align-items:flex-start;
+ font-size:1rem;color:#ffffff;line-height:1.6;font-weight:300;
+ padding:10px 0;border-bottom:1px solid rgba(255,255,255,.08);
+}
+.sav-bullet::before{
+ content:'\2714';display:block;
+ color:var(--gold);font-size:.95rem;
+ margin-top:2px;flex-shrink:0;font-weight:700;
+}
+
+/* ══════════════════════════════════════════════════
+ ICHRA SECTION
+══════════════════════════════════════════════════ */
+.ichra-section{background:var(--paper)}
+.ichra-card{
+ background:var(--white);border-radius:var(--radius);
+ overflow:hidden;box-shadow:var(--shadow);
+ display:grid;grid-template-columns:1fr 2fr;
+}
+.ichra-accent{
+ background:linear-gradient(160deg,var(--blue) 0%,var(--navy3) 100%);
+ padding:48px 36px;
+ display:flex;flex-direction:column;justify-content:center;
+}
+.ichra-accent h3{
+ font-family:'Cormorant Garamond',serif;
+ font-size:2rem;color:var(--white);font-weight:300;
+ line-height:1.2;margin-bottom:16px;
+}
+.ichra-accent p{
+ font-size:1.17rem;color:#ffffff;font-weight:300;line-height:1.7;
+}
+.ichra-body{padding:48px 44px}
+.ichra-body p{
+ font-size:1.264rem;color:#ffffff;line-height:1.8;font-weight:300;
+ margin-bottom:18px;
+}
+.ichra-grid{
+ display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px;
+}
+.ichra-point{
+ padding:18px 16px;background:var(--paper);border-radius:4px;
+ border-left:2px solid var(--blue);
+}
+.ichra-point strong{font-size:1.025rem;font-weight:600;color:var(--navy);display:block;margin-bottom:4px}
+.ichra-point span{font-size:1.064rem;color:#1a3560;line-height:1.5}
+
+/* ══════════════════════════════════════════════════
+ BIOMED SECTION
+══════════════════════════════════════════════════ */
+.biomed-section{background:var(--cream)}
+.biomed-layout{
+ display:grid;grid-template-columns:2fr 1fr;gap:60px;align-items:center;
+}
+.biomed-points{
+ display:flex;flex-direction:column;gap:0;margin-top:32px;
+ border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;
+}
+.bpoint{
+ display:grid;grid-template-columns:60px 1fr;
+ border-bottom:1px solid var(--line);
+ transition:background .2s;
+}
+.bpoint:last-child{border-bottom:none}
+.bpoint:hover{background:var(--gold-pale)}
+.bpoint-num{
+ display:flex;align-items:center;justify-content:center;
+ background:var(--navy);
+ font-family:'Cormorant Garamond',serif;
+ font-size:1.3rem;color:var(--gold-lt);font-weight:400;
+}
+.bpoint-text{padding:18px 20px}
+.bpoint-text strong{font-size:1.125rem;font-weight:600;color:var(--navy);display:block;margin-bottom:3px}
+.bpoint-text span{font-size:1.091rem;color:#1a3560;line-height:1.5}
+.biomed-cta-box{
+ background:linear-gradient(160deg,var(--green),#145c2f);
+ border-radius:var(--radius);padding:40px 32px;color:var(--white);
+ box-shadow:var(--shadow-lg);
+}
+.biomed-cta-box h4{
+ font-family:'Cormorant Garamond',serif;
+ font-size:1.8rem;font-weight:300;line-height:1.2;margin-bottom:12px;
+}
+.biomed-cta-box p{
+ font-size:1.144rem;color:#ffffff;line-height:1.7;margin-bottom:24px;
+}
+.biomed-saving{
+ font-family:'Cormorant Garamond',serif;
+ font-size:3rem;color:#a7f3d0;font-weight:300;margin-bottom:6px;line-height:1;
+}
+.biomed-saving-lbl{font-size:1.011rem;color:#ffffff;margin-bottom:24px}
+
+/* ══════════════════════════════════════════════════
+ CTA BAND
+══════════════════════════════════════════════════ */
+.cta-band{
+ background:var(--gold);padding:72px 5vw;text-align:center;
+}
+.cta-band h2{
+ font-family:'Cormorant Garamond',serif;
+ font-size:clamp(2rem,4vw,3.2rem);font-weight:300;
+ color:var(--navy);line-height:1.2;margin-bottom:16px;
+ letter-spacing:-.01em;
+}
+.cta-band p{font-size:1.33rem;color:var(--navy);max-width:560px;margin:0 auto 36px;line-height:1.7}
+.cta-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn-dark{
+ display:inline-flex;align-items:center;gap:8px;
+ padding:14px 32px;background:var(--navy);color:var(--white);
+ border-radius:var(--radius);font-weight:700;font-size:1.1rem;
+ letter-spacing:.06em;text-transform:uppercase;text-decoration:none;
+ transition:all .2s;
+}
+.btn-dark:hover{background:var(--navy3);transform:translateY(-2px)}
+.btn-outline-dark{
+ display:inline-flex;align-items:center;gap:8px;
+ padding:13px 28px;border:2px solid var(--navy);
+ color:var(--navy);border-radius:var(--radius);
+ font-weight:600;font-size:1.1rem;letter-spacing:.06em;
+ text-transform:uppercase;text-decoration:none;transition:all .2s;
+}
+.btn-outline-dark:hover{background:rgba(11,31,58,.08)}
+
+/* ══════════════════════════════════════════════════
+ CONTACT
+══════════════════════════════════════════════════ */
+.contact-section{background:var(--navy2);padding:56px 5vw}
+.contact-grid{
+ max-width:1280px;margin:0 auto;
+ display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;
+}
+.contact-info .section-title{color:var(--white)}
+.contact-info .section-subtitle{color:#ffffff}
+.contact-items{margin-top:24px;display:flex;flex-direction:column;gap:12px}
+.citem{
+ display:flex;gap:12px;align-items:flex-start;
+ padding:12px 16px;background:rgba(255,255,255,.04);
+ border:1px solid rgba(200,148,31,.12);border-radius:var(--radius);
+ transition:border-color .2s;
+}
+.citem:hover{border-color:rgba(200,148,31,.35)}
+.citem-icon{
+ width:32px;height:32px;background:rgba(200,148,31,.12);
+ border-radius:6px;display:flex;align-items:center;justify-content:center;
+ color:var(--gold-lt);font-size:.9rem;flex-shrink:0;
+}
+.citem-label{font-size:1.164rem;color:#ffffff;letter-spacing:.1em;text-transform:uppercase;margin-bottom:2px}
+.citem-val{font-size:1.225rem;color:var(--white);font-weight:500}
+.citem-val a{color:var(--gold-lt);text-decoration:none}
+.citem-val a:hover{color:white}
+.contact-form-wrap{}
+.contact-form{
+ background:rgba(255,255,255,.04);
+ border:1px solid rgba(200,148,31,.15);
+ border-radius:var(--radius);padding:28px 28px 24px;
+}
+.contact-form h3{
+ font-family:'Cormorant Garamond',serif;
+ font-size:1.5rem;color:var(--white);font-weight:300;
+ margin-bottom:18px;
+}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
+.form-group{margin-bottom:10px}
+.form-group label{
+ display:block;font-size:1.198rem;letter-spacing:.1em;text-transform:uppercase;
+ color:#ffffff;font-weight:500;margin-bottom:7px;
+}
+.form-group input,
+.form-group select,
+.form-group textarea{
+ width:100%;padding:11px 14px;
+ background:rgba(255,255,255,.06);
+ border:1.5px solid rgba(255,255,255,.12);
+ border-radius:4px;color:var(--white);
+ font-family:'Outfit',sans-serif;font-size:1.125rem;font-weight:300;
+ outline:none;transition:border-color .2s;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{border-color:var(--gold);background:rgba(255,255,255,.09)}
+.form-group input::placeholder,
+.form-group textarea::placeholder{color:#ffffff}
+.form-group select option{background:var(--navy2);color:var(--white)}
+.form-submit{
+ width:100%;padding:13px;background:var(--gold);color:var(--navy);
+ border:none;border-radius:var(--radius);
+ font-family:'Outfit',sans-serif;font-weight:700;font-size:1.1rem;
+ letter-spacing:.08em;text-transform:uppercase;cursor:pointer;
+ transition:background .2s,transform .1s;margin-top:6px;
+}
+.form-submit:hover{background:var(--gold-lt);transform:translateY(-1px)}
+.form-note{font-size:1.248rem;color:#ffffff;text-align:center;margin-top:10px}
+
+/* ══════════════════════════════════════════════════
+ FOOTER
+══════════════════════════════════════════════════ */
+.footer{
+ background:var(--navy);border-top:1px solid rgba(200,148,31,.15);
+ padding:32px 5vw;
+}
+.footer-inner{
+ max-width:1280px;margin:0 auto;
+ display:flex;align-items:center;justify-content:space-between;
+ flex-wrap:wrap;gap:20px;
+}
+.footer-logo img{height:32px;opacity:.85}
+.footer-copy{
+ font-size:1.011rem;color:#ffffff;
+}
+.footer-links{display:flex;gap:24px}
+.footer-links a{
+ font-size:1.011rem;color:#ffffff;
+ text-decoration:none;transition:color .2s;
+}
+.footer-links a:hover{color:var(--gold-lt)}
+
+/* ══════════════════════════════════════════════════
+ SCROLL ANIMATIONS
+══════════════════════════════════════════════════ */
+.reveal{
+ opacity:0;transform:translateY(28px);
+ transition:opacity .7s ease,transform .7s ease;
+}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:.1s}
+.reveal-delay-2{transition-delay:.2s}
+.reveal-delay-3{transition-delay:.3s}
+.reveal-delay-4{transition-delay:.4s}
+
+/* Sticky phone CTA (mobile) */
+.sticky-cta{
+ display:none;
+ position:fixed;bottom:0;left:0;right:0;z-index:90;
+ background:var(--gold);padding:14px;text-align:center;
+ box-shadow:0 -4px 20px rgba(0,0,0,.2);
+}
+.sticky-cta a{
+ font-size:1.125rem;font-weight:700;color:var(--navy);
+ text-decoration:none;letter-spacing:.04em;
+}
+
+/* ══════════════════════════════════════════════════
+ RESPONSIVE
+══════════════════════════════════════════════════ */
+@media(max-width:1024px){
+ .savings-grid,.about-grid,.contact-grid{grid-template-columns:1fr;gap:48px}
+ 
+ .hero-stats{display:flex;flex-wrap:wrap}
+ .stat-card{flex:1;min-width:200px}
+ .ichra-card{grid-template-columns:1fr}
+ .biomed-layout{grid-template-columns:1fr}
+}
+@media(max-width:768px){
+ .nav-links,.nav-cta,.nav-phone{display:none}
+ .hamburger{display:flex}
+ .truth-grid{grid-template-columns:1fr}
+ .savings-numbers{grid-template-columns:1fr 1fr}
+ .form-row{grid-template-columns:1fr}
+ .trust-inner{gap:20px}
+ .sticky-cta{display:block}
+ body{padding-bottom:56px}
+}
+
+
+
+/* ══ GATED CALCULATOR OVERLAY ══ */
+
+/* ════════════════════════════════════════════════
+ AUTH GATE + CALCULATOR
+ Premium financial services aesthetic.
+ Navy + gold. Gate dissolves to reveal the tool.
+════════════════════════════════════════════════ */
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+
+
+/* ────────────────────────────────────────────────
+ GATE OVERLAY — sits inside modal, scrolls naturally
+──────────────────────────────────────────────── */
+#gate {
+ position:relative;
+ min-height:100vh;
+ background:var(--navy);
+ display:none;flex-direction:column;
+ align-items:center;justify-content:center;
+ padding:40px 24px 60px;
+}
+#gate.dissolving {
+ opacity:0;
+ transform:scale(1.02);
+ pointer-events:none;
+ transition:opacity .6s ease, transform .6s ease;
+}
+#gate.gone { display:none; }
+
+/* Atmospheric background for gate */
+#gate::before {
+ content:'';position:absolute;inset:0;
+ background:
+ radial-gradient(ellipse 70% 60% at 20% 30%, rgba(200,148,31,.06) 0%, transparent 70%),
+ radial-gradient(ellipse 50% 70% at 80% 70%, rgba(37,99,168,.08) 0%, transparent 60%);
+ pointer-events:none;
+}
+/* Subtle grid lines */
+#gate::after {
+ content:'';position:absolute;inset:0;
+ background-image:
+ linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+ linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+ background-size:48px 48px;
+ pointer-events:none;
+}
+
+.gate-card {
+ position:relative;z-index:1;
+ width:100%;max-width:440px;
+ background:rgba(255,255,255,.04);
+ border:1px solid rgba(200,148,31,.2);
+ border-radius:10px;
+ overflow:hidden;
+ box-shadow:0 24px 80px rgba(0,0,0,.4), 0 0 0 1px rgba(200,148,31,.08);
+ animation:gateReveal .8s cubic-bezier(.16,1,.3,1) forwards;
+}
+@keyframes gateReveal {
+ from{ opacity:0; transform:translateY(32px) scale(.97); }
+ to { opacity:1; transform:translateY(0) scale(1); }
+}
+
+/* Card header */
+.gate-header {
+ background:linear-gradient(135deg,var(--navy2),var(--navy3));
+ padding:28px 32px 24px;
+ text-align:center;
+ border-bottom:1px solid rgba(200,148,31,.15);
+}
+.gate-logo {
+ display:inline-block;
+ background:white;border-radius:5px;
+ padding:7px 14px;margin-bottom:18px;
+}
+.gate-logo img {height:38px;width:auto;display:block}
+.gate-title {
+ font-family:'Cormorant Garamond',serif;
+ font-size:1.75rem;font-weight:300;color:var(--white);
+ line-height:1.2;letter-spacing:-.01em;
+}
+.gate-title em {font-style:italic;color:var(--gold-lt)}
+.gate-sub {
+ font-size:1.091rem;color:rgba(255,255,255,.95);
+ font-weight:300;margin-top:8px;line-height:1.5;
+}
+
+/* Card body */
+.gate-body {
+ padding:28px 32px 24px;
+}
+
+/* Steps */
+.gate-step {display:none}
+.gate-step.active {display:block}
+
+/* Step animations */
+.gate-step.entering {
+ animation:stepIn .35s ease forwards;
+}
+.gate-step.exiting {
+ animation:stepOut .25s ease forwards;
+}
+@keyframes stepIn { from{opacity:0;transform:translateX(20px)} to{opacity:1;transform:translateX(0)} }
+@keyframes stepOut { from{opacity:1;transform:translateX(0)} to{opacity:0;transform:translateX(-20px)} }
+
+/* Form elements */
+.gate-label {
+ display:block;font-size:.93rem;letter-spacing:.12em;
+ text-transform:uppercase;font-weight:600;
+ color:#ffffff;margin-bottom:7px;
+}
+#gate .gate-input,
+#gate .gate-input[type="text"],
+#gate .gate-input[type="email"],
+#gate .gate-input[type="tel"],
+#gate .gate-input[type="number"] {
+ width:100%;padding:12px 14px;
+ background:rgba(255,255,255,.10) !important;
+ border:1.5px solid rgba(255,255,255,.25) !important;
+ border-radius:5px;
+ color:#ffffff !important;
+ font-family:'Outfit',sans-serif;font-size:1.1rem;font-weight:400;
+ outline:none;transition:border-color .2s,background .2s;
+ margin-bottom:14px;
+ -webkit-text-fill-color:#ffffff !important;
+}
+#gate .gate-input:focus,
+#gate .gate-input[type="text"]:focus,
+#gate .gate-input[type="email"]:focus,
+#gate .gate-input[type="tel"]:focus {
+ border-color:var(--gold) !important;
+ background:rgba(255,255,255,.15) !important;
+}
+#gate .gate-input::placeholder { color:rgba(255,255,255,.5) !important; }
+#gate .gate-input:-webkit-autofill,
+#gate .gate-input:-webkit-autofill:focus {
+ -webkit-text-fill-color:#ffffff !important;
+ -webkit-box-shadow:0 0 0px 1000px rgba(11,31,58,.9) inset !important;
+}
+.gate-input.error { border-color:var(--red) !important; animation:shake .3s ease; }
+@keyframes shake {
+ 0%,100%{transform:translateX(0)}
+ 25%{transform:translateX(-6px)}
+ 75%{transform:translateX(6px)}
+}
+
+/* Name row */
+.name-row {display:grid;grid-template-columns:1fr 1fr;gap:12px}
+
+/* Delivery toggle */
+.delivery-toggle {
+ display:grid;grid-template-columns:1fr 1fr;
+ gap:8px;margin-bottom:16px;
+}
+.delivery-btn {
+ padding:10px;text-align:center;
+ border:1.5px solid rgba(255,255,255,.15);
+ border-radius:5px;cursor:pointer;
+ font-family:'Outfit',sans-serif;font-size:1.09rem;font-weight:500;
+ color:#ffffff;
+ background:rgba(255,255,255,.04);
+ transition:all .2s;
+}
+.delivery-btn:hover {border-color:rgba(200,148,31,.4);color:rgba(255,255,255,.85)}
+.delivery-btn.selected {
+ border-color:var(--gold);background:rgba(200,148,31,.12);
+ color:var(--gold-lt);font-weight:600;
+}
+.delivery-btn svg {display:block;margin:0 auto 5px;opacity:.7}
+.delivery-btn.selected svg {opacity:1}
+
+/* Primary button */
+.gate-btn {
+ width:100%;padding:13px;
+ background:linear-gradient(135deg,var(--gold),var(--gold-lt));
+ color:var(--navy);border:none;border-radius:5px;
+ font-family:'Outfit',sans-serif;font-weight:700;font-size:1.1rem;
+ letter-spacing:.05em;text-transform:uppercase;cursor:pointer;
+ transition:opacity .2s,transform .1s,box-shadow .2s;
+ margin-top:6px;
+ box-shadow:0 4px 16px rgba(200,148,31,.3);
+}
+.gate-btn:hover {opacity:.92;transform:translateY(-1px);box-shadow:0 8px 24px rgba(200,148,31,.35)}
+.gate-btn:active {transform:translateY(0)}
+.gate-btn:disabled {opacity:.5;cursor:not-allowed;transform:none}
+
+/* Code input — large centered */
+.code-wrap {
+ display:flex;gap:10px;justify-content:center;
+ margin:20px 0;
+}
+.code-char {
+ width:46px;height:58px;
+ background:rgba(255,255,255,.07);
+ border:2px solid rgba(255,255,255,.15);
+ border-radius:6px;
+ font-family:'Cormorant Garamond',serif;
+ font-size:1.8rem;font-weight:400;color:var(--white);
+ text-align:center;outline:none;
+ transition:border-color .15s,background .15s;
+ caret-color:var(--gold);
+ text-transform:uppercase;
+}
+.code-char:focus {
+ border-color:var(--gold);background:rgba(255,255,255,.11);
+}
+.code-char.filled {border-color:rgba(200,148,31,.5);}
+.code-char.error {border-color:var(--red)!important;animation:shake .3s ease}
+
+/* Hidden real input for mobile paste */
+#codeRealInput {
+ position:absolute;opacity:0;width:1px;height:1px;pointer-events:none;
+}
+
+/* Error / info messages */
+.gate-msg {
+ font-size:1.09rem;line-height:1.6;
+ padding:12px 16px;border-radius:4px;
+ margin-bottom:14px;display:none;
+}
+.gate-msg.error {
+ background:rgba(185,28,28,.15);
+ border:1px solid rgba(185,28,28,.3);
+ color:#fca5a5;display:block;
+}
+.gate-msg.info {
+ background:rgba(200,148,31,.1);
+ border:1px solid rgba(200,148,31,.2);
+ color:var(--gold-lt);display:block;
+}
+.gate-msg.success {
+ background:rgba(26,107,58,.15);
+ border:1px solid rgba(26,107,58,.3);
+ color:#6ee7b7;display:block;
+}
+
+/* Code sent display */
+.code-sent-to {
+ text-align:center;
+ font-size:1.09rem;color:#ffffff;
+ margin-bottom:6px;
+ font-weight:400;
+}
+.code-sent-to strong {color:var(--gold-lt);font-weight:600}
+
+/* Resend */
+.resend-row {
+ text-align:center;margin-top:14px;
+ font-size:1.04rem;color:#ffffff;
+}
+.resend-link {
+ color:var(--gold-lt);cursor:pointer;font-weight:700;
+ text-decoration:underline;text-underline-offset:2px;
+ background:none;border:none;font-family:'Outfit',sans-serif;
+ font-size:1.04rem;
+}
+.resend-link:disabled {opacity:.4;cursor:not-allowed}
+.resend-countdown {color:#ffffff}
+
+/* Progress dots */
+.gate-progress {
+ display:flex;justify-content:center;gap:8px;
+ padding:20px 0 0;
+}
+.prog-dot {
+ width:8px;height:8px;border-radius:50%;
+ background:rgba(255,255,255,.2);
+ transition:background .3s,transform .3s;
+}
+.prog-dot.done {background:var(--gold);transform:scale(1.15)}
+.prog-dot.active {background:rgba(200,148,31,.5);transform:scale(1.1)}
+
+/* Success check animation */
+.success-icon {
+ width:64px;height:64px;
+ background:linear-gradient(135deg,var(--green),#145c2f);
+ border-radius:50%;
+ display:flex;align-items:center;justify-content:center;
+ margin:0 auto 20px;
+ animation:popIn .5s cubic-bezier(.16,1,.3,1) forwards;
+ box-shadow:0 8px 24px rgba(26,107,58,.4);
+}
+@keyframes popIn {
+ from{transform:scale(0);opacity:0}
+ to {transform:scale(1);opacity:1}
+}
+.success-icon svg {animation:checkDraw .4s .2s ease forwards;opacity:0}
+@keyframes checkDraw {
+ from{opacity:0;transform:scale(.5)}
+ to {opacity:1;transform:scale(1)}
+}
+
+/* Loading spinner */
+.spinner {
+ display:inline-block;width:18px;height:18px;
+ border:2px solid rgba(11,31,58,.3);
+ border-top-color:var(--navy);
+ border-radius:50%;
+ animation:spin .7s linear infinite;
+ vertical-align:middle;margin-right:8px;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ────────────────────────────────────────────────
+ CALCULATOR WRAPPER — hidden until auth
+──────────────────────────────────────────────── */
+#calcWrapper {
+ display:none;
+ min-height:100vh;
+ background:#ffffff;
+ position:relative;
+}
+#calcWrapper.revealed {
+ display:block;
+ animation:calcReveal .8s cubic-bezier(.16,1,.3,1) forwards;
+}
+@keyframes calcReveal {
+ from{opacity:0;transform:translateY(16px)}
+ to {opacity:1;transform:translateY(0)}
+}
+
+/* Calc app bar */
+.calc-appbar {
+ background:var(--navy);
+ padding:0 36px;
+ display:flex;align-items:center;justify-content:space-between;
+ height:64px;
+ border-bottom:1px solid rgba(200,148,31,.2);
+ position:sticky;top:0;z-index:50;
+}
+.calc-appbar-logo {
+ background:white;border-radius:4px;
+ padding:5px 12px;display:flex;align-items:center;
+}
+.calc-appbar-logo img {height:32px;width:auto}
+.calc-appbar-user {
+ display:flex;align-items:center;gap:12px;
+ font-size:1.091rem;color:rgba(255,255,255,.7);
+}
+.calc-appbar-user strong {color:var(--gold-lt);font-weight:600}
+.calc-appbar-phone {
+ color:var(--gold-lt);font-weight:600;font-size:1.131rem;
+ text-decoration:none;letter-spacing:.03em;
+}
+.calc-logout {
+ padding:6px 14px;border:1px solid rgba(255,255,255,.2);
+ border-radius:4px;color:rgba(255,255,255,.95);
+ background:none;font-family:'Outfit',sans-serif;font-size:1.00rem;
+ cursor:pointer;letter-spacing:.05em;text-transform:uppercase;
+ transition:all .2s;
+}
+.calc-logout:hover {border-color:var(--gold);color:var(--gold-lt)}
+
+/* Calc content area */
+.calc-content {
+ max-width:1320px;margin:0 auto;
+ padding:0 36px 60px;
+}
+.calc-content-header {
+ margin-bottom:10px;padding-bottom:10px;
+ border-bottom:1px solid var(--line);
+ display:flex;align-items:center;justify-content:space-between;
+ flex-wrap:wrap;gap:12px;
+}
+.calc-content-header h2 {
+ font-family:'Cormorant Garamond',serif;
+ font-size:1.3rem;font-weight:400;color:var(--navy);
+}
+.calc-content-header h2 em {font-style:italic;color:var(--blue)}
+.calc-content-header p {
+ font-size:1.09rem;color:#334155;margin-top:4px;
+}
+.calc-contact-strip {
+ display:flex;align-items:center;gap:16px;flex-wrap:wrap;
+}
+.calc-contact-pill {
+ display:flex;align-items:center;gap:8px;
+ padding:8px 16px;background:var(--navy);border-radius:20px;
+ text-decoration:none;
+}
+.calc-contact-pill span {font-size:1.04rem;color:rgba(255,255,255,.95);font-weight:300}
+.calc-contact-pill strong {font-size:1.17rem;color:var(--gold-lt);font-weight:600}
+
+/* ─── EMBED CALC CSS ─────────────────────────── */
+
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+
+
+
+/* MASTHEAD */
+.masthead{background:var(--navy);position:relative;overflow:hidden;z-index:1}
+.masthead::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,#c8a84b,#e8c85a,#c8a84b,transparent)}
+.masthead-inner{max-width:1320px;margin:0 auto;padding:24px 36px 20px;display:flex;align-items:flex-end;justify-content:space-between;gap:20px}
+.brand h1{font-family:'DM Serif Display',serif;font-size:1.9rem;font-weight:400;color:var(--white);letter-spacing:-.01em;line-height:1.1}
+.brand h1 em{color:#e8c85a;font-style:italic}
+.brand p{font-size:1.00rem;color:#ffffff;letter-spacing:.12em;text-transform:uppercase;margin-top:4px;font-weight:300}
+.masthead-meta{text-align:right}
+.today-date{font-size:1.04rem;color:#ffffff;font-weight:300;letter-spacing:.04em}
+.confidential{display:inline-block;margin-top:5px;padding:3px 10px;border:1px solid rgba(200,168,75,.4);border-radius:2px;font-size:0.891rem;color:#c8a84b;letter-spacing:.15em;text-transform:uppercase}
+
+/* LAYOUT */
+.page-wrapper{max-width:1320px;margin:0 auto;padding:28px 36px 60px;position:relative;z-index:1}
+.main-grid{display:grid;grid-template-columns:1fr 390px;gap:24px;align-items:start}
+
+/* FORM PANEL */
+.form-panel{background:var(--white);border-radius:6px;box-shadow:var(--shadow-md);overflow:hidden}
+.form-panel-header{background:var(--navy-mid);padding:8px 26px;display:flex;align-items:center;gap:12px}
+.form-panel-header h2{font-family:'DM Serif Display',serif;font-size:1.1rem;font-weight:400;color:var(--white)}
+.step-badge{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:#c8a84b;color:var(--navy);font-size:0.984rem;font-weight:700;border-radius:50%;flex-shrink:0}
+
+/* SECTIONS */
+.form-section{border-bottom:1px solid var(--line)}
+.form-section:last-child{border-bottom:none}
+.section-label{padding:13px 26px 0;font-size:0.918rem;letter-spacing:.14em;text-transform:uppercase;color:var(--navy-light);font-weight:600}
+.section-divider{height:1px;background:var(--line);margin:8px 26px 0}
+
+/* QUESTION ROWS — 3-col: question | input | info-btn */
+.q-row{display:grid;grid-template-columns:1fr 210px 34px;gap:0;align-items:center;padding:14px 26px;border-bottom:1px solid rgba(216,212,204,.4);transition:background .15s}
+.q-row:last-child{border-bottom:none}
+.q-row:hover{background:rgba(200,223,245,.05)}
+.q-left{padding-right:20px}
+.q-number{font-size:0.891rem;letter-spacing:.1em;color:var(--navy-light);font-weight:600;text-transform:uppercase;margin-bottom:2px}
+.q-text{font-size:.91rem;font-weight:500;color:var(--ink);line-height:1.35}
+.q-sub{font-size:1.011rem;color:var(--muted);font-weight:300;margin-top:2px;line-height:1.4}
+.q-input-area{display:flex;flex-direction:column;gap:5px}
+
+/* INPUTS */
+input[type="text"]:not(.gate-input),input[type="number"]:not(.gate-input),input[type="email"]:not(.gate-input),select{width:100%;padding:8px 11px;border:1.5px solid var(--line);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:1.17rem;font-weight:500;color:var(--navy);background:var(--cream);transition:border-color .15s,box-shadow .15s,background .15s;outline:none;-webkit-appearance:none}
+input:focus:not(.gate-input),select:focus{border-color:var(--navy-light);background:var(--white);box-shadow:0 0 0 3px rgba(46,83,150,.1)}
+input::placeholder{color:#b0b8c8;font-weight:300}
+.input-wrap{position:relative}
+.input-wrap .prefix{position:absolute;left:10px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:1.131rem;pointer-events:none}
+.input-wrap input{padding-left:22px}
+.input-wrap .suffix{position:absolute;right:9px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:1.00rem;pointer-events:none}
+
+/* TOGGLE — Flat $ left, % right — uniform across all toggles */
+.toggle-group{display:flex;border:1.5px solid var(--line);border-radius:4px;overflow:hidden;background:var(--cream)}
+.toggle-btn{flex:1;padding:7px 4px;font-family:'DM Sans',sans-serif;font-size:1.064rem;font-weight:600;cursor:pointer;border:none;background:transparent;color:var(--muted);transition:background .15s,color .15s;letter-spacing:.02em;white-space:nowrap}
+.toggle-btn.active{background:var(--navy);color:var(--white)}
+.toggle-btn:hover:not(.active){background:var(--sky);color:var(--navy)}
+
+/* computed / read-only */
+.computed-val{padding:8px 11px;border-radius:4px;background:var(--green-lite);border:1.5px solid rgba(26,107,58,.2);font-size:1.17rem;font-weight:700;color:var(--green);text-align:right}
+.computed-val.purple-val{background:var(--purple-lite);border-color:rgba(91,33,182,.2);color:var(--purple)}
+
+/* auto-calc row */
+.auto-row{display:grid;grid-template-columns:1fr 210px 34px;padding:9px 26px;background:var(--green-lite);border-bottom:1px solid rgba(216,212,204,.4)}
+.auto-row .auto-label{font-size:1.04rem;color:var(--green);font-weight:500;display:flex;align-items:center;gap:5px;padding-right:20px}
+.auto-row .auto-label::before{content:'↳';opacity:.7}
+.auto-row.purple-auto{background:var(--purple-lite)}
+.auto-row.purple-auto .auto-label{color:var(--purple)}
+
+/* hint text */
+.q-hint{font-size:0.931rem;margin-top:1px;font-weight:300}
+
+/* INFO BUTTON + TOOLTIP */
+.info-btn{width:26px;height:26px;border-radius:50%;border:1.5px solid var(--line);background:var(--white);color:var(--muted);font-size:0.984rem;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s;flex-shrink:0;align-self:center;font-family:Georgia,serif;font-style:italic;position:relative}
+.info-btn:hover{background:var(--navy);color:var(--white);border-color:var(--navy);transform:scale(1.1)}
+.tooltip-wrap{position:relative;display:flex;align-items:center;justify-content:center}
+.tooltip-box{display:none;position:absolute;right:36px;top:50%;transform:translateY(-50%);width:280px;background:var(--navy);color:rgba(255,255,255,.9);padding:13px 15px;border-radius:6px;font-size:1.04rem;line-height:1.6;box-shadow:var(--shadow-lg);z-index:200;font-weight:300;pointer-events:none}
+.tooltip-box::after{content:'';position:absolute;right:-7px;top:50%;transform:translateY(-50%);border:7px solid transparent;border-right:none;border-left-color:var(--navy)}
+.tooltip-box strong{display:block;font-weight:600;color:#c8a84b;margin-bottom:5px;font-size:1.064rem}
+.info-btn:hover+.tooltip-box,.tooltip-wrap:hover .tooltip-box{display:block}
+
+/* ═══════════ RIGHT PANEL ═══════════ */
+.results-panel{position:sticky;top:22px;display:flex;flex-direction:column;gap:11px}
+
+.company-display{background:var(--navy);border-radius:6px;padding:14px 18px;box-shadow:var(--shadow-md)}
+.company-display .co-label{font-size:0.891rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.9);font-weight:300}
+.company-display .co-name{font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--white);margin-top:3px;font-style:italic;min-height:1.35em}
+
+/* Annual savings — 3 rows */
+.sav-card{background:var(--white);border-radius:6px;overflow:hidden;box-shadow:var(--shadow-sm)}
+.sav-card-header{background:var(--navy);padding:9px 15px;display:flex;justify-content:space-between;align-items:center}
+.sav-card-header span{font-size:0.918rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.7);font-weight:600}
+.sav-card-header span.note{font-size:0.865rem;color:rgba(255,255,255,.85);font-weight:300;letter-spacing:.02em;text-transform:none}
+.sav-row{display:flex;justify-content:space-between;align-items:center;padding:10px 15px;border-bottom:1px solid var(--line)}
+.sav-row:last-child{border-bottom:none}
+.sav-row .sr-label{font-size:1.04rem;color:var(--muted);font-weight:400;flex:1}
+.sav-row .sr-val{font-family:'DM Serif Display',serif;font-size:1.45rem;font-weight:400;text-align:right}
+.sav-row.highlight-50 .sr-val{color:var(--navy-light)}
+.sav-row.highlight-75 .sr-val{color:var(--gold)}
+.sav-row.highlight-flat .sr-val{color:var(--green)}
+.sav-row.highlight-flat{background:var(--green-lite)}
+.sav-row .sr-badge{font-size:0.891rem;padding:2px 7px;border-radius:10px;font-weight:600;margin-left:8px;white-space:nowrap}
+.badge-50{background:var(--sky-lite);color:var(--navy-light)}
+.badge-75{background:var(--gold-lite);color:var(--gold)}
+.badge-flat{background:var(--navy-light);color:white}
+
+/* Mini stats */
+.mini-stats{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.mini-stat{background:var(--white);border-radius:5px;padding:11px 13px;box-shadow:var(--shadow-sm)}
+.ms-label{font-size:0.865rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.ms-val{font-family:'DM Serif Display',serif;font-size:1.25rem;margin-top:3px;font-weight:400}
+.ms-sub{font-size:0.891rem;color:var(--muted);margin-top:1px}
+.blue .ms-val{color:var(--navy)}
+.green .ms-val{color:var(--green)}
+
+/* Premium compare */
+.prem-compare{background:var(--white);border-radius:6px;padding:13px 15px;box-shadow:var(--shadow-sm)}
+.prem-compare h4{font-size:0.904rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:9px}
+.prem-row{display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:1px solid var(--line)}
+.prem-row:last-child{border-bottom:none}
+.prem-label{font-size:1.064rem;color:var(--ink)}
+.prem-val{font-size:.92rem;font-weight:700}
+.prem-val.trad{color:var(--amber)}
+.prem-val.has{color:var(--green)}
+.prem-val.save{color:var(--navy-light)}
+.renewal-badge{display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border-radius:20px;font-size:.96rem;font-weight:600}
+.renewal-badge.urgent{background:var(--red-lite);color:var(--red)}
+.renewal-badge.okay{background:var(--green-lite);color:var(--green)}
+.renewal-badge .dot{width:6px;height:6px;border-radius:50%;background:currentColor}
+
+/* 5-year bars */
+.fiveyear-card{background:var(--white);border-radius:6px;padding:14px 15px;box-shadow:var(--shadow-sm)}
+.fiveyear-card h4{font-size:0.904rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:11px}
+.year-bars{display:flex;flex-direction:column;gap:5px}
+.year-bar-row{display:flex;align-items:center;gap:7px}
+.year-bar-label{font-size:0.904rem;color:var(--muted);width:30px;flex-shrink:0;font-weight:500}
+.year-bar-track{flex:1;height:16px;background:var(--sky-lite);border-radius:3px;overflow:hidden}
+.year-bar-fill{height:100%;background:linear-gradient(90deg,var(--navy-light),var(--navy));border-radius:3px;transition:width .5s ease;min-width:2px}
+.year-bar-val{font-size:0.904rem;color:var(--navy);font-weight:600;width:58px;text-align:right;flex-shrink:0}
+
+/* COST OF WAITING */
+.cow-block{background:var(--red);border-radius:6px;overflow:hidden;box-shadow:0 4px 20px rgba(185,28,28,.25)}
+.cow-header{padding:11px 15px 9px;display:flex;align-items:center;gap:9px;border-bottom:1px solid rgba(255,255,255,.15)}
+.cow-header .alarm{width:26px;height:26px;background:rgba(255,255,255,.15);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.131rem;font-weight:700;color:white}
+.cow-header h3{font-family:'DM Serif Display',serif;font-size:.95rem;font-weight:400;color:var(--white)}
+.cow-monthly{padding:9px 15px 8px;text-align:center;border-bottom:1px solid rgba(255,255,255,.15)}
+.cow-monthly .pm-label{font-size:0.891rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.65);font-weight:300}
+.cow-monthly .pm-val{font-family:'DM Serif Display',serif;font-size:1.8rem;color:var(--white);font-weight:400;line-height:1.2;margin-top:2px}
+.cow-monthly .pm-tag{font-size:0.931rem;color:rgba(255,255,255,.95);margin-top:2px;font-weight:300}
+.cow-metrics{padding:6px 15px 8px;display:flex;flex-direction:column;gap:0}
+.cow-metric-row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.1)}
+.cow-metric-row:last-child{border-bottom:none}
+.cml{font-size:.875rem;color:rgba(255,255,255,.7);font-weight:300}
+.cmv{font-family:'DM Serif Display',serif;font-size:.95rem;color:var(--white);font-weight:400}
+.cow-total-row{margin:0 -15px -12px;padding:13px 15px;background:var(--red-deep);display:flex;justify-content:space-between;align-items:center}
+.ct-label{font-size:.8rem;color:rgba(255,255,255,.75);font-weight:500;letter-spacing:.04em;text-transform:uppercase;line-height:1.3;max-width:140px}
+.ct-val{font-family:'DM Serif Display',serif;font-size:1.3rem;color:#fca5a5;font-weight:400;text-align:right}
+
+/* Scenario runner */
+.scenario-card{background:var(--white);border-radius:6px;padding:14px 15px;box-shadow:var(--shadow-sm)}
+.scenario-card h4{font-size:0.904rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:10px}
+.scenario-table{width:100%;border-collapse:collapse;font-size:1.04rem}
+.scenario-table th{text-align:left;padding:5px 7px;background:var(--navy);color:rgba(255,255,255,.8);font-weight:500;font-size:0.891rem;letter-spacing:.05em}
+.scenario-table td{padding:6px 7px;border-bottom:1px solid var(--line)}
+.scenario-table tr:last-child td{border-bottom:none}
+.scenario-table tr:hover td{background:var(--sky-lite)}
+.sc-val{font-weight:700;color:var(--navy);text-align:right}
+.sc-run{font-size:0.891rem;padding:2px 8px;background:var(--navy);color:white;border:none;border-radius:3px;cursor:pointer;font-family:'DM Sans',sans-serif;font-weight:600;letter-spacing:.04em}
+.sc-run:hover{background:var(--navy-light)}
+
+/* Print btn */
+/* Healthcare Gateway */
+.biomed-block{border-radius:6px;overflow:hidden;box-shadow:var(--shadow-sm);margin-top:0}
+.biomed-header{background:#0d5c3a;padding:10px 15px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.biomed-header h4{font-family:'DM Serif Display',serif;font-size:.92rem;font-weight:400;color:white;letter-spacing:.01em}
+.biomed-toggle-wrap{display:flex;align-items:center;gap:8px}
+.biomed-toggle-label{font-size:.96rem;color:rgba(255,255,255,.75);font-weight:300;white-space:nowrap}
+/* Checkbox toggle styled as switch */
+.biomed-switch{position:relative;display:inline-block;width:38px;height:22px;flex-shrink:0}
+.biomed-switch input{opacity:0;width:0;height:0}
+.biomed-slider{position:absolute;cursor:pointer;inset:0;background:rgba(255,255,255,.25);border-radius:22px;transition:.3s}
+.biomed-slider::before{content:'';position:absolute;height:16px;width:16px;left:3px;bottom:3px;background:white;border-radius:50%;transition:.3s}
+.biomed-switch input:checked+.biomed-slider{background:#c8a84b}
+.biomed-switch input:checked+.biomed-slider::before{transform:translateX(16px)}
+.biomed-body{max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s ease}
+.biomed-body.open{max-height:200px;padding:10px 15px 13px}
+.biomed-row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid rgba(13,92,58,.12)}
+.biomed-row:last-child{border-bottom:none}
+.biomed-row .bml{font-size:1.04rem;color:#0d5c3a;font-weight:400}
+.biomed-row .bmv{font-family:'DM Serif Display',serif;font-size:1.15rem;color:#0d5c3a;font-weight:400}
+.biomed-annual-row{display:flex;justify-content:space-between;align-items:center;padding:9px 15px;background:#0d5c3a}
+.biomed-annual-row .bal{font-size:0.931rem;color:rgba(255,255,255,.75);font-weight:500;letter-spacing:.04em;text-transform:uppercase;line-height:1.4}
+.biomed-annual-row .bav{font-family:'DM Serif Display',serif;font-size:1.55rem;color:#a7f3d0;font-weight:400}
+.print-btn{display:block;width:100%;padding:13px;background:var(--navy);color:var(--white);border:none;border-radius:5px;font-family:'DM Sans',sans-serif;font-size:1.131rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;transition:background .15s,transform .1s,box-shadow .15s;box-shadow:var(--shadow-md)}
+.print-btn:hover{background:var(--navy-mid);transform:translateY(-1px);box-shadow:var(--shadow-lg)}
+.print-btn:active{transform:translateY(0)}
+
+/* flash */
+@keyframes flashUp{0%{opacity:.4;transform:scale(.97)}100%{opacity:1;transform:scale(1)}}
+.updated{animation:flashUp .3s ease}
+
+/* PRINT */
+
+ .form-panel{box-shadow:none}
+ .results-panel{position:static}
+ .print-btn{display:none}
+ .info-btn,.tooltip-box{display:none!important}
+ .main-grid{grid-template-columns:1fr 360px}
+ 
+ .scenario-card{page-break-inside:avoid}
+}
+
+@media(max-width:920px){
+ .main-grid{grid-template-columns:1fr}
+ .results-panel{position:static}
+ .masthead-inner{flex-direction:column;align-items:flex-start}
+ .q-row{grid-template-columns:1fr 180px 32px}
+}
+
+
+/* Override main-grid for our context */
+.main-grid{
+ display:grid;
+ grid-template-columns:1fr 390px;
+ gap:0;align-items:start;
+ border:1px solid var(--line);
+ border-radius:6px;overflow:hidden;
+ box-shadow:var(--shadow-md);
+}
+.main-grid .form-panel{border-radius:0;box-shadow:none;border-right:1px solid var(--line)}
+.main-grid .results-panel{
+ padding:20px;background:var(--paper);
+ position:sticky;top:64px;
+}
+.main-grid .print-btn{
+ display:block!important;
+ background:var(--navy);
+}
+@media(max-width:900px){
+ .main-grid{grid-template-columns:1fr}
+ .main-grid .results-panel{position:static;max-height:none;border-top:2px solid var(--gold)}
+ .main-grid .form-panel{border-right:none;border-bottom:1px solid var(--line)}
+ .calc-appbar{padding:0 16px}
+ .calc-content{padding:20px 16px 40px}
+ .name-row{grid-template-columns:1fr}
+}
+
+/* Masthead from original calc — hide it, we have our own appbar */
+.masthead{display:none!important}
+
+/* Override: hide masthead inside modal (site has its own nav) */
+#calcModal .masthead{display:none!important}
+#calcModal .calc-appbar{position:sticky;top:0;z-index:50}
+
+/* ══ GATED CALCULATOR OVERLAY ══ */
+
+/* ════════════════════════════════════════════════
+   AUTH GATE + CALCULATOR
+   Premium financial services aesthetic.
+   Navy + gold. Gate dissolves to reveal the tool.
+════════════════════════════════════════════════ */
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+
+
+/* ────────────────────────────────────────────────
+   GATE OVERLAY — sits inside modal, scrolls naturally
+──────────────────────────────────────────────── */
+#gate {
+  position:relative;
+  min-height:100vh;
+  background:var(--navy);
+  display:none;flex-direction:column;
+  align-items:center;justify-content:center;
+  padding:40px 24px 60px;
+}
+#gate.dissolving {
+  opacity:0;
+  transform:scale(1.02);
+  pointer-events:none;
+  transition:opacity .6s ease, transform .6s ease;
+}
+#gate.gone { display:none; }
+
+/* Atmospheric background for gate */
+#gate::before {
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 70% 60% at 20% 30%, rgba(200,148,31,.06) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 70% at 80% 70%, rgba(37,99,168,.08) 0%, transparent 60%);
+  pointer-events:none;
+}
+/* Subtle grid lines */
+#gate::after {
+  content:'';position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+  background-size:48px 48px;
+  pointer-events:none;
+}
+
+.gate-card {
+  position:relative;z-index:1;
+  width:100%;max-width:440px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(200,148,31,.2);
+  border-radius:10px;
+  overflow:hidden;
+  box-shadow:0 24px 80px rgba(0,0,0,.4), 0 0 0 1px rgba(200,148,31,.08);
+  animation:gateReveal .8s cubic-bezier(.16,1,.3,1) forwards;
+}
+@keyframes gateReveal {
+  from{ opacity:0; transform:translateY(32px) scale(.97); }
+  to  { opacity:1; transform:translateY(0)   scale(1);    }
+}
+
+/* Card header */
+.gate-header {
+  background:linear-gradient(135deg,var(--navy2),var(--navy3));
+  padding:28px 32px 24px;
+  text-align:center;
+  border-bottom:1px solid rgba(200,148,31,.15);
+}
+.gate-logo {
+  display:inline-block;
+  background:white;border-radius:5px;
+  padding:7px 14px;margin-bottom:18px;
+}
+.gate-logo img {height:38px;width:auto;display:block}
+.gate-title {
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.75rem;font-weight:300;color:var(--white);
+  line-height:1.2;letter-spacing:-.01em;
+}
+.gate-title em {font-style:italic;color:var(--gold-lt)}
+.gate-sub {
+  font-size:1.091rem;color:rgba(255,255,255,.95);
+  font-weight:300;margin-top:8px;line-height:1.5;
+}
+
+/* Card body */
+.gate-body {
+  padding:28px 32px 24px;
+}
+
+/* Steps */
+.gate-step {display:none}
+.gate-step.active {display:block}
+
+/* Step animations */
+.gate-step.entering {
+  animation:stepIn .35s ease forwards;
+}
+.gate-step.exiting {
+  animation:stepOut .25s ease forwards;
+}
+@keyframes stepIn  { from{opacity:0;transform:translateX(20px)} to{opacity:1;transform:translateX(0)} }
+@keyframes stepOut { from{opacity:1;transform:translateX(0)} to{opacity:0;transform:translateX(-20px)} }
+
+/* Form elements */
+.gate-label {
+  display:block;font-size:.93rem;letter-spacing:.12em;
+  text-transform:uppercase;font-weight:600;
+  color:#ffffff;margin-bottom:7px;
+}
+#gate .gate-input,
+#gate .gate-input[type="text"],
+#gate .gate-input[type="email"],
+#gate .gate-input[type="tel"],
+#gate .gate-input[type="number"] {
+  width:100%;padding:12px 14px;
+  background:rgba(255,255,255,.10) !important;
+  border:1.5px solid rgba(255,255,255,.25) !important;
+  border-radius:5px;
+  color:#ffffff !important;
+  font-family:'Outfit',sans-serif;font-size:1.1rem;font-weight:400;
+  outline:none;transition:border-color .2s,background .2s;
+  margin-bottom:14px;
+  -webkit-text-fill-color:#ffffff !important;
+}
+#gate .gate-input:focus,
+#gate .gate-input[type="text"]:focus,
+#gate .gate-input[type="email"]:focus,
+#gate .gate-input[type="tel"]:focus {
+  border-color:var(--gold) !important;
+  background:rgba(255,255,255,.15) !important;
+}
+#gate .gate-input::placeholder { color:rgba(255,255,255,.5) !important; }
+#gate .gate-input:-webkit-autofill,
+#gate .gate-input:-webkit-autofill:focus {
+  -webkit-text-fill-color:#ffffff !important;
+  -webkit-box-shadow:0 0 0px 1000px rgba(11,31,58,.9) inset !important;
+}
+.gate-input.error { border-color:var(--red) !important; animation:shake .3s ease; }
+@keyframes shake {
+  0%,100%{transform:translateX(0)}
+  25%{transform:translateX(-6px)}
+  75%{transform:translateX(6px)}
+}
+
+/* Name row */
+.name-row {display:grid;grid-template-columns:1fr 1fr;gap:12px}
+
+/* Delivery toggle */
+.delivery-toggle {
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:8px;margin-bottom:16px;
+}
+.delivery-btn {
+  padding:10px;text-align:center;
+  border:1.5px solid rgba(255,255,255,.15);
+  border-radius:5px;cursor:pointer;
+  font-family:'Outfit',sans-serif;font-size:1.09rem;font-weight:500;
+  color:#ffffff;
+  background:rgba(255,255,255,.04);
+  transition:all .2s;
+}
+.delivery-btn:hover {border-color:rgba(200,148,31,.4);color:rgba(255,255,255,.85)}
+.delivery-btn.selected {
+  border-color:var(--gold);background:rgba(200,148,31,.12);
+  color:var(--gold-lt);font-weight:600;
+}
+.delivery-btn svg {display:block;margin:0 auto 5px;opacity:.7}
+.delivery-btn.selected svg {opacity:1}
+
+/* Primary button */
+.gate-btn {
+  width:100%;padding:13px;
+  background:linear-gradient(135deg,var(--gold),var(--gold-lt));
+  color:var(--navy);border:none;border-radius:5px;
+  font-family:'Outfit',sans-serif;font-weight:700;font-size:1.1rem;
+  letter-spacing:.05em;text-transform:uppercase;cursor:pointer;
+  transition:opacity .2s,transform .1s,box-shadow .2s;
+  margin-top:6px;
+  box-shadow:0 4px 16px rgba(200,148,31,.3);
+}
+.gate-btn:hover {opacity:.92;transform:translateY(-1px);box-shadow:0 8px 24px rgba(200,148,31,.35)}
+.gate-btn:active {transform:translateY(0)}
+.gate-btn:disabled {opacity:.5;cursor:not-allowed;transform:none}
+
+/* Code input — large centered */
+.code-wrap {
+  display:flex;gap:10px;justify-content:center;
+  margin:20px 0;
+}
+.code-char {
+  width:46px;height:58px;
+  background:rgba(255,255,255,.07);
+  border:2px solid rgba(255,255,255,.15);
+  border-radius:6px;
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.8rem;font-weight:400;color:var(--white);
+  text-align:center;outline:none;
+  transition:border-color .15s,background .15s;
+  caret-color:var(--gold);
+  text-transform:uppercase;
+}
+.code-char:focus {
+  border-color:var(--gold);background:rgba(255,255,255,.11);
+}
+.code-char.filled {border-color:rgba(200,148,31,.5);}
+.code-char.error {border-color:var(--red)!important;animation:shake .3s ease}
+
+/* Hidden real input for mobile paste */
+#codeRealInput {
+  position:absolute;opacity:0;width:1px;height:1px;pointer-events:none;
+}
+
+/* Error / info messages */
+.gate-msg {
+  font-size:1.09rem;line-height:1.6;
+  padding:12px 16px;border-radius:4px;
+  margin-bottom:14px;display:none;
+}
+.gate-msg.error {
+  background:rgba(185,28,28,.15);
+  border:1px solid rgba(185,28,28,.3);
+  color:#fca5a5;display:block;
+}
+.gate-msg.info {
+  background:rgba(200,148,31,.1);
+  border:1px solid rgba(200,148,31,.2);
+  color:var(--gold-lt);display:block;
+}
+.gate-msg.success {
+  background:rgba(26,107,58,.15);
+  border:1px solid rgba(26,107,58,.3);
+  color:#6ee7b7;display:block;
+}
+
+/* Code sent display */
+.code-sent-to {
+  text-align:center;
+  font-size:1.09rem;color:#ffffff;
+  margin-bottom:6px;
+  font-weight:400;
+}
+.code-sent-to strong {color:var(--gold-lt);font-weight:600}
+
+/* Resend */
+.resend-row {
+  text-align:center;margin-top:14px;
+  font-size:1.04rem;color:#ffffff;
+}
+.resend-link {
+  color:var(--gold-lt);cursor:pointer;font-weight:700;
+  text-decoration:underline;text-underline-offset:2px;
+  background:none;border:none;font-family:'Outfit',sans-serif;
+  font-size:1.04rem;
+}
+.resend-link:disabled {opacity:.4;cursor:not-allowed}
+.resend-countdown {color:#ffffff}
+
+/* Progress dots */
+.gate-progress {
+  display:flex;justify-content:center;gap:8px;
+  padding:20px 0 0;
+}
+.prog-dot {
+  width:8px;height:8px;border-radius:50%;
+  background:rgba(255,255,255,.2);
+  transition:background .3s,transform .3s;
+}
+.prog-dot.done {background:var(--gold);transform:scale(1.15)}
+.prog-dot.active {background:rgba(200,148,31,.5);transform:scale(1.1)}
+
+/* Success check animation */
+.success-icon {
+  width:64px;height:64px;
+  background:linear-gradient(135deg,var(--green),#145c2f);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 20px;
+  animation:popIn .5s cubic-bezier(.16,1,.3,1) forwards;
+  box-shadow:0 8px 24px rgba(26,107,58,.4);
+}
+@keyframes popIn {
+  from{transform:scale(0);opacity:0}
+  to  {transform:scale(1);opacity:1}
+}
+.success-icon svg {animation:checkDraw .4s .2s ease forwards;opacity:0}
+@keyframes checkDraw {
+  from{opacity:0;transform:scale(.5)}
+  to  {opacity:1;transform:scale(1)}
+}
+
+/* Loading spinner */
+.spinner {
+  display:inline-block;width:18px;height:18px;
+  border:2px solid rgba(11,31,58,.3);
+  border-top-color:var(--navy);
+  border-radius:50%;
+  animation:spin .7s linear infinite;
+  vertical-align:middle;margin-right:8px;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ────────────────────────────────────────────────
+   CALCULATOR WRAPPER — hidden until auth
+──────────────────────────────────────────────── */
+#calcWrapper {
+  display:none;
+  min-height:100vh;
+  background:var(--paper);
+  position:relative;
+}
+#calcWrapper.revealed {
+  display:block;
+  animation:calcReveal .8s cubic-bezier(.16,1,.3,1) forwards;
+}
+@keyframes calcReveal {
+  from{opacity:0;transform:translateY(16px)}
+  to  {opacity:1;transform:translateY(0)}
+}
+
+/* Calc app bar */
+.calc-appbar {
+  background:var(--navy);
+  padding:0 36px;
+  display:flex;align-items:center;justify-content:space-between;
+  height:64px;
+  border-bottom:1px solid rgba(200,148,31,.2);
+  position:sticky;top:0;z-index:50;
+}
+.calc-appbar-logo {
+  background:white;border-radius:4px;
+  padding:5px 12px;display:flex;align-items:center;
+}
+.calc-appbar-logo img {height:32px;width:auto}
+.calc-appbar-user {
+  display:flex;align-items:center;gap:12px;
+  font-size:1.091rem;color:rgba(255,255,255,.7);
+}
+.calc-appbar-user strong {color:var(--gold-lt);font-weight:600}
+.calc-appbar-phone {
+  color:var(--gold-lt);font-weight:600;font-size:1.131rem;
+  text-decoration:none;letter-spacing:.03em;
+}
+.calc-logout {
+  padding:6px 14px;border:1px solid rgba(255,255,255,.2);
+  border-radius:4px;color:rgba(255,255,255,.95);
+  background:none;font-family:'Outfit',sans-serif;font-size:1.00rem;
+  cursor:pointer;letter-spacing:.05em;text-transform:uppercase;
+  transition:all .2s;
+}
+.calc-logout:hover {border-color:var(--gold);color:var(--gold-lt)}
+
+/* Calc content area */
+.calc-content {
+  max-width:1320px;margin:0 auto;
+  padding:0 36px 60px;
+}
+.calc-content-header {
+  margin-bottom:10px;padding-bottom:10px;
+  border-bottom:1px solid var(--line);
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:12px;
+}
+.calc-content-header h2 {
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.3rem;font-weight:400;color:var(--navy);
+}
+.calc-content-header h2 em {font-style:italic;color:var(--blue)}
+.calc-content-header p {
+  font-size:1.09rem;color:#334155;margin-top:4px;
+}
+.calc-contact-strip {
+  display:flex;align-items:center;gap:16px;flex-wrap:wrap;
+}
+.calc-contact-pill {
+  display:flex;align-items:center;gap:8px;
+  padding:8px 16px;background:var(--navy);border-radius:20px;
+  text-decoration:none;
+}
+.calc-contact-pill span {font-size:1.04rem;color:rgba(255,255,255,.95);font-weight:300}
+.calc-contact-pill strong {font-size:1.17rem;color:var(--gold-lt);font-weight:600}
+
+/* ─── EMBED CALC CSS ─────────────────────────── */
+
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+
+
+
+/* MASTHEAD */
+.masthead{background:var(--navy);position:relative;overflow:hidden;z-index:1}
+.masthead::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,#c8a84b,#e8c85a,#c8a84b,transparent)}
+.masthead-inner{max-width:1320px;margin:0 auto;padding:24px 36px 20px;display:flex;align-items:flex-end;justify-content:space-between;gap:20px}
+.brand h1{font-family:'DM Serif Display',serif;font-size:1.9rem;font-weight:400;color:var(--white);letter-spacing:-.01em;line-height:1.1}
+.brand h1 em{color:#e8c85a;font-style:italic}
+.brand p{font-size:1.00rem;color:#ffffff;letter-spacing:.12em;text-transform:uppercase;margin-top:4px;font-weight:300}
+.masthead-meta{text-align:right}
+.today-date{font-size:1.04rem;color:#ffffff;font-weight:300;letter-spacing:.04em}
+.confidential{display:inline-block;margin-top:5px;padding:3px 10px;border:1px solid rgba(200,168,75,.4);border-radius:2px;font-size:0.891rem;color:#c8a84b;letter-spacing:.15em;text-transform:uppercase}
+
+/* LAYOUT */
+.page-wrapper{max-width:1320px;margin:0 auto;padding:28px 36px 60px;position:relative;z-index:1}
+.main-grid{display:grid;grid-template-columns:1fr 390px;gap:24px;align-items:start}
+
+/* FORM PANEL */
+.form-panel{background:var(--white);border-radius:6px;box-shadow:var(--shadow-md);overflow:hidden}
+.form-panel-header{background:var(--navy-mid);padding:8px 26px;display:flex;align-items:center;gap:12px}
+.form-panel-header h2{font-family:'DM Serif Display',serif;font-size:1.1rem;font-weight:400;color:var(--white)}
+.step-badge{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:#c8a84b;color:var(--navy);font-size:0.984rem;font-weight:700;border-radius:50%;flex-shrink:0}
+
+/* SECTIONS */
+.form-section{border-bottom:1px solid var(--line)}
+.form-section:last-child{border-bottom:none}
+.section-label{padding:13px 26px 0;font-size:0.918rem;letter-spacing:.14em;text-transform:uppercase;color:var(--navy-light);font-weight:600}
+.section-divider{height:1px;background:var(--line);margin:8px 26px 0}
+
+/* QUESTION ROWS — 3-col: question | input | info-btn */
+.q-row{display:grid;grid-template-columns:1fr 210px 34px;gap:0;align-items:center;padding:14px 26px;border-bottom:1px solid rgba(216,212,204,.4);transition:background .15s}
+.q-row:last-child{border-bottom:none}
+.q-row:hover{background:rgba(200,223,245,.05)}
+.q-left{padding-right:20px}
+.q-number{font-size:0.891rem;letter-spacing:.1em;color:var(--navy-light);font-weight:600;text-transform:uppercase;margin-bottom:2px}
+.q-text{font-size:.91rem;font-weight:500;color:var(--ink);line-height:1.35}
+.q-sub{font-size:1.011rem;color:var(--muted);font-weight:300;margin-top:2px;line-height:1.4}
+.q-input-area{display:flex;flex-direction:column;gap:5px}
+
+/* INPUTS */
+input[type="text"]:not(.gate-input),input[type="number"]:not(.gate-input),input[type="email"]:not(.gate-input),select{width:100%;padding:8px 11px;border:1.5px solid var(--line);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:1.17rem;font-weight:500;color:var(--navy);background:var(--cream);transition:border-color .15s,box-shadow .15s,background .15s;outline:none;-webkit-appearance:none}
+input:focus:not(.gate-input),select:focus{border-color:var(--navy-light);background:var(--white);box-shadow:0 0 0 3px rgba(46,83,150,.1)}
+input::placeholder{color:#b0b8c8;font-weight:300}
+.input-wrap{position:relative}
+.input-wrap .prefix{position:absolute;left:10px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:1.131rem;pointer-events:none}
+.input-wrap input{padding-left:22px}
+.input-wrap .suffix{position:absolute;right:9px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:1.00rem;pointer-events:none}
+
+/* TOGGLE — Flat $ left, % right — uniform across all toggles */
+.toggle-group{display:flex;border:1.5px solid var(--line);border-radius:4px;overflow:hidden;background:var(--cream)}
+.toggle-btn{flex:1;padding:7px 4px;font-family:'DM Sans',sans-serif;font-size:1.064rem;font-weight:600;cursor:pointer;border:none;background:transparent;color:var(--muted);transition:background .15s,color .15s;letter-spacing:.02em;white-space:nowrap}
+.toggle-btn.active{background:var(--navy);color:var(--white)}
+.toggle-btn:hover:not(.active){background:var(--sky);color:var(--navy)}
+
+/* computed / read-only */
+.computed-val{padding:8px 11px;border-radius:4px;background:var(--green-lite);border:1.5px solid rgba(26,107,58,.2);font-size:1.17rem;font-weight:700;color:var(--green);text-align:right}
+.computed-val.purple-val{background:var(--purple-lite);border-color:rgba(91,33,182,.2);color:var(--purple)}
+
+/* auto-calc row */
+.auto-row{display:grid;grid-template-columns:1fr 210px 34px;padding:9px 26px;background:var(--green-lite);border-bottom:1px solid rgba(216,212,204,.4)}
+.auto-row .auto-label{font-size:1.04rem;color:var(--green);font-weight:500;display:flex;align-items:center;gap:5px;padding-right:20px}
+.auto-row .auto-label::before{content:'↳';opacity:.7}
+.auto-row.purple-auto{background:var(--purple-lite)}
+.auto-row.purple-auto .auto-label{color:var(--purple)}
+
+/* hint text */
+.q-hint{font-size:0.931rem;margin-top:1px;font-weight:300}
+
+/* INFO BUTTON + TOOLTIP */
+.info-btn{width:26px;height:26px;border-radius:50%;border:1.5px solid var(--line);background:var(--white);color:var(--muted);font-size:0.984rem;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s;flex-shrink:0;align-self:center;font-family:Georgia,serif;font-style:italic;position:relative}
+.info-btn:hover{background:var(--navy);color:var(--white);border-color:var(--navy);transform:scale(1.1)}
+.tooltip-wrap{position:relative;display:flex;align-items:center;justify-content:center}
+.tooltip-box{display:none;position:absolute;right:36px;top:50%;transform:translateY(-50%);width:280px;background:var(--navy);color:rgba(255,255,255,.9);padding:13px 15px;border-radius:6px;font-size:1.04rem;line-height:1.6;box-shadow:var(--shadow-lg);z-index:200;font-weight:300;pointer-events:none}
+.tooltip-box::after{content:'';position:absolute;right:-7px;top:50%;transform:translateY(-50%);border:7px solid transparent;border-right:none;border-left-color:var(--navy)}
+.tooltip-box strong{display:block;font-weight:600;color:#c8a84b;margin-bottom:5px;font-size:1.064rem}
+.info-btn:hover+.tooltip-box,.tooltip-wrap:hover .tooltip-box{display:block}
+
+/* ═══════════ RIGHT PANEL ═══════════ */
+.results-panel{position:sticky;top:22px;display:flex;flex-direction:column;gap:11px}
+
+.company-display{background:var(--navy);border-radius:6px;padding:14px 18px;box-shadow:var(--shadow-md)}
+.company-display .co-label{font-size:0.891rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.9);font-weight:300}
+.company-display .co-name{font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--white);margin-top:3px;font-style:italic;min-height:1.35em}
+
+/* Annual savings — 3 rows */
+.sav-card{background:var(--white);border-radius:6px;overflow:hidden;box-shadow:var(--shadow-sm)}
+.sav-card-header{background:var(--navy);padding:9px 15px;display:flex;justify-content:space-between;align-items:center}
+.sav-card-header span{font-size:0.918rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.7);font-weight:600}
+.sav-card-header span.note{font-size:0.865rem;color:rgba(255,255,255,.85);font-weight:300;letter-spacing:.02em;text-transform:none}
+.sav-row{display:flex;justify-content:space-between;align-items:center;padding:10px 15px;border-bottom:1px solid var(--line)}
+.sav-row:last-child{border-bottom:none}
+.sav-row .sr-label{font-size:1.04rem;color:var(--muted);font-weight:400;flex:1}
+.sav-row .sr-val{font-family:'DM Serif Display',serif;font-size:1.45rem;font-weight:400;text-align:right}
+.sav-row.highlight-50 .sr-val{color:var(--navy-light)}
+.sav-row.highlight-75 .sr-val{color:var(--gold)}
+.sav-row.highlight-flat .sr-val{color:var(--green)}
+.sav-row.highlight-flat{background:var(--green-lite)}
+.sav-row .sr-badge{font-size:0.891rem;padding:2px 7px;border-radius:10px;font-weight:600;margin-left:8px;white-space:nowrap}
+.badge-50{background:var(--sky-lite);color:var(--navy-light)}
+.badge-75{background:var(--gold-lite);color:var(--gold)}
+.badge-flat{background:var(--navy-light);color:white}
+
+/* Mini stats */
+.mini-stats{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.mini-stat{background:var(--white);border-radius:5px;padding:11px 13px;box-shadow:var(--shadow-sm)}
+.ms-label{font-size:0.865rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.ms-val{font-family:'DM Serif Display',serif;font-size:1.25rem;margin-top:3px;font-weight:400}
+.ms-sub{font-size:0.891rem;color:var(--muted);margin-top:1px}
+.blue .ms-val{color:var(--navy)}
+.green .ms-val{color:var(--green)}
+
+/* Premium compare */
+.prem-compare{background:var(--white);border-radius:6px;padding:13px 15px;box-shadow:var(--shadow-sm)}
+.prem-compare h4{font-size:0.904rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:9px}
+.prem-row{display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:1px solid var(--line)}
+.prem-row:last-child{border-bottom:none}
+.prem-label{font-size:1.064rem;color:var(--ink)}
+.prem-val{font-size:.92rem;font-weight:700}
+.prem-val.trad{color:var(--amber)}
+.prem-val.has{color:var(--green)}
+.prem-val.save{color:var(--navy-light)}
+.renewal-badge{display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border-radius:20px;font-size:.96rem;font-weight:600}
+.renewal-badge.urgent{background:var(--red-lite);color:var(--red)}
+.renewal-badge.okay{background:var(--green-lite);color:var(--green)}
+.renewal-badge .dot{width:6px;height:6px;border-radius:50%;background:currentColor}
+
+/* 5-year bars */
+.fiveyear-card{background:var(--white);border-radius:6px;padding:14px 15px;box-shadow:var(--shadow-sm)}
+.fiveyear-card h4{font-size:0.904rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:11px}
+.year-bars{display:flex;flex-direction:column;gap:5px}
+.year-bar-row{display:flex;align-items:center;gap:7px}
+.year-bar-label{font-size:0.904rem;color:var(--muted);width:30px;flex-shrink:0;font-weight:500}
+.year-bar-track{flex:1;height:16px;background:var(--sky-lite);border-radius:3px;overflow:hidden}
+.year-bar-fill{height:100%;background:linear-gradient(90deg,var(--navy-light),var(--navy));border-radius:3px;transition:width .5s ease;min-width:2px}
+.year-bar-val{font-size:0.904rem;color:var(--navy);font-weight:600;width:58px;text-align:right;flex-shrink:0}
+
+/* COST OF WAITING */
+.cow-block{background:var(--red);border-radius:6px;overflow:hidden;box-shadow:0 4px 20px rgba(185,28,28,.25)}
+.cow-header{padding:11px 15px 9px;display:flex;align-items:center;gap:9px;border-bottom:1px solid rgba(255,255,255,.15)}
+.cow-header .alarm{width:26px;height:26px;background:rgba(255,255,255,.15);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.131rem;font-weight:700;color:white}
+.cow-header h3{font-family:'DM Serif Display',serif;font-size:.95rem;font-weight:400;color:var(--white)}
+.cow-monthly{padding:9px 15px 8px;text-align:center;border-bottom:1px solid rgba(255,255,255,.15)}
+.cow-monthly .pm-label{font-size:0.891rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.65);font-weight:300}
+.cow-monthly .pm-val{font-family:'DM Serif Display',serif;font-size:1.8rem;color:var(--white);font-weight:400;line-height:1.2;margin-top:2px}
+.cow-monthly .pm-tag{font-size:0.931rem;color:rgba(255,255,255,.95);margin-top:2px;font-weight:300}
+.cow-metrics{padding:6px 15px 8px;display:flex;flex-direction:column;gap:0}
+.cow-metric-row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.1)}
+.cow-metric-row:last-child{border-bottom:none}
+.cml{font-size:.875rem;color:rgba(255,255,255,.7);font-weight:300}
+.cmv{font-family:'DM Serif Display',serif;font-size:.95rem;color:var(--white);font-weight:400}
+.cow-total-row{margin:0 -15px -12px;padding:13px 15px;background:var(--red-deep);display:flex;justify-content:space-between;align-items:center}
+.ct-label{font-size:.8rem;color:rgba(255,255,255,.75);font-weight:500;letter-spacing:.04em;text-transform:uppercase;line-height:1.3;max-width:140px}
+.ct-val{font-family:'DM Serif Display',serif;font-size:1.3rem;color:#fca5a5;font-weight:400;text-align:right}
+
+/* Scenario runner */
+.scenario-card{background:var(--white);border-radius:6px;padding:14px 15px;box-shadow:var(--shadow-sm)}
+.scenario-card h4{font-size:0.904rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:10px}
+.scenario-table{width:100%;border-collapse:collapse;font-size:1.04rem}
+.scenario-table th{text-align:left;padding:5px 7px;background:var(--navy);color:rgba(255,255,255,.8);font-weight:500;font-size:0.891rem;letter-spacing:.05em}
+.scenario-table td{padding:6px 7px;border-bottom:1px solid var(--line)}
+.scenario-table tr:last-child td{border-bottom:none}
+.scenario-table tr:hover td{background:var(--sky-lite)}
+.sc-val{font-weight:700;color:var(--navy);text-align:right}
+.sc-run{font-size:0.891rem;padding:2px 8px;background:var(--navy);color:white;border:none;border-radius:3px;cursor:pointer;font-family:'DM Sans',sans-serif;font-weight:600;letter-spacing:.04em}
+.sc-run:hover{background:var(--navy-light)}
+
+/* Print btn */
+/* Healthcare Gateway */
+.biomed-block{border-radius:6px;overflow:hidden;box-shadow:var(--shadow-sm);margin-top:0}
+.biomed-header{background:#0d5c3a;padding:10px 15px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.biomed-header h4{font-family:'DM Serif Display',serif;font-size:.92rem;font-weight:400;color:white;letter-spacing:.01em}
+.biomed-toggle-wrap{display:flex;align-items:center;gap:8px}
+.biomed-toggle-label{font-size:.96rem;color:rgba(255,255,255,.75);font-weight:300;white-space:nowrap}
+/* Checkbox toggle styled as switch */
+.biomed-switch{position:relative;display:inline-block;width:38px;height:22px;flex-shrink:0}
+.biomed-switch input{opacity:0;width:0;height:0}
+.biomed-slider{position:absolute;cursor:pointer;inset:0;background:rgba(255,255,255,.25);border-radius:22px;transition:.3s}
+.biomed-slider::before{content:'';position:absolute;height:16px;width:16px;left:3px;bottom:3px;background:white;border-radius:50%;transition:.3s}
+.biomed-switch input:checked+.biomed-slider{background:#c8a84b}
+.biomed-switch input:checked+.biomed-slider::before{transform:translateX(16px)}
+.biomed-body{max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s ease}
+.biomed-body.open{max-height:200px;padding:10px 15px 13px}
+.biomed-row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid rgba(13,92,58,.12)}
+.biomed-row:last-child{border-bottom:none}
+.biomed-row .bml{font-size:1.04rem;color:#0d5c3a;font-weight:400}
+.biomed-row .bmv{font-family:'DM Serif Display',serif;font-size:1.15rem;color:#0d5c3a;font-weight:400}
+.biomed-annual-row{display:flex;justify-content:space-between;align-items:center;padding:9px 15px;background:#0d5c3a}
+.biomed-annual-row .bal{font-size:0.931rem;color:rgba(255,255,255,.75);font-weight:500;letter-spacing:.04em;text-transform:uppercase;line-height:1.4}
+.biomed-annual-row .bav{font-family:'DM Serif Display',serif;font-size:1.55rem;color:#a7f3d0;font-weight:400}
+.print-btn{display:block;width:100%;padding:13px;background:var(--navy);color:var(--white);border:none;border-radius:5px;font-family:'DM Sans',sans-serif;font-size:1.131rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;transition:background .15s,transform .1s,box-shadow .15s;box-shadow:var(--shadow-md)}
+.print-btn:hover{background:var(--navy-mid);transform:translateY(-1px);box-shadow:var(--shadow-lg)}
+.print-btn:active{transform:translateY(0)}
+
+/* flash */
+@keyframes flashUp{0%{opacity:.4;transform:scale(.97)}100%{opacity:1;transform:scale(1)}}
+.updated{animation:flashUp .3s ease}
+
+/* PRINT */
+
+  .form-panel{box-shadow:none}
+  .results-panel{position:static}
+  .print-btn{display:none}
+  .info-btn,.tooltip-box{display:none!important}
+  .main-grid{grid-template-columns:1fr 360px}
+  
+  .scenario-card{page-break-inside:avoid}
+}
+
+@media(max-width:920px){
+  .main-grid{grid-template-columns:1fr}
+  .results-panel{position:static}
+  .masthead-inner{flex-direction:column;align-items:flex-start}
+  .q-row{grid-template-columns:1fr 180px 32px}
+}
+
+
+/* Override main-grid for our context */
+.main-grid{
+  display:grid;
+  grid-template-columns:1fr 390px;
+  gap:0;align-items:start;
+  border:1px solid var(--line);
+  border-radius:6px;overflow:hidden;
+  box-shadow:var(--shadow-md);
+}
+.main-grid .form-panel{border-radius:0;box-shadow:none;border-right:1px solid var(--line)}
+.main-grid .results-panel{
+  padding:20px;background:var(--paper);
+  position:sticky;top:64px;
+}
+.main-grid .print-btn{
+  display:block!important;
+  background:var(--navy);
+}
+@media(max-width:900px){
+  .main-grid{grid-template-columns:1fr}
+  .main-grid .results-panel{position:static;max-height:none;border-top:2px solid var(--gold)}
+  .main-grid .form-panel{border-right:none;border-bottom:1px solid var(--line)}
+  .calc-appbar{padding:0 16px}
+  .calc-content{padding:20px 16px 40px}
+  .name-row{grid-template-columns:1fr}
+}
+
+/* Masthead from original calc — hide it, we have our own appbar */
+.masthead{display:none!important}
+
+#calcModal .masthead{display:none!important}
+#calcModal .calc-appbar{position:sticky;top:0;z-index:50}
+
+
+@media print {
+  @page { margin: 0.5in; size: letter portrait; }
+
+  /* Show only the modal */
+  body > *:not(#calcModal) { display: none !important; }
+  body { background: white !important; margin: 0; }
+  #calcModal {
+    display: block !important;
+    position: static !important;
+    background: white !important;
+    overflow: visible !important;
+    z-index: auto !important;
+  }
+  #calcModalInner { opacity: 1 !important; transform: none !important; }
+
+  /* Hide interactive elements */
+  #gate, .calc-appbar, .form-panel, .calc-nav,
+  .print-btn, .info-btn, .tooltip-box,
+  .biomed-block, .scenario-card { display: none !important; }
+
+  /* Layout */
+  .calc-content { display: block !important; padding: 0 !important; }
+  .main-grid { display: block !important; }
+  .results-panel {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    position: static !important;
+    gap: 0 !important;
+  }
+
+  /* Show print header */
+  .print-report-header { display: block !important; }
+
+  /* ── PRINT REPORT HEADER ── */
+  .company-display {
+    display: block !important;
+    background: #0b1f3a !important;
+    color: white !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    margin-bottom: 0 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Override all card gaps for print */
+  .results-panel > * { margin-bottom: 14pt !important; }
+  .mini-stats { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 12pt !important; }
+  .mini-stat { box-shadow: none !important; border: 1px solid #dde3ec !important; }
+  .sav-card { box-shadow: none !important; border: 1px solid #dde3ec !important; page-break-inside: avoid; }
+  .fiveyear-card { box-shadow: none !important; border: 1px solid #dde3ec !important; page-break-inside: avoid; }
+  .cow-block { page-break-inside: avoid; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .sav-card-header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── HERO ─────────────────────────────────────── -->
+<section class="hero" id="top">
+ <div class="hero-grid">
+ <div>
+ <div class="hero-eyebrow">Employee Benefits Specialist</div>
+ <h1>Real savings. Richer benefits. <em>Multi-year results.</em></h1>
+ <p class="hero-sub">Most small and mid-sized employers are fighting double-digit cost increases every year &#8212; and losing. We show you exactly how to stop it, reduce costs, and deliver a measurable ROI across your entire benefits program.</p>
+ <div class="hero-actions">
+ <button type="button" class="btn-primary js-open-quick-estimate">Get My Free Savings Analysis</button>
+ </div>
+ </div>
+ 
+ </div>
+</section>
+
+<!-- ── TRUST BAR ─────────────────────────────────── -->
+<!-- trust bar removed -->
+
+
+<!-- ── PREMIUM SAVINGS TEASER ───────────────────────── -->
+<section id="teaser" style="background:var(--white);padding:72px 5vw 80px">
+  <div style="max-width:1280px;margin:0 auto">
+
+    <!-- Header -->
+    <div class="reveal" style="text-align:center;margin-bottom:52px">
+      <div class="section-label" style="justify-content:center;display:flex">What You Will See</div>
+      <div class="section-title">See your Healthcare <em>Premium Savings</em></div>
+      <p class="section-subtitle" style="text-align:center;margin:14px auto 0;max-width:600px">
+        Enter your employee count and current premium. In 60 seconds you&#8217;ll have three numbers
+        that most employers have never seen &#8212; and will not forget.
+      </p>
+    </div>
+
+    <!-- Three preview cards -->
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;margin-bottom:52px">
+
+      <!-- Card 1: Monthly Savings Now -->
+      <div class="reveal reveal-delay-1" style="background:var(--navy);border-radius:8px;overflow:hidden;box-shadow:var(--shadow-lg);display:flex;flex-direction:column">
+        <div style="padding:28px 26px 0">
+          <div style="font-size:0.931rem;letter-spacing:.16em;text-transform:uppercase;color:#ffffff;font-weight:600;margin-bottom:10px">Monthly Savings &#8212; Right Now</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:1.55rem;color:#ffffff;font-weight:300;line-height:1.3;margin-bottom:16px">What you could stop paying every single month</div>
+          <!-- Mock number display -->
+          <div style="background:rgba(200,148,31,.12);border:1px solid rgba(200,148,31,.3);border-radius:6px;padding:18px 20px;margin-bottom:16px">
+            <div style="font-size:0.904rem;letter-spacing:.12em;text-transform:uppercase;color:#ffffff;margin-bottom:6px">Typical employer savings</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:3rem;color:#e8b84b;font-weight:300;line-height:1">$5,250</div>
+            <div style="font-size:1.037rem;color:#ffffff;margin-top:4px">per month &nbsp;&#183;&nbsp; 30 employees &nbsp;&#183;&nbsp; 50% contribution</div>
+          </div>
+          <p style="font-size:1.17rem;color:#ffffff;line-height:1.7;margin-bottom:20px">
+            Traditional group plans average $700/month per employee. The Healthcare Cooperative averages $300. 
+            That gap &#8212; applied across your entire workforce &#8212; is your monthly savings starting day one.
+          </p>
+        </div>
+        <div style="margin-top:auto;padding:0 26px 26px">
+          <div style="border-top:1px solid rgba(255,255,255,.1);padding-top:16px;display:flex;align-items:center;gap:10px">
+            <div style="width:8px;height:8px;background:var(--gold);border-radius:50%;flex-shrink:0"></div>
+            <span style="font-size:1.064rem;color:#ffffff">Your actual number depends on your employee count and current premium</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: Cost of Waiting -->
+      <div class="reveal reveal-delay-2" style="background:var(--red);border-radius:8px;overflow:hidden;box-shadow:0 8px 32px rgba(185,28,28,.3);display:flex;flex-direction:column">
+        <div style="padding:28px 26px 0">
+          <div style="font-size:0.931rem;letter-spacing:.16em;text-transform:uppercase;color:#ffffff;font-weight:600;margin-bottom:10px">Cost of Waiting</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:1.55rem;color:#ffffff;font-weight:300;line-height:1.3;margin-bottom:16px">Every month you delay is money that does not come back</div>
+          <!-- Mock urgency display -->
+          <div style="background:rgba(0,0,0,.2);border:1px solid rgba(255,255,255,.15);border-radius:6px;padding:18px 20px;margin-bottom:16px">
+            <div style="font-size:0.904rem;letter-spacing:.12em;text-transform:uppercase;color:#ffffff;margin-bottom:10px">If your plan renews in 6 months</div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.1)">
+              <span style="font-size:1.091rem;color:#ffffff">Monthly savings forfeited</span>
+              <span style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:#ffffff">$5,250</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.1)">
+              <span style="font-size:1.091rem;color:#ffffff">Lost during 60-day window</span>
+              <span style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:#ffffff">$10,356</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0 0">
+              <span style="font-size:1.091rem;color:#ffffff;font-weight:600">Total forfeited waiting</span>
+              <span style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:#ffffff;font-weight:600">$36,225</span>
+            </div>
+          </div>
+          <p style="font-size:1.17rem;color:#ffffff;line-height:1.7;margin-bottom:20px">
+            Your renewal date is a hard deadline. Every month between now and that date without HCC
+            is savings permanently forfeited. The calculator shows your exact number.
+          </p>
+        </div>
+        <div style="margin-top:auto;padding:0 26px 26px">
+          <div style="border-top:1px solid rgba(255,255,255,.15);padding-top:16px;display:flex;align-items:center;gap:10px">
+            <div style="width:8px;height:8px;background:#fca5a5;border-radius:50%;animation:pulse 1.5s infinite;flex-shrink:0"></div>
+            <span style="font-size:1.064rem;color:#ffffff">Calculated live from your renewal month and employee count</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: 5-Year Impact -->
+      <div class="reveal reveal-delay-3" style="background:linear-gradient(160deg,var(--navy3),var(--navy));border-radius:8px;overflow:hidden;box-shadow:var(--shadow-lg);display:flex;flex-direction:column;position:relative">
+
+        <div style="padding:28px 26px 0">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+            <div style="font-size:0.931rem;letter-spacing:.16em;text-transform:uppercase;color:#ffffff;font-weight:600">5-Year Impact Report</div>
+            <div style="background:var(--gold);color:var(--navy);font-size:0.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border-radius:10px;flex-shrink:0">Most Important</div>
+          </div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:1.55rem;color:#ffffff;font-weight:300;line-height:1.3;margin-bottom:16px">The inflation gap compounds in your favor every single year</div>
+          <!-- Mini bar chart preview -->
+          <div style="background:rgba(255,255,255,.05);border:1px solid rgba(200,148,31,.2);border-radius:6px;padding:16px 18px;margin-bottom:16px">
+            <div style="font-size:0.904rem;letter-spacing:.1em;text-transform:uppercase;color:#ffffff;margin-bottom:12px">Cumulative Savings vs. Traditional Plan</div>
+            <div style="display:flex;flex-direction:column;gap:7px">
+              <div style="display:flex;align-items:center;gap:8px">
+                <span style="font-size:0.931rem;color:#ffffff;width:28px;flex-shrink:0">Yr 1</span>
+                <div style="flex:1;height:14px;background:rgba(255,255,255,.08);border-radius:2px;overflow:hidden">
+                  <div style="width:20%;height:100%;background:linear-gradient(90deg,#2e5396,#3b7fd4);border-radius:2px"></div>
+                </div>
+                <span style="font-size:0.931rem;color:#ffffff;width:52px;text-align:right">$63K</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:8px">
+                <span style="font-size:0.931rem;color:#ffffff;width:28px;flex-shrink:0">Yr 2</span>
+                <div style="flex:1;height:14px;background:rgba(255,255,255,.08);border-radius:2px;overflow:hidden">
+                  <div style="width:40%;height:100%;background:linear-gradient(90deg,#2e5396,#3b7fd4);border-radius:2px"></div>
+                </div>
+                <span style="font-size:0.931rem;color:#ffffff;width:52px;text-align:right">$133K</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:8px">
+                <span style="font-size:0.931rem;color:#ffffff;width:28px;flex-shrink:0">Yr 3</span>
+                <div style="flex:1;height:14px;background:rgba(255,255,255,.08);border-radius:2px;overflow:hidden">
+                  <div style="width:60%;height:100%;background:linear-gradient(90deg,#2e5396,#3b7fd4);border-radius:2px"></div>
+                </div>
+                <span style="font-size:0.931rem;color:#ffffff;width:52px;text-align:right">$212K</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:8px">
+                <span style="font-size:0.931rem;color:#ffffff;width:28px;flex-shrink:0">Yr 4</span>
+                <div style="flex:1;height:14px;background:rgba(255,255,255,.08);border-radius:2px;overflow:hidden">
+                  <div style="width:78%;height:100%;background:linear-gradient(90deg,#2e5396,#3b7fd4);border-radius:2px"></div>
+                </div>
+                <span style="font-size:0.931rem;color:#ffffff;width:52px;text-align:right">$298K</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:8px">
+                <span style="font-size:0.931rem;color:#ffffff;width:28px;flex-shrink:0">Yr 5</span>
+                <div style="flex:1;height:14px;background:rgba(255,255,255,.08);border-radius:2px;overflow:hidden">
+                  <div style="width:100%;height:100%;background:linear-gradient(90deg,#c8941f,#e8b84b);border-radius:2px"></div>
+                </div>
+                <span style="font-size:0.931rem;color:var(--gold-lt);width:52px;text-align:right;font-weight:600">$393K</span>
+              </div>
+            </div>
+            <div style="font-size:0.904rem;color:#ffffff;margin-top:10px;text-align:right">30 employees &nbsp;&#183;&nbsp; 8.5% trad. increase/yr &nbsp;&#183;&nbsp; &lt;3% HCC increase/yr</div>
+          </div>
+          <p style="font-size:1.17rem;color:#ffffff;line-height:1.7;margin-bottom:20px">
+            Traditional premiums compound at 8&#8211;10% every year. HCC has held under 3% since 2019.
+            Your personalized 5-year chart shows the exact dollar gap &#8212; and it widens every year.
+          </p>
+        </div>
+        <div style="margin-top:auto;padding:0 26px 26px">
+          <div style="border-top:1px solid rgba(255,255,255,.1);padding-top:16px;display:flex;align-items:center;gap:10px">
+            <div style="width:8px;height:8px;background:var(--gold);border-radius:50%;flex-shrink:0"></div>
+            <span style="font-size:1.064rem;color:#ffffff">Inflation-adjusted projection based on your actual inputs</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Central CTA -->
+    <div class="reveal" style="text-align:center">
+      <div style="background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:36px 40px;">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--navy);font-weight:300;margin-bottom:10px;line-height:1.3">
+          These numbers are estimates. <em>Yours will be different.</em>
+        </div>
+        <p style="font-size:1.264rem;color:#1a2535;line-height:1.7;margin-bottom:24px;max-width:680px;margin-left:auto;margin-right:auto">
+          Enter your employees, your current premium, and your contribution.
+          Your actual monthly savings, cost of waiting, and 5-year report generate instantly &#8212;
+          personalized to your exact situation.
+        </p>
+        <button type="button" class="btn-primary js-open-quick-estimate" style="font-size:1.33rem;padding:15px 36px;display:inline-flex;align-items:center;gap:10px">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          See My Healthcare Premium Savings
+        </button>
+        <div style="font-size:1.037rem;color:var(--muted);margin-top:12px">Free. No obligation. Results in 60 seconds.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+@keyframes pulse {
+  0%,100%{opacity:1;transform:scale(1)}
+  50%{opacity:.5;transform:scale(1.3)}
+}
+</style>
+
+<!-- ── THE TRUTH ─────────────────────────────────── -->
+<section class="truth-section" id="truth">
+  <div class="section-inner">
+    <div style="text-align:center;margin-bottom:44px" class="reveal">
+      <div class="section-label" style="justify-content:center">The Real Picture</div>
+      <div class="section-title" style="color:var(--white);text-align:center">The healthcare premium crisis is not an accident</div>
+      <p style="font-size:1rem;color:rgba(255,255,255,.85);max-width:640px;margin:12px auto 0;line-height:1.7;text-align:center">Traditional insurance was designed for carriers, not employers. The numbers prove it.</p>
+    <div style="max-width:680px;margin:20px auto 0;padding:18px 24px;background:rgba(255,255,255,.07);border-left:3px solid var(--gold);border-radius:0 4px 4px 0">
+      <div style="font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:10px">Why claims cost more with insurance</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px 24px">
+        <div style="color:rgba(255,255,255,.85);font-size:.9rem;line-height:1.6">&#9657; Providers charge insurers 2&ndash;5&times; more than cash-pay patients &mdash; because they can</div>
+        <div style="color:rgba(255,255,255,.85);font-size:.9rem;line-height:1.6">&#9657; A primary care visit billed to insurance: ~$350. Same visit, cash price: ~$125</div>
+        <div style="color:rgba(255,255,255,.85);font-size:.9rem;line-height:1.6">&#9657; An MRI billed to insurance: ~$2,500. Direct-pay rate: ~$400 &mdash; 84% lower</div>
+        <div style="color:rgba(255,255,255,.85);font-size:.9rem;line-height:1.6">&#9657; Comprehensive lab panel: $850 through insurance vs. $150 direct &mdash; 82% markup</div>
+      </div>
+      <div style="margin-top:10px;font-size:.8rem;color:rgba(255,255,255,.55);font-style:italic">Source: FairVisitHealth 2025 Cash-Price Report &nbsp;|&nbsp; MEPS National Utilization Data</div>
+    </div>
+    </div>
+    <div class="truth-grid reveal">
+      <div class="truth-col pain">
+        <div class="truth-col-label">&#9888; What Traditional Insurance Costs You</div>
+        <h3>A system designed to work against small employers</h3>
+        <div class="truth-item"><div class="icon">&#9679;</div>
+          <p><strong>Annual premium increases of 10%+</strong> compound every year. A $700/month premium today is $924/month in just 3 years with no claims increase.</p></div>
+        <div class="truth-item"><div class="icon">&#9679;</div>
+          <p><strong>Employees face up to $20,000 out-of-pocket</strong> when they actually need care — defeating the purpose of the benefit you are paying for.</p></div>
+        <div class="truth-item"><div class="icon">&#9679;</div>
+          <p><strong>Up to 35% claim denial rates</strong> and prior authorization delays mean employees cannot access care even when covered. That creates turnover.</p></div>
+        <div class="truth-item"><div class="icon">&#9679;</div>
+          <p><strong>Insurance inflates every price 2&#8211;5&#215; above cash.</strong> An MRI costs $400 cash. Your insurance carrier pays $2,500. Your premium reflects that delta.</p></div>
+        <div class="truth-item"><div class="icon">&#9679;</div>
+          <p><strong>One high-cost employee changes everyone&#8217;s renewal.</strong> A single serious illness in your group can spike rates 20&#8211;40% for the entire workforce.</p></div>
+        <div class="truth-item"><div class="icon">&#9679;</div>
+          <p><strong>Participation minimums and network restrictions</strong> make traditional plans nearly unworkable for high-turnover industries like franchises and trades.</p></div>
+      </div>
+      <div class="truth-col solution">
+        <div class="truth-col-label">&#10003; The Three-Pillar Alternative</div>
+        <h3>80% of employees elect our strategy and pay less, with more membership benefits</h3>
+        <div class="truth-item"><div class="icon">&#10003;</div>
+          <p><strong>Layer 1 &#8212; Preventive EAP:</strong> Covers every employee. Wellness doctor visits, preventive labs up to $4,500, mental health up to $3,000, dental cleanings, vision screening, telehealth, and generic Rx. Up to $9,000 in annual benefits per member.</p></div>
+        <div class="truth-item"><div class="icon">&#10003;</div>
+          <p><strong>Layer 2 &#8212; Healthcare Cooperative (HCC):</strong> A cooperative is a member-owned program where Americans contribute to a shared pool that pays for their healthcare &#8212; similar to how Medicare works. Just as working Americans pre-pay into Medicare for future benefits, HCC members contribute to a pool that covers claims today. Everyone funds it. Everyone owns it. No networks, no prior authorizations, no claim denials. Employees see any provider. Under 3% annual increase since 2019. 98.7% renewal rate.</p></div>
+        <div class="truth-item"><div class="icon">&#10003;</div>
+          <p><strong>Layer 3 &#8212; ICHRA for the 20%:</strong> Employees who prefer or require traditional ACA coverage get their own marketplace plan funded by a fixed employer contribution. Their claims cannot affect your group&#8217;s rates.</p></div>
+        <div class="truth-item"><div class="icon">&#10003;</div>
+          <p><strong>Recruiting and retention advantage:</strong> Employees see lower monthly member fees, lower out-of-pocket costs, no prior authorizations, and access to any provider. In a competitive labor market, this is a differentiator &#8212; not just a benefit line item.</p></div>
+      </div>
+    </div>
+
+    <!-- Cash vs. Insurance callout bar -->
+    <div class="reveal" style="margin-top:44px;background:rgba(255,255,255,.05);border:1px solid rgba(200,148,31,.2);border-radius:6px;padding:28px 32px">
+      <div style="text-align:center;margin-bottom:24px">
+        <div style="font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:6px">The Price Inflation Nobody Talks About</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:#ffffff;font-weight:300">Insurance companies pay 2&#8211;5&#215; more than cash prices &#8212; and your premiums reflect every dollar</div>
+      </div>
+      <!-- Row 1 of 2 — 3 procedures -->
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:16px;text-align:center">
+        <div style="background:rgba(255,255,255,.08);border-radius:6px;padding:20px 14px">
+          <div style="font-size:.95rem;color:#ffffff;font-weight:600;margin-bottom:10px">Primary Care Visit</div>
+          <div style="font-size:1rem;color:#f87171;font-weight:600;margin-bottom:4px">Insurance &nbsp; $350</div>
+          <div style="font-size:1rem;color:#6ee7b7;font-weight:600;margin-bottom:8px">Cash &nbsp; $125</div>
+          <div style="display:inline-block;background:rgba(200,148,31,.25);border-radius:3px;padding:4px 12px;font-size:1.05rem;color:var(--gold-lt);font-weight:700">You save 64%</div>
+        </div>
+        <div style="background:rgba(255,255,255,.08);border-radius:6px;padding:20px 14px">
+          <div style="font-size:.95rem;color:#ffffff;font-weight:600;margin-bottom:10px">Lab Panel</div>
+          <div style="font-size:1rem;color:#f87171;font-weight:600;margin-bottom:4px">Insurance &nbsp; $850</div>
+          <div style="font-size:1rem;color:#6ee7b7;font-weight:600;margin-bottom:8px">Cash &nbsp; $150</div>
+          <div style="display:inline-block;background:rgba(200,148,31,.25);border-radius:3px;padding:4px 12px;font-size:1.05rem;color:var(--gold-lt);font-weight:700">You save 82%</div>
+        </div>
+        <div style="background:rgba(255,255,255,.08);border-radius:6px;padding:20px 14px">
+          <div style="font-size:.95rem;color:#ffffff;font-weight:600;margin-bottom:10px">MRI</div>
+          <div style="font-size:1rem;color:#f87171;font-weight:600;margin-bottom:4px">Insurance &nbsp; $2,500</div>
+          <div style="font-size:1rem;color:#6ee7b7;font-weight:600;margin-bottom:8px">Cash &nbsp; $400</div>
+          <div style="display:inline-block;background:rgba(200,148,31,.25);border-radius:3px;padding:4px 12px;font-size:1.05rem;color:var(--gold-lt);font-weight:700">You save 84%</div>
+        </div>
+      </div>
+      <!-- Row 2 of 2 — 3 procedures -->
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;text-align:center">
+        <div style="background:rgba(255,255,255,.08);border-radius:6px;padding:20px 14px">
+          <div style="font-size:.95rem;color:#ffffff;font-weight:600;margin-bottom:10px">X-Ray</div>
+          <div style="font-size:1rem;color:#f87171;font-weight:600;margin-bottom:4px">Insurance &nbsp; $375</div>
+          <div style="font-size:1rem;color:#6ee7b7;font-weight:600;margin-bottom:8px">Cash &nbsp; $75</div>
+          <div style="display:inline-block;background:rgba(200,148,31,.25);border-radius:3px;padding:4px 12px;font-size:1.05rem;color:var(--gold-lt);font-weight:700">You save 80%</div>
+        </div>
+        <div style="background:rgba(255,255,255,.08);border-radius:6px;padding:20px 14px">
+          <div style="font-size:.95rem;color:#ffffff;font-weight:600;margin-bottom:10px">Dental Crown</div>
+          <div style="font-size:1rem;color:#f87171;font-weight:600;margin-bottom:4px">Insurance &nbsp; $1,800</div>
+          <div style="font-size:1rem;color:#6ee7b7;font-weight:600;margin-bottom:8px">Cash &nbsp; $750</div>
+          <div style="display:inline-block;background:rgba(200,148,31,.25);border-radius:3px;padding:4px 12px;font-size:1.05rem;color:var(--gold-lt);font-weight:700">You save 58%</div>
+        </div>
+        <div style="background:rgba(255,255,255,.08);border-radius:6px;padding:20px 14px">
+          <div style="font-size:.95rem;color:#ffffff;font-weight:600;margin-bottom:10px">Specialist Visit</div>
+          <div style="font-size:1rem;color:#f87171;font-weight:600;margin-bottom:4px">Insurance &nbsp; $400</div>
+          <div style="font-size:1rem;color:#6ee7b7;font-weight:600;margin-bottom:8px">Cash &nbsp; $225</div>
+          <div style="display:inline-block;background:rgba(200,148,31,.25);border-radius:3px;padding:4px 12px;font-size:1.05rem;color:var(--gold-lt);font-weight:700">You save 44%</div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:16px;font-size:.82rem;color:rgba(255,255,255,.7)">Source: FairVisitHealth 2025 Cash-Price Report &nbsp;&#183;&nbsp; MEPS 2023 National Utilization Data</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SOLUTIONS ─────────────────────────────────── -->
+
+
+<!-- ── HCC SAVINGS SPOTLIGHT ─────────────────────── -->
+<section class="savings-section" id="has">
+  <div class="section-inner">
+    <div class="savings-grid">
+      <div class="savings-numbers reveal">
+        
+        <div class="snum">
+          <div class="snum-val">98.7%</div>
+          <div class="snum-lbl">Annual renewal rate &#8212; members stay because it works</div>
+        </div>
+        <div class="snum">
+          <div class="snum-val">&lt;3%</div>
+          <div class="snum-lbl">Annual premium increase since 2019 vs. 10%+ traditional</div>
+        </div>
+        
+        <div class="snum wide">
+          <div class="snum-val">80%</div>
+          <div class="snum-lbl">of employees elect our three-pillar strategy &#8212; and pay <strong style="color:rgba(255,255,255,.9)">less in monthly member fees with lower out-of-pocket costs</strong> than their traditional plan</div>
+        </div>
+      </div>
+      <div class="savings-text reveal reveal-delay-2">
+        <div class="section-label" style="color:var(--gold)">HCC Savings</div>
+        <div class="section-title" style="color:var(--white)">A benefits strategy that <em style="color:#ffffff">recruits, retains,</em> and saves</div>
+        <p class="section-subtitle" style="color:rgba(255,255,255,.85)">Most employers think of health insurance as a cost center. Our three-pillar strategy turns it into a competitive advantage &#8212; attracting better employees while putting real money back on your P&amp;L.</p>
+        <div class="savings-bullets">
+          
+        </div>
+
+
+        <div style="margin-top:28px">
+          <button type="button" class="btn-primary js-open-quick-estimate">Calculate My Employer Savings</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ── ICHRA ──────────────────────────────────────── -->
+<section class="ichra-section">
+ <div class="section-inner">
+ <div class="reveal" style="margin-bottom:40px">
+ <div class="section-label">ICHRA — Employee Choice</div>
+ <div class="section-title">More choices, more protection &#8212; <em>not fewer benefits</em></div>
+ </div>
+ <div class="ichra-card reveal">
+ <div class="ichra-accent">
+ <h3>With an ICHRA Health Option, every employee gains access to the full ACA marketplace &#8212; hundreds of plans from multiple carriers. They choose the plan that covers their doctors, their medications, and their family. The employer contributes a fixed monthly amount to fund it.</h3>
+ </div>
+ <div class="ichra-body">
+
+ <!-- Four benefit boxes — moved to top -->
+ <div class="ichra-grid" style="margin-bottom:24px">
+ <div class="ichra-point">
+ <strong>Employee chooses their own plan</strong>
+ <span>Full ACA marketplace access &#8212; their doctors, their network, their medications. Real choice, not a one-size-fits-all group plan.</span>
+ </div>
+ <div class="ichra-point">
+ <strong>ACA protections fully apply</strong>
+ <span>No carrier can deny coverage or charge more based on health status or pre-existing conditions</span>
+ </div>
+ <div class="ichra-point">
+ <strong>Tax-free employer contribution</strong>
+ <span>100% employer tax-deductible. Employee receives the contribution tax-free &#8212; more valuable than an equivalent wage increase</span>
+ </div>
+ <div class="ichra-point">
+ <strong>Claims stay separate</strong>
+ <span>High-cost employees are on their own plan. Their hospitalizations and claims cannot affect the Co-op renewal for anyone else</span>
+ </div>
+ </div>
+
+ <!-- Headache-free administration & enrollment -->
+ <div style="background:var(--sky-lite);border-radius:5px;padding:22px 24px;margin-bottom:16px">
+   <div style="font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--navy-light);font-weight:700;margin-bottom:12px">Headache-Free Administration</div>
+   <p style="font-size:.95rem;color:var(--ink);line-height:1.75;margin-bottom:10px">Managing ICHRA does not require a benefits department. We handle the plan design, contribution structure, and IRS documentation. Employers set the monthly contribution amount &#8212; everything else runs in the background.</p>
+   <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px">
+     <div style="display:flex;gap:8px;align-items:flex-start">
+       <span style="color:var(--green);font-weight:700;flex-shrink:0;font-size:1rem">&#10003;</span>
+       <span style="font-size:.88rem;color:var(--ink)">No employer paperwork beyond setting the contribution</span>
+     </div>
+     <div style="display:flex;gap:8px;align-items:flex-start">
+       <span style="color:var(--green);font-weight:700;flex-shrink:0;font-size:1rem">&#10003;</span>
+       <span style="font-size:.88rem;color:var(--ink)">IRS-compliant plan documents provided and maintained</span>
+     </div>
+     <div style="display:flex;gap:8px;align-items:flex-start">
+       <span style="color:var(--green);font-weight:700;flex-shrink:0;font-size:1rem">&#10003;</span>
+       <span style="font-size:.88rem;color:var(--ink)">Reimbursement processing handled automatically</span>
+     </div>
+     <div style="display:flex;gap:8px;align-items:flex-start">
+       <span style="color:var(--green);font-weight:700;flex-shrink:0;font-size:1rem">&#10003;</span>
+       <span style="font-size:.88rem;color:var(--ink)">Predictable monthly employer cost &#8212; no surprise renewals</span>
+     </div>
+   </div>
+ </div>
+
+ <div style="background:var(--green-lite);border-radius:5px;padding:22px 24px">
+   <div style="font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:12px">Employee-Centered Enrollment Experience</div>
+   <p style="font-size:.95rem;color:var(--ink);line-height:1.75;margin-bottom:10px">Each ICHRA-eligible employee receives guided enrollment support &#8212; a real person walking them through the ACA marketplace to find the plan that fits their doctors, their family, and their budget. This is not self-service. Employees feel supported from day one.</p>
+   <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px">
+     <div style="display:flex;gap:8px;align-items:flex-start">
+       <span style="color:var(--green);font-weight:700;flex-shrink:0;font-size:1rem">&#10003;</span>
+       <span style="font-size:.88rem;color:var(--ink)">One-on-one plan selection assistance for every employee</span>
+     </div>
+     <div style="display:flex;gap:8px;align-items:flex-start">
+       <span style="color:var(--green);font-weight:700;flex-shrink:0;font-size:1rem">&#10003;</span>
+       <span style="font-size:.88rem;color:var(--ink)">Marketplace navigation support &#8212; no employee is left to figure it out alone</span>
+     </div>
+     <div style="display:flex;gap:8px;align-items:flex-start">
+       <span style="color:var(--green);font-weight:700;flex-shrink:0;font-size:1rem">&#10003;</span>
+       <span style="font-size:.88rem;color:var(--ink)">Plan comparison across carriers, networks, and cost tiers</span>
+     </div>
+     <div style="display:flex;gap:8px;align-items:flex-start">
+       <span style="color:var(--green);font-weight:700;flex-shrink:0;font-size:1rem">&#10003;</span>
+       <span style="font-size:.88rem;color:var(--ink)">Ongoing support through the benefit year for claims and questions</span>
+     </div>
+   </div>
+ </div>
+
+ </div>
+ </div>
+ </div>
+</section>
+
+
+
+
+<!-- ── ASSOCIATIONS & MULTI-UNIT FRANCHISORS ────────────── -->
+<section id="assoc" style="background:var(--white);padding:56px 5vw">
+ <div class="section-inner">
+ <div class="reveal">
+ <div class="section-label">Specialized Programs</div>
+ <div class="section-title">Built for <em>Associations</em> and Multi-Unit Franchise Operators</div>
+ <p class="section-subtitle">Individual employers have limited leverage. Associations and franchise networks do not. When member companies pool together, the math changes — dramatically.</p>
+ </div>
+
+ <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:48px">
+
+ <!-- Associations -->
+ <div class="reveal reveal-delay-1" style="background:var(--paper);border-radius:6px;padding:36px 32px;border-top:3px solid #5b21b6;box-shadow:var(--shadow)">
+ <div style="width:48px;height:48px;background:rgba(91,33,182,.1);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:20px;color:#5b21b6">&#9670;</div>
+ <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:400;color:var(--navy);margin-bottom:12px;line-height:1.3">Trade Associationss</h3>
+ <p style="font-size:.95rem;color:#1a2535;line-height:1.75;margin-bottom:16px">Member companies of trade associations — roofing contractors, pest control operators, hospitality groups, landscapers, and more — can access group benefit programs that deliver savings no individual employer could negotiate on their own.</p>
+ <p style="font-size:.95rem;color:#1a2535;line-height:1.75;margin-bottom:20px">With over 35 years of association plan experience, we bring specialized programs exclusively available to member companies — programs that non-members simply cannot access. Your association becomes the vehicle to deliver new benefit programs to your entire membership, giving companies as small as 3 employees the same Fortune 500-style purchasing power as the largest employers in the country.</p>
+ <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:10px">
+ <li style="display:flex;gap:10px;font-size:.9rem;color:#1a2535"><span style="color:#5b21b6;flex-shrink:0;margin-top:2px">&#10003;</span>Association health plan structures available</li>
+ <li style="display:flex;gap:10px;font-size:.9rem;color:#1a2535"><span style="color:#5b21b6;flex-shrink:0;margin-top:2px">&#10003;</span>Bulk enrollment simplifies administration for members</li>
+ <li style="display:flex;gap:10px;font-size:.9rem;color:#1a2535"><span style="color:#5b21b6;flex-shrink:0;margin-top:2px">&#10003;</span>Healthcare Gateway delivers $600 minimum per employee in annual tax savings to every member</li>
+ <li style="display:flex;gap:10px;font-size:.9rem;color:#1a2535"><span style="color:#5b21b6;flex-shrink:0;margin-top:2px">&#10003;</span> as a voluntary member benefit — no employer cost</li>
+ <li style="display:flex;gap:10px;font-size:.9rem;color:#1a2535"><span style="color:#5b21b6;flex-shrink:0;margin-top:2px">&#10003;</span>Positions your association as a financial value driver for members</li>
+ </ul>
+ </div>
+
+ <!-- Multi-Unit Franchisors -->
+ <div class="reveal reveal-delay-2" style="background:var(--paper);border-radius:6px;padding:36px 32px;border-top:3px solid var(--navy);box-shadow:var(--shadow)">
+ <div style="width:48px;height:48px;background:rgba(11,31,58,.1);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:20px;color:var(--navy)">&#9632;</div>
+ <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:400;color:var(--navy);margin-bottom:12px;line-height:1.3">Multi-Unit Franchise Operators</h3>
+ <p style="font-size:.95rem;color:#1a2535;line-height:1.75;margin-bottom:16px">Multi-unit franchise owners — operating 3, 5, 10 or more locations face a unique benefits challenge: high employee turnover, no carrier participation floors met, and renewal quotes that climb 10%–20% every year.</p>
+ <p style="font-size:.95rem;color:#1a2535;line-height:1.75;margin-bottom:20px">Healthcare Cooperative (HCC) was built for exactly this market. No participation minimums. Flexible employer contribution. One benefits platform across all your locations. And the savings compound as you scale — a 5-unit operator with 150 employees saves proportionally more than a single-unit with 30.</p>
+ <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:10px">
+ <li style="display:flex;gap:10px;font-size:.9rem;color:#1a2535"><span style="color:var(--navy);flex-shrink:0;margin-top:2px">&#10003;</span>Consistent benefits across all franchise locations</li>
+ <li style="display:flex;gap:10px;font-size:.9rem;color:#1a2535"><span style="color:var(--navy);flex-shrink:0;margin-top:2px">&#10003;</span>ICHRA for high-need employees — cost never spikes across units</li>
+ <li style="display:flex;gap:10px;font-size:.9rem;color:#1a2535"><span style="color:var(--navy);flex-shrink:0;margin-top:2px">&#10003;</span>Savings scale with employee count — 5 units saves 5x as much</li>
+ <li style="display:flex;gap:10px;font-size:.9rem;color:#1a2535"><span style="color:var(--navy);flex-shrink:0;margin-top:2px">&#10003;</span>Recruitment advantage in competitive hourly labor markets</li>
+        <li style="display:flex;gap:10px;font-size:.9rem;color:#1a2535"><span style="color:var(--navy);flex-shrink:0;margin-top:2px">&#10003;</span>Fortune 500-style purchasing power across all your locations</li>
+ </ul>
+ </div>
+ </div>
+
+ <!-- CTA strip -->
+ <div class="reveal" style="margin-top:40px;background:linear-gradient(135deg,var(--navy),var(--navy3));border-radius:6px;padding:32px 36px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap">
+ <div>
+ <div style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--white);font-weight:300">Representing an association or operating multiple franchise units?</div>
+ <div style="font-size:.9rem;color:rgba(255,255,255,.7);margin-top:6px">Let's talk about a custom program for your organization or network.</div>
+ </div>
+ <button type="button" style="padding:13px 28px;background:#c8a84b;color:var(--navy);border-radius:4px;font-weight:700;font-size:.88rem;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;white-space:nowrap;flex-shrink:0" class="js-open-quick-estimate">Get Your Free Analysis</button>
+ </div>
+
+ </div>
+</section>
+
+<!-- ── ABOUT ──────────────────────────────────────── -->
+
+
+<!-- ── CTA BAND ───────────────────────────────────── -->
+
+
+<!-- ── CONTACT ────────────────────────────────────── -->
+<section class="contact-section" id="contact">
+  <div style="max-width:1100px;margin:0 auto">
+
+    <div class="reveal" style="text-align:center;margin-bottom:36px">
+      <div class="section-label" style="color:var(--gold);justify-content:center;display:flex">Ready to Start Saving</div>
+      <div class="section-title" style="color:var(--white)">Let&#8217;s run your <em>numbers.</em></div>
+      <p style="font-size:1rem;color:rgba(255,255,255,.85);margin-top:10px;line-height:1.7;max-width:520px;margin-left:auto;margin-right:auto">No pitch. No pressure. A clear picture of what you&#8217;re spending and what you could save.</p>
+    </div>
+
+    <!-- Three info boxes -->
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin-bottom:40px" class="reveal">
+
+      <!-- Phone -->
+      <div style="background:rgba(255,255,255,.06);border:1px solid rgba(200,148,31,.25);border-radius:6px;padding:28px 24px;text-align:center">
+        <div style="width:44px;height:44px;background:rgba(200,148,31,.15);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-size:1.2rem;color:var(--gold-lt)">&#9742;</div>
+        <div style="font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.55);font-weight:600;margin-bottom:8px">Call or Text</div>
+        <a href="tel:18006061071" style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:#ffffff;font-weight:400;text-decoration:none;letter-spacing:.02em;display:block">800-606-1071</a>
+        <div style="font-size:.8rem;color:rgba(255,255,255,.5);margin-top:6px;font-weight:300">Available Monday&#8211;Friday</div>
+      </div>
+
+      <!-- Contact Page -->
+      <div style="background:rgba(255,255,255,.06);border:1px solid rgba(200,148,31,.25);border-radius:6px;padding:28px 24px;text-align:center;display:flex;flex-direction:column;justify-content:center;align-items:center">
+        <div style="width:44px;height:44px;background:rgba(200,148,31,.15);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-size:1.2rem;color:var(--gold-lt)">&#9993;</div>
+        <div style="font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.55);font-weight:600;margin-bottom:8px">Contact Us</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:1.12rem;color:#ffffff;font-weight:400;line-height:1.4;margin-bottom:16px">Send us your information through our contact form.</div>
+        <a href="https://www.bja-benefits.com/contact-us" target="_top"
+           style="display:inline-block;padding:11px 22px;background:var(--gold);color:var(--navy);border-radius:4px;font-weight:700;font-size:.86rem;letter-spacing:.06em;text-transform:uppercase;text-decoration:none">
+           Go to Contact Page
+        </a>
+      </div>
+
+      <!-- Get Analysis CTA -->
+      <div style="background:linear-gradient(135deg,rgba(200,148,31,.25),rgba(200,148,31,.1));border:1px solid rgba(200,148,31,.4);border-radius:6px;padding:28px 24px;text-align:center;display:flex;flex-direction:column;justify-content:center;align-items:center">
+        <div style="font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-lt);font-weight:600;margin-bottom:10px">Free Analysis</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:#ffffff;font-weight:300;line-height:1.4;margin-bottom:18px">See exactly how much your business can save</div>
+        <button type="button" style="padding:12px 24px;background:var(--gold);color:var(--navy);border-radius:4px;font-weight:700;font-size:.88rem;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;transition:background .2s;display:inline-block" class="js-open-quick-estimate">Run My Analysis &#8594;</button>
+      </div>
+
+    </div>
+
+    
+
+  </div>
+</section>
+
+<!-- ── FOOTER ─────────────────────────────────────── -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <img src="data:image/jpeg;base64,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" alt="Bill Judge &amp; Associates">
+    </div>
+    <div class="footer-copy">
+      &copy; 2025 Bill Judge &amp; Associates &nbsp;|&nbsp; LUTCF, CLTC &nbsp;|&nbsp; 800-606-1071
+    </div>
+    <div class="footer-links">
+      <a href="#teaser">Member Savings</a>
+    <a href="#has">HCC Savings</a>
+      <a href="#assoc">Associations &amp; MUF</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Sticky mobile CTA -->
+<div class="sticky-cta">
+ <a href="tel:18006061071">&#9742; Tap to Call: 800-606-1071</a>
+</div>
+
+<script>
+// ── SCROLL REVEAL ─────────────────────────────────
+const observer = new IntersectionObserver(entries => {
+ entries.forEach(e => {
+ if(e.isIntersecting) { e.target.classList.add('visible'); }
+ });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// ── NAV SHRINK ────────────────────────────────────
+window.addEventListener('scroll', () => {
+ const nav = document.getElementById('mainNav');
+ nav.style.height = window.scrollY > 60 ? '62px' : '76px';
+});
+
+// ── FORM SUBMIT ───────────────────────────────────
+function handleSubmit(e) {
+ e.preventDefault();
+ const btn = e.target;
+ btn.textContent = 'Request Sent — We Will Be In Touch!';
+ btn.style.background = 'var(--green)';
+ btn.style.color = 'white';
+ btn.disabled = true;
+}
+
+// ── SMOOTH SCROLL OFFSET for fixed nav ───────────
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+ a.addEventListener('click', e => {
+ // Skip pure # links (used by calc buttons with their own onclick)
+ if(a.getAttribute('href') === '#') return;
+ const target = document.querySelector(a.getAttribute('href'));
+ if(target) {
+ e.preventDefault();
+ window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
+ }
+ });
+});
+
+// ── QUICK ESTIMATE MODAL ───────────────────────────────
+function openCalcModal(trigger){
+  const modal = document.getElementById('calcModal');
+  const inner = document.getElementById('calcModalInner');
+  const shell = document.getElementById('quickCalcShell');
+  if(!modal || !inner || !shell) return;
+
+  // The Wix HTML component is taller than the browser viewport.
+  // For lower-page CTAs, position the calculator near the button that was clicked
+  // so the user does not see a large empty blue overlay.
+  const firstTrigger = document.querySelector('.js-open-quick-estimate');
+  let topPad = 34;
+
+  if(trigger && trigger !== firstTrigger){
+    const rect = trigger.getBoundingClientRect();
+    const triggerY = rect.top + (window.pageYOffset || document.documentElement.scrollTop || 0);
+    topPad = Math.max(24, triggerY - 120);
+  }
+
+  shell.style.paddingTop = topPad + 'px';
+  shell.style.paddingBottom = '48px';
+
+  modal.style.display='block';
+  modal.style.background='rgba(11,31,58,.97)';
+  modal.scrollTop = 0;
+  inner.style.opacity='0';
+  inner.style.transform='translateY(16px)';
+
+  requestAnimationFrame(()=>{
+    inner.style.opacity='1';
+    inner.style.transform='translateY(0)';
+  });
+
+  document.body.style.overflow='hidden';
+
+  const results = document.getElementById('quickResults');
+  if(results) results.style.display='none';
+
+  const err = document.getElementById('quickError');
+  if(err) err.textContent='';
+}
+function closeCalcModal(){
+  const modal = document.getElementById('calcModal');
+  const inner = document.getElementById('calcModalInner');
+  const shell = document.getElementById('quickCalcShell');
+  if(!modal || !inner) return;
+
+  inner.style.opacity='0';
+  inner.style.transform='translateY(16px)';
+  modal.style.background='rgba(11,31,58,0)';
+
+  setTimeout(()=>{
+    modal.style.display='none';
+    document.body.style.overflow='';
+    if(shell) shell.style.paddingTop='34px';
+  },250);
+}
+</script>
+<!-- ══ QUICK EMPLOYEE-ONLY ESTIMATE MODAL ═════════════════ -->
+<div id="calcModal" style="display:none;position:fixed;inset:0;z-index:600;background:rgba(11,31,58,0);overflow-y:auto;transition:background .25s ease">
+  <div id="calcModalInner" style="min-height:100%;opacity:0;transform:translateY(16px);transition:opacity .25s ease,transform .25s ease">
+    <style>
+      #quickCalcShell{
+        --qc-navy:#0b1f3a;--qc-navy2:#122847;--qc-gold:#c8941f;--qc-gold2:#e8b84b;
+        --qc-paper:#faf7f2;--qc-line:#ddd9d0;--qc-ink:#0e1a2b;--qc-muted:#5c6675;
+        --qc-green:#1a6b3a;
+        min-height:100%;padding:34px 18px 48px;
+        font-family:'Outfit',Arial,sans-serif;color:var(--qc-ink);
+      }
+      #quickCalcShell *{box-sizing:border-box}
+      #quickCalcShell .qc-wrap{max-width:860px;margin:0 auto}
+      #quickCalcShell .qc-topbar{display:flex;justify-content:flex-end;margin-bottom:14px}
+      #quickCalcShell .qc-close{
+        border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.08);
+        color:#fff;border-radius:5px;padding:9px 15px;font:600 14px 'Outfit',Arial,sans-serif;
+        cursor:pointer
+      }
+      #quickCalcShell .qc-card{
+        background:#fff;border-radius:10px;overflow:hidden;
+        box-shadow:0 22px 70px rgba(0,0,0,.32);border:1px solid rgba(200,148,31,.28)
+      }
+      #quickCalcShell .qc-head{
+        background:linear-gradient(135deg,var(--qc-navy),var(--qc-navy2));
+        padding:30px 34px 26px;text-align:center;border-bottom:3px solid var(--qc-gold)
+      }
+      #quickCalcShell .qc-kicker{
+        color:var(--qc-gold2);font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase
+      }
+      #quickCalcShell h2{
+        font-family:'Cormorant Garamond',Georgia,serif;font-size:38px;font-weight:400;
+        line-height:1.08;color:#fff;margin:7px 0 8px
+      }
+      #quickCalcShell .qc-intro{color:rgba(255,255,255,.9);font-size:17px;line-height:1.5;margin:0 auto;max-width:660px}
+      #quickCalcShell .qc-body{padding:28px 32px 30px}
+      #quickCalcShell .qc-fields{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+      #quickCalcShell label{display:block;font-size:15px;font-weight:700;color:var(--qc-navy);margin-bottom:7px}
+      #quickCalcShell input[type="number"]{
+        width:100%;padding:14px 14px;border:1.5px solid #aeb6c1;border-radius:6px;
+        background:#fff;color:var(--qc-navy);font:700 22px 'Outfit',Arial,sans-serif;outline:none;
+        -webkit-appearance:auto
+      }
+      #quickCalcShell input[type="number"]:focus{border-color:var(--qc-gold);box-shadow:0 0 0 3px rgba(200,148,31,.12)}
+      #quickCalcShell .qc-help{font-size:12px;line-height:1.45;color:var(--qc-muted);margin-top:6px}
+      #quickCalcShell .qc-btn{
+        width:100%;margin-top:20px;padding:15px 18px;border:0;border-radius:6px;
+        background:linear-gradient(135deg,var(--qc-gold),var(--qc-gold2));color:var(--qc-navy);
+        font:800 17px 'Outfit',Arial,sans-serif;letter-spacing:.05em;text-transform:uppercase;cursor:pointer
+      }
+      #quickCalcShell .qc-btn:hover{filter:brightness(1.03);transform:translateY(-1px)}
+      #quickCalcShell .qc-error{min-height:18px;color:#b91c1c;font-size:13px;margin-top:8px;text-align:center}
+      #quickCalcShell .qc-results{display:none;margin-top:22px;border-top:1px solid var(--qc-line);padding-top:22px}
+      #quickCalcShell .qc-result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+      #quickCalcShell .qc-metric{border:1px solid var(--qc-line);border-radius:7px;padding:17px;background:#fff}
+      #quickCalcShell .qc-metric.qc-save{background:#f2f8ef;border-color:#bed2b5}
+      #quickCalcShell .qc-label{font-size:12px;line-height:1.35;color:var(--qc-muted);font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+      #quickCalcShell .qc-value{font-family:'Cormorant Garamond',Georgia,serif;font-size:31px;line-height:1.05;color:var(--qc-navy);font-weight:600;margin-top:6px}
+      #quickCalcShell .qc-save .qc-value{color:var(--qc-green)}
+      #quickCalcShell .qc-breakdown{margin-top:14px;background:var(--qc-paper);border:1px solid var(--qc-line);border-radius:7px;padding:16px 18px}
+      #quickCalcShell .qc-break-title{font-weight:700;color:var(--qc-navy);margin-bottom:7px}
+      #quickCalcShell .qc-row{display:flex;justify-content:space-between;gap:18px;padding:6px 0;border-bottom:1px dotted #cfcac1;font-size:14px}
+      #quickCalcShell .qc-row:last-child{border-bottom:0}
+      #quickCalcShell .qc-note{margin-top:16px;border-left:4px solid var(--qc-gold);background:#f7f5f1;padding:13px 15px;font-size:12px;line-height:1.55;color:#4b5563}
+      #quickCalcShell .qc-next{margin-top:18px;text-align:center;padding-top:4px}
+      #quickCalcShell .qc-next strong{display:block;color:var(--qc-navy);font-size:18px;margin-bottom:5px}
+      #quickCalcShell .qc-next span{font-size:14px;color:#4b5563}
+      #quickCalcShell .qc-contact{
+        display:inline-block;margin-top:12px;padding:11px 22px;border-radius:5px;background:var(--qc-navy);
+        color:#fff;text-decoration:none;font-weight:700;font-size:14px;letter-spacing:.04em;text-transform:uppercase
+      }
+      @media(max-width:680px){
+        #quickCalcShell{padding:16px 10px 30px}
+        #quickCalcShell .qc-head{padding:24px 18px 21px}
+        #quickCalcShell h2{font-size:31px}
+        #quickCalcShell .qc-body{padding:22px 18px 24px}
+        #quickCalcShell .qc-fields,#quickCalcShell .qc-result-grid{grid-template-columns:1fr}
+        #quickCalcShell .qc-row{flex-direction:column;gap:2px}
+      }
+    </style>
+
+    <div id="quickCalcShell">
+      <div class="qc-wrap">
+        <div class="qc-topbar">
+          <button type="button" class="qc-close" onclick="closeCalcModal()">✕ Close</button>
+        </div>
+
+        <div class="qc-card">
+          <div class="qc-head">
+            <div class="qc-kicker">Health Access Solutions</div>
+            <h2>Quick Employee-Only Cost Estimate</h2>
+            <p class="qc-intro">See an illustrative comparison using just two numbers. This is designed to show the potential opportunity before a full census analysis.</p>
+          </div>
+
+          <div class="qc-body">
+            <div class="qc-fields">
+              <div>
+                <label for="quickEmployees">Number of employees</label>
+                <input id="quickEmployees" type="number" min="1" step="1" value="25">
+                <div class="qc-help">Enter the number of employees you want to model for employee-only coverage.</div>
+              </div>
+              <div>
+                <label for="quickPremium">Current employee-only monthly premium</label>
+                <input id="quickPremium" type="number" min="1" step="1" value="700">
+                <div class="qc-help">$700 is pre-filled as a benchmark. Replace it with your actual employee-only rate if known.</div>
+              </div>
+            </div>
+
+            <button id="quickCalcButton" type="button" class="qc-btn">See My Estimate</button>
+            <div id="quickError" class="qc-error" aria-live="polite"></div>
+
+            <div id="quickResults" class="qc-results" aria-live="polite">
+              <div class="qc-result-grid">
+                <div class="qc-metric">
+                  <div class="qc-label">Current monthly cost</div>
+                  <div id="quickCurrent" class="qc-value">$0</div>
+                </div>
+                <div class="qc-metric">
+                  <div class="qc-label">Illustrative HAS + ICHRA monthly cost</div>
+                  <div id="quickAlternative" class="qc-value">$0</div>
+                </div>
+                <div class="qc-metric qc-save">
+                  <div class="qc-label">Potential annual difference</div>
+                  <div id="quickAnnual" class="qc-value">$0</div>
+                </div>
+              </div>
+
+              <div class="qc-breakdown">
+                <div class="qc-break-title">How this preliminary estimate is modeled</div>
+                <div class="qc-row"><span>Health Access Co-op</span><strong>75%</strong></div>
+                <div class="qc-row"><span>ACA / ICHRA</span><strong>25%</strong></div>
+                <div class="qc-row"><span>Illustrative Co-op rate</span><strong>$349 / month</strong></div>
+                <div class="qc-row"><span>ACA / ICHRA placeholder</span><strong id="quickAcaRate">$700 / month</strong></div>
+                <div class="qc-row"><span>Potential monthly difference</span><strong id="quickMonthly">$0</strong></div>
+              </div>
+
+              <div class="qc-note">
+                <strong>About this estimate:</strong> This is a preliminary employee-only illustration, not a quote or proposal. It assumes 75% of employees select the Health Access Co-op and 25% select ACA coverage through an ICHRA. The Co-op portion uses a $349 monthly illustrative rate based on the current 18–49 Health Access bundle age bands. The ACA / ICHRA portion uses the employee-only premium entered above as a simple placeholder. Actual costs will vary based on census, ages, location, tobacco status, coverage elections, dependent participation, ACA plan selections, eligibility, underwriting and final program terms.
+              </div>
+
+              <div class="qc-next">
+                <strong>Want the actual numbers for your group?</strong>
+                <span>A complete analysis uses your employee census and renewal information.</span><br>
+                <a class="qc-contact" href="https://www.bja-benefits.com/contact-us" target="_top">Go to Contact Page</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  const COOP_RATE = 349;
+  const COOP_SHARE = .75;
+  const ACA_SHARE = .25;
+
+  function money(n){
+    return n.toLocaleString('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0});
+  }
+
+  function runQuickEstimate(){
+    const employees = Math.round(Number(document.getElementById('quickEmployees').value));
+    const premium = Number(document.getElementById('quickPremium').value);
+    const error = document.getElementById('quickError');
+    const results = document.getElementById('quickResults');
+    error.textContent='';
+
+    if(!Number.isFinite(employees) || employees < 1){
+      results.style.display='none';
+      error.textContent='Please enter at least 1 employee.';
+      return;
+    }
+    if(!Number.isFinite(premium) || premium <= 0){
+      results.style.display='none';
+      error.textContent='Please enter a valid employee-only monthly premium.';
+      return;
+    }
+
+    const currentMonthly = employees * premium;
+    const alternativeMonthly =
+      (employees * COOP_SHARE * COOP_RATE) +
+      (employees * ACA_SHARE * premium);
+    const monthlyDifference = currentMonthly - alternativeMonthly;
+    const annualDifference = monthlyDifference * 12;
+
+    document.getElementById('quickCurrent').textContent = money(currentMonthly);
+    document.getElementById('quickAlternative').textContent = money(alternativeMonthly);
+    document.getElementById('quickMonthly').textContent = money(monthlyDifference);
+    document.getElementById('quickAnnual').textContent = money(annualDifference);
+    document.getElementById('quickAcaRate').textContent = money(premium) + ' / month';
+    results.style.display='block';
+    results.scrollIntoView({behavior:'smooth',block:'nearest'});
+  }
+
+  document.getElementById('quickCalcButton').addEventListener('click',runQuickEstimate);
+  ['quickEmployees','quickPremium'].forEach(id=>{
+    document.getElementById(id).addEventListener('keydown',e=>{
+      if(e.key==='Enter') runQuickEstimate();
+    });
+  });
+
+  document.addEventListener('keydown',e=>{
+    const modal=document.getElementById('calcModal');
+    if(e.key==='Escape' && modal && modal.style.display==='block') closeCalcModal();
+  });
+
+  // Allows a direct calculator URL such as:
+  // BJA_Website_HAS.html?analysis=1
+  const params = new URLSearchParams(window.location.search);
+  if(params.get('analysis')==='1'){
+    setTimeout(()=>openCalcModal(null),150);
+  }
+})();
+</script>
+
+
+<script id="quick-estimate-cta-guard">
+document.addEventListener('click', function(e){
+  const trigger = e.target.closest('.js-open-quick-estimate');
+  if(!trigger) return;
+  e.preventDefault();
+  e.stopPropagation();
+  if(typeof openCalcModal === 'function'){
+    openCalcModal(trigger);
+  }
+}, true);
+</script>
+
+</body>
+</html>
